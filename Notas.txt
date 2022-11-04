@@ -1,0 +1,65 @@
+Productos : 
+    > Insertar  -- Valida valores iguales (Nombre del producto)
+                -- Convierte la primera en Mayuscula y las demas en minusculas (Nombre,Descripcion,Marca)
+                -Solucionar problemas graficos Mostrar cuando es correcto o incorrecto
+   
+    > Mostrar   -- Muestra elementos foraneos (Valor Unitario)
+    
+    > Eliminar  -Solucionar problema reiniciar el id luego de eliminar un registro
+                -Solucionar problema (No elimina elementos que se relacionen en otras tablas)
+    
+    > Modificar -- Deshabilita el id como Modificable
+                -- Convierte la primera en Mayuscula y las demas en minusculas (Nombre,Descripcion,Marca)
+    
+    > Ordenar   -Alfabetico (A-Z y Z-A)
+                -Valor (Menor a Mayor y Mayor a Menor)
+    
+    > Generar Informe
+
+Pedidos : 
+    Insertar    
+    Mostrar  
+    Eliminar 
+    Modificar
+    Actualizar Cantidad
+    Ordenar - Mas reciente 
+            - Valor (Menor a Mayor y Mayor a Menor)
+    Generar Informe
+
+Proveedores : 
+    Insertar
+    Mostrar  
+    Eliminar  
+    Modificar
+    Ordenar - Alfabetico (A-Z y Z-A)
+            - Valor (Menor a Mayor y Mayor a Menor)
+    Generar Informe
+
+Salidas : 
+    Insertar    -- Select que seleccione producto
+    Mostrar     -- Mostrar Valores Foraneos (Nombre)
+                -Solucionar Error si se borran todas quedan los nombres
+    Eliminar    -Solucionar problema reiniciar el id luego de eliminar un registro
+                -Solucionar problema al cancelar tambien elimina
+    Modificar   -Falta
+    Actualizar Cantidad
+    Ordenar - Mas reciente 
+            - Valor (Menor a Mayor y Mayor a Menor)
+    Generar Informe
+
+Inventario : 
+    Aviso de producto sin Stock - Interfaz
+                                - Correo Electronico
+
+Template :
+    Generar Informe
+    Mostrar
+
+Sesion : 
+    Registrar Usuario
+    Iniciar Sesion
+    Eliminar Usuario
+
+
+
+
