@@ -60,6 +60,10 @@
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-user-tie"></i></div>
                                 Proveedores
                             </a>
+                            <a class="nav-link" href="ciudad.php">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                                Ciudades
+                            </a>
                         </div>
 
                     </div>
@@ -93,7 +97,9 @@
                                             </div>
 
                                             <div class="col">
-                                            <div class="modal" id="myModal">
+                                            
+                                            <!-- Modal Insertar Salida-->
+                                            <div class="modal fade" id="myModal" data-bs-backdrop="static">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
 
@@ -105,46 +111,42 @@
 
                                                             <!-- Cuerpo Modal -->
                                                             <div class="modal-body">
-                                                            <form form id="formSalida" onsubmit="return insertarSalida()" method="POST"> 
+                                                            
+                                                                <!-- Formulario Insertar Salida -->
+                                                                <form form id="formSalida" onsubmit="return insertarSalida()" method="POST"> 
 
-                                                                <label>Producto : </label>
+                                                                    <label>Producto : </label>
                                                                     <select name="productoSalida" id="" required="">
+                                                                        
+                                                                        <option value="0"> Seleccione el producto </option> 
+                                                                        <?php 
+                                                                        
+                                                                            include("../../../Inventario_Ferreteria/models/connection.php");
+                                                                            $stmt = Connect::connectBd()-> prepare("SELECT * FROM producto");
+                                                                            $stmt->execute();
+                                                                            $datos = $stmt->fetchAll();
+                                                                            
+                                                                            foreach ($datos as $valores) {
+                                                                                echo  ('<option value="'.$valores['id'].'">'.$valores['nombre'].'</>') ;
+                                                                            }
+                                                                        ?>
+                                                                    </select>
+
+                                                                    <br> <br>
                                                                     
-                                                                    <option value="0"> Seleccione el producto </option> 
-                                                                    
-                                                                    <?php 
-                                                                    include("../../../Inventario_Ferreteria/models/connection.php");
-                                                                        // Trae el id y el nombre de los productos de la base de datos para mostralos como un option tomando como referencia el id del producto 
-                                                                        $stmt = Connect::connectBd()-> prepare("SELECT * FROM producto");
-                                                                        $stmt->execute();
-                                                                        $datos = $stmt->fetchAll();
-                                                                        foreach ($datos as $valores) {
-                                                                            echo  ('<option value="'.$valores['id'].'">'.$valores['nombre'].'</>') ;
-                                                                        }
-                                                                    ?>
-                                                                </select>
-                                                                    <br>
-                                                                    <br>
-                                                                
                                                                     <label>Cantidad : </label>
-                                                                    <input type="text" id="cantidad" name="cantidad" class="form-control form-control-sm" required="">
-                                                                
+                                                                    <input type="text" id="cantidad" name="cantidad" class="form-control form-control-sm" placeholder="Ej. 3" required="" onkeypress='return validaNumericos(event)'>
+                                                                    
                                                                     <label>Fecha Salida : </label>
                                                                     <input type="date" id="fechaSalida" name="fechaSalida" class="form-control form-control-sm" required="">
-                                                                    
+                                                                        
                                                                     <label>Valor Unitario : </label>
-                                                                    <input type="text" id="valorUnitario" name="valorUnitario" class="form-control form-control-sm"  required="">
-                                                                    
-                                                                
-                                                                
+                                                                    <input type="text" id="valorUnitario" name="valorUnitario" class="form-control form-control-sm" placeholder="Ej. 3000"  required="" onkeypress='return validaNumericos(event)'>
+                                                                        
                                                                     <br>
                                                                     <input type="submit" value="Guardar" class="btn btn-primary">
-                                                                </form>
-                                                            </div>
 
-                                                            <!-- Footer Modal -->
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-dark" data-bs-dismiss="modal"> Cerrar </button>
+                                                                </form>
                                                             </div>
 
                                                         </div>
@@ -152,17 +154,16 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        
-
                                     </div>
                                 </div>
+
                                 <div class="row">
                                     <div class="col mb-4"></div>
                                 </div>
+
                                 <!-- Tabla Inventario de Salida -->
                                 <div class="row">
-                                    <div id="tablaSalida">    
-                                    </div>
+                                    <div id="tablaSalida"></div>
                                 </div>
 
                             </div>
@@ -176,6 +177,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="../../../Inventario_Ferreteria/views/assets/js/salidaScript.js"></script>
+        <script src="../../../Inventario_Ferreteria/views/assets/js/validaciones.js"></script>
         
         <script type="text/javascript">
             mostrarSalida();

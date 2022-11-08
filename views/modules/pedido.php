@@ -9,7 +9,7 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         
-        <title> Inventario </title>
+        <title> Inventario - Pedidos </title>
         
         <!-- Styles -->   
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -60,6 +60,10 @@
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-user-tie"></i></div>
                                 Proveedores
                             </a>
+                            <a class="nav-link" href="ciudad.php">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                                Ciudades
+                            </a>
                         </div>
 
                     </div>
@@ -92,8 +96,9 @@
                                             </div>
 
                                             <div class="col">
-                                                  <!-- Modal -->
-                                                  <div class="modal" id="myModal">
+                                                
+                                                <!-- Modal Insertar Pedido -->
+                                                <div class="modal fade" id="myModal" data-bs-backdrop="static">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
 
@@ -108,55 +113,52 @@
                                                                 
                                                                 <form form id="formPedido" onsubmit="return insertarPedido()" method="POST"> 
                                                                     
-                                                                    <label> Proveedor : </label>
-
+                                                                    <label> Producto : </label>
                                                                     <select name="productoSelect" id="">
                                                                         
                                                                         <option value="0"> Seleccione el Producto </option> 
-                                                                        
                                                                         <?php 
+                                                                            
                                                                             include("../../../Inventario_Ferreteria/models/connection.php");
-                                                                            
-                                                                                $stmt = Connect::connectBd()-> prepare("SELECT * FROM producto");
-                                                                                $stmt->execute();
-                                                                                $datos = $stmt->fetchAll();
-                                                                                
-                                                                                foreach ($datos as $valores) {
-                                                                                    echo  ('<option value="'.$valores['id'].'">'.$valores['nombre'].'</>') ;
-                                                                                }
+                                                                            $stmt = Connect::connectBd()-> prepare("SELECT * FROM producto");
+                                                                            $stmt->execute();
+                                                                            $datos = $stmt->fetchAll();
+
+                                                                            foreach ($datos as $valores) {
+                                                                                echo  ('<option value="'.$valores['id'].'">'.$valores['nombre'].'</>') ;
+                                                                            }
                                                                         ?>
                                                                     </select>
-                                                                    <br>
-                                                                    <br>
-                                                                                
+                                                                    
+                                                                    <br><br>
+
                                                                     <label> Proveedor : </label>
-                                                                        <select name="proveedorSelect" id="">
+                                                                    
+                                                                    <select name="proveedorSelect" id="">
                                                                         
-                                                                        <option value="0"> Seleccione el Pedido </option> 
-                                                                        
+                                                                        <option value="0"> Seleccione el Proveedor </option> 
                                                                         <?php 
-                                                                          
-                                                                            
-                                                                                $stmt = Connect::connectBd()-> prepare("SELECT * FROM proveedor");
-                                                                                $stmt->execute();
-                                                                                $datos = $stmt->fetchAll();
+
+                                                                            $stmt = Connect::connectBd()-> prepare("SELECT * FROM proveedor");
+                                                                            $stmt->execute();
+                                                                            $datos = $stmt->fetchAll();
                                                                                 
-                                                                                foreach ($datos as $valores) {
-                                                                                    echo  ('<option value="'.$valores['id'].'">'.$valores['nombre'].'</>') ;
-                                                                                }
+                                                                            foreach ($datos as $valores) {
+                                                                                echo  ('<option value="'.$valores['id'].'">'.$valores['nombre'].'</>') ;
+                                                                            }
                                                                         ?>
                                                                     </select>
-                                                                  
+                                                                    
                                                                     <br>
 
                                                                     <label> Cantidad : </label>
-                                                                    <input type="text" id="cantidad" name="cantidad" class="form-control form-control-sm" required="">
+                                                                    <input type="text" id="cantidad" name="cantidad" class="form-control form-control-sm" placeholder="Ej. 34" required=""  onkeypress='return validaNumericos(event)'>
                                                                         
                                                                     <label> FechaI Ingreso : </label>
-                                                                    <input type="date" id="fechaIngreso" name="fechaIngreso" class="form-control form-control-sm" required="">
+                                                                    <input type="date" id="fechaIngreso" name="fechaIngreso" class="form-control form-control-sm" placeholder="Ej. 09/05/2022" required="">
                                                                         
                                                                     <label> Valor Unitario : </label>
-                                                                    <input type="text" id="valorUnitario" name="valorUnitario" class="form-control form-control-sm" required="" >
+                                                                    <input type="text" id="valorUnitario" name="valorUnitario" class="form-control form-control-sm" placeholder="Ej. 1000" required=""  onkeypress='return validaNumericos(event)'>
                                                                     
                                                                     <br>
                                                                         
@@ -165,12 +167,6 @@
                                                                 </form>
 
                                                             </div>
-
-                                                            <!-- Footer Modal -->
-                                                            <div class="modal-footer">
-                                                                <button type="button" class="btn btn-dark" data-bs-dismiss="modal"> Cerrar </button>
-                                                            </div>
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -185,8 +181,7 @@
                                 </div>
 
                                 <div class="row">
-                                    <div id="tablaPedido">    
-                                    </div>
+                                    <div id="tablaPedido"></div>
                                 </div>
 
                             </div>
@@ -200,6 +195,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         <script src="../../../Inventario_Ferreteria/views/assets/js/pedidoScript.js"></script>
+        <script src="../../../Inventario_Ferreteria/views/assets/js/validaciones.js"></script>
         
         <script type="text/javascript">
             mostrarPedido();

@@ -15,6 +15,8 @@
     // Validar Entrada Mayusculas y Minusculas (Marca)
     $marca = strtolower($_POST['marcaUp']);
     $marca = ucwords($marca);
+    echo "<script>console.log('AAA');</script>";
 
     echo ProductoModel::actualizarProductoModel($id, $nombre, $descripcion,$marca);
+    
 ?>

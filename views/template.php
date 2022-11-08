@@ -2,7 +2,6 @@
 
 <html lang="es">
 
-    <!-- Comentario -->   
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -19,7 +18,6 @@
         <script src="https://kit.fontawesome.com/4afb0f7fd4.js" crossorigin="anonymous"></script>
         
         <!-- Scripts -->   
-        
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -62,6 +60,10 @@
                             <a class="nav-link" href="../../Inventario_Ferreteria/views/modules/proveedor.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-user-tie"></i></div>
                                 Proveedores
+                            </a>
+                            <a class="nav-link" href="../../Inventario_Ferreteria/views/modules/ciudad.php">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                                Ciudades
                             </a>
                         </div>
 
@@ -144,13 +146,15 @@
                             
                             <!-- Card Tabla Inventario Cuerpo -->
                             <div class="card-body">
-
+                                
+                                <!-- Tabla Inventario -->
                                 <div class="row">
                                     <div id="tablaInventario">    
                                     </div>
                                 </div>
 
                             </div>
+
                         </div>
                     </div>
                 </main>
@@ -160,7 +164,7 @@
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-        <script src="../../../Inventario_Ferreteria/views/assets/js/inicio.js"></script>
+        <script src="../../../Inventario_Ferreteria/views/assets/js/inicioScript.js"></script>
         
         <script type="text/javascript">
             mostrarInventario();

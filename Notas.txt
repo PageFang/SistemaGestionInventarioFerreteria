@@ -1,64 +1,117 @@
+---------------------------------------------------- Sprint 1 ----------------------------------------------------
+
 Productos : 
-    > Insertar  -- Valida valores iguales (Nombre del producto)
-                -- Convierte la primera en Mayuscula y las demas en minusculas (Nombre,Descripcion,Marca)
-                -Solucionar problemas graficos Mostrar cuando es correcto o incorrecto
+    > Insertar  ***Validar que no existan dos productos Iguales
+                - Validar de que muestre un mensaje "El producto que desea Ingresar ya existe"
+                - Validar Caracteres Especiales
+                ***Validar que se conviertan la primera en Mayuscula y las demas en minusculas (Cadena Texto) (Nombre,Descripcion,Marca)
+                - Validar que se limpien los datos despues de Cerrar la ventana y Guardar
+                ***Colocar PlaecHolder a los Inputs
+                ***Animaciones al modal y validar que no se cierre si hace click en el display
+                - Solucionar problemas graficos Mostrar cuando es correcto o incorrecto
    
-    > Mostrar   -- Muestra elementos foraneos (Valor Unitario)
-    
-    > Eliminar  -Solucionar problema reiniciar el id luego de eliminar un registro
-                -Solucionar problema (No elimina elementos que se relacionen en otras tablas)
-    
-    > Modificar -- Deshabilita el id como Modificable
-                -- Convierte la primera en Mayuscula y las demas en minusculas (Nombre,Descripcion,Marca)
-    
-    > Ordenar   -Alfabetico (A-Z y Z-A)
-                -Valor (Menor a Mayor y Mayor a Menor)
-    
-    > Generar Informe
+    > Mostrar   ***Muestra elementos foraneos (Valor Unitario (Pedido))
+                - Validar si la tabla esta vacia mostrar un texto (No se han Ingresado Productos)
 
-Pedidos : 
-    Insertar    
-    Mostrar  
-    Eliminar 
-    Modificar
-    Actualizar Cantidad
-    Ordenar - Mas reciente 
-            - Valor (Menor a Mayor y Mayor a Menor)
-    Generar Informe
+Ciudad : 
+    > Insertar  **Validar que no existan dos ciudades Iguales
+                - Validar de que muestre un mensaje "la Ciudad que desea Ingresar ya existe"
+                **Convierte la primera en Mayuscula y las demas en minusculas (Nombre)
+                - Validar que se limpien los datos despues de Cerrar y Guardar
+                - Solucionar problemas graficos Mostrar cuando es correcto o incorrecto
+                ***Quemar datos de las capitales 
+   
+    > Mostrar   ***Muestra elementos
+                - Validar si la tabla esta vacia mostrar un texto (No se han Ingresado Ciudades)
 
+    
 Proveedores : 
-    Insertar
-    Mostrar  
-    Eliminar  
-    Modificar
-    Ordenar - Alfabetico (A-Z y Z-A)
-            - Valor (Menor a Mayor y Mayor a Menor)
-    Generar Informe
+    > Insertar  ***Validar que no existan dos Proveedores Iguales
+                - Validar de que muestre un mensaje "El proveedor que desea Ingresar ya existe"
+                ***Convierte la primera en Mayuscula y las demas en minusculas (Nombre,Direccion)
+                - Validar que se limpien los datos despues de Cerrar y Guardar
+                ***Validar que en el campo de Telefono solo se ingresen Numeros y sean 10
+                - Solucionar problemas graficos Mostrar cuando es correcto o incorrecto
+                ***Agregar Columna Correo Electronico
+   
+    > Mostrar   - Muestra elementos foraneos (Ciudad de Residencia)
+                - Validar si la tabla esta vacia mostrar un texto (No se han Ingresado Proveedores)
 
+    
+Pedidos : 
+    > Insertar  - Validar que se limpien los datos despues de Cerrar y Guardar
+                - Solucionar problemas graficos Mostrar cuando es correcto o incorrecto
+                ***Validar que solo se puedan Ingresar Numeros en Cantidad y Valor Unitario
+                - Buscar un Input de Fecha
+                ***Agregar Cantidad a TABLE Inventario
+                - Actualizar la Cantidad cuando se Inserte un Pedido (Acumulando la cantidad)
+
+    > Mostrar   ***Muestra elementos foraneos (Nombre Produto)
+                - Validar si la tabla esta vacia mostrar un texto (No se han Ingresado Pedidos)
+    
 Salidas : 
-    Insertar    -- Select que seleccione producto
-    Mostrar     -- Mostrar Valores Foraneos (Nombre)
-                -Solucionar Error si se borran todas quedan los nombres
-    Eliminar    -Solucionar problema reiniciar el id luego de eliminar un registro
-                -Solucionar problema al cancelar tambien elimina
-    Modificar   -Falta
-    Actualizar Cantidad
-    Ordenar - Mas reciente 
-            - Valor (Menor a Mayor y Mayor a Menor)
-    Generar Informe
+    > Insertar  - Validar que se limpien los datos despues de Cerrar y Guardar
+                - Solucionar problemas graficos Mostrar cuando es correcto o incorrecto
+                ***Validar que solo se puedan Ingresar Numeros en Cantidad y Valor Unitario
+                - Buscar un Input de Fecha
+                ***Agregar Cantidad a TABLE Inventario
+                - Actualizar la Cantidad cuando se Inserte una Salida (Disminuir la cantidad)
+                - Validar de que si inserto una cantidad mayor a la Cantidad en Stock me avise de que no hay Productos suficientes
+   
+    > Mostrar   ***Muestra elementos foraneos (Nombre Producto)
+                - Validar si la tabla esta vacia mostrar un texto (No se han Ingresado Salidas)
 
 Inventario : 
-    Aviso de producto sin Stock - Interfaz
-                                - Correo Electronico
+    
+    > Mostrar   - Muestra elementos foraneos (Nombre Producto, Descripcion, Marca, Valor Unitario, Valor Total, Cantidad);
 
-Template :
-    Generar Informe
-    Mostrar
+---------------------------------------------------- Sprint 2 ----------------------------------------------------
 
-Sesion : 
-    Registrar Usuario
-    Iniciar Sesion
-    Eliminar Usuario
+Productos :     
+    > Eliminar  ***Eliminar
+                -Solucionar problema reiniciar el id luego de eliminar un registro
+                -Solucionar problema (No elimina elementos que se relacionen en otras tablas) (SET NULL)
+                -Solucionar problemas graficos en el alert de eliminar
+    
+    > Modificar ***Modificar
+                ***Deshabilita el id como Modificable
+                -Convierte la primera en Mayuscula y las demas en minusculas (Nombre,Descripcion,Marca)
+    
+Pedidos : 
+    > Eliminar  ***Eliminar
+                -Solucionar problema reiniciar el id luego de eliminar un registro
+                -Solucionar problema (No elimina elementos que se relacionen en otras tablas) (SET NULL)
+    
+    > Modificar -Modificar
+                -Deshabilita el id como Modificable
+                -Convierte la primera en Mayuscula y las demas en minusculas (Nombre,Descripcion,Marca)
+Proveedores : 
+    > Eliminar  ***Eliminar
+                -Solucionar problema reiniciar el id luego de eliminar un registro
+                -Solucionar problema (No elimina elementos que se relacionen en otras tablas) (SET NULL)
+    
+    > Modificar -Modificar
+                -Deshabilita el id como Modificable
+                -Convierte la primera en Mayuscula y las demas en minusculas (Nombre,Descripcion,Marca)
+    
+Ciudades : 
+    > Eliminar  -Eliminar
+                -Solucionar problema reiniciar el id luego de eliminar un registro
+                -Solucionar problema (No elimina elementos que se relacionen en otras tablas) (SET NULL)
+    
+    > Modificar -Deshabilita el id como Modificable
+                -Convierte la primera en Mayuscula y las demas en minusculas (Nombre,Descripcion,Marca)
+
+Salidas : 
+    > Eliminar  ***Eliminar
+                -Solucionar problema reiniciar el id luego de eliminar un registro
+                -Solucionar problema (No elimina elementos que se relacionen en otras tablas) (SET NULL)
+    
+    > Modificar -Modificar
+                -Deshabilita el id como Modificable
+                -Convierte la primera en Mayuscula y las demas en minusculas (Nombre,Descripcion,Marca)  
+        
+
 
 
 

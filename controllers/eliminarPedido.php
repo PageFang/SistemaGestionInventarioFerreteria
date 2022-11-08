@@ -1,9 +1,8 @@
 <?php
 
-require_once("../../Inventario_Ferreteria/models/pedidoModel.php");
+    require_once("../../Inventario_Ferreteria/models/pedidoModel.php");
 
-$id=$_POST['id'];
-echo "<script>console.log(ID Controlador:'{$id}');</script>";
+    $id=$_POST['id'];
 
-$respuesta =  PedidoModel::eliminarPedidoModel($id);
+    $respuesta =  PedidoModel::eliminarPedidoModel($id);
 ?>

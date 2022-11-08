@@ -1,9 +1,9 @@
 <?php
 
-require_once("../../Inventario_Ferreteria/models/salidaModel.php");
+    require_once("../../Inventario_Ferreteria/models/salidaModel.php");
 
-$id=$_POST['id'];
-echo "<script>console.log(ID Controlador:'{$id}');</script>";
+    $id=$_POST['id'];
+    echo "<script>console.log('Id Eliminar Salida : {$id}');</script>";
 
-$respuesta =  SalidaModel::eliminarSalidaModel($id);
+    $respuesta =  SalidaModel::eliminarSalidaModel($id);
 ?>

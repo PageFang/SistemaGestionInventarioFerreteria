@@ -29,6 +29,10 @@
     // Inserta el producto
     if (!$respuestaSeleccionar) {
         $respuestaInsertar = ProductoModel::insertarProductoModel($datosController);
+    }else{
+        echo "<script>console.log('El Producto Ingresado ya existe');</script>";
+
     }
+
 ?>
 

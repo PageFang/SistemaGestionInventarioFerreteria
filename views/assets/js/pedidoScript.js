@@ -5,9 +5,11 @@ function mostrarPedido(){
     console.log("Entra Mostrar Js");
 
     $.ajax({
+        
         type:"POST",
         url:"../../../../Inventario_Ferreteria/controllers/pedidoController.php",
         data:{funcion: "1"},
+        
         success:function(r){
             $('#tablaPedido').html(r);
         }
@@ -18,19 +20,20 @@ function mostrarPedido(){
 function insertarPedido(){
 
     $.ajax({
+        
         type:"POST",
         url:"../../../../Inventario_Ferreteria/controllers/insertarPedido.php",
         data:$('#formPedido').serialize(),
+        
         success:function(r){
             console.log(r);
             mostrarPedido();
-           if(r!= null){
+            if(r!= null){
                 // Limpia el Formulario
                 $('#formPedido')[0].reset();
-             
-                swal("El Pedido ha sido Registrado", "", "success");
+                // swal("El Pedido ha sido Registrado", "", "success");
             }else{
-                swal("El Pedido no ha sido Registrado", "", "error");
+                // swal("El Pedido no ha sido Registrado", "", "error");
             }
         }
     });
@@ -39,22 +42,24 @@ function insertarPedido(){
 
 // Funcion Eliminar Pedido
 function eliminarPedido(id){
-   
+
     swal({
-        title: "¿ Desea eliminar este registro de pedido del Inventario ?",
-        text : "Una vez eliminado el registro no podra recuperarse",
-        icon: "warning",
+        title:  "¿ Desea eliminar este registro de pedido del Inventario ?",
+        text :  "Una vez eliminado el registro no podra recuperarse",
+        icon:   "warning",
         buttons : true,
         dangerMode : true,
     })
+
     .then((willDelete) => {
+        
         $.ajax({
             type:"POST",
             url:"../../../../Inventario_Ferreteria/controllers/eliminarPedido.php",
             data:"id=" + id,
             success:function(r){
-           
-               if(r!=null) {
+            
+                if(r!=null) {
                 mostrarPedido();
                     swal("Pedido Eliminado Exitosamente", "", "info");
                 }else{
@@ -62,5 +67,6 @@ function eliminarPedido(id){
                 }
             }
         });
+
     })
 }

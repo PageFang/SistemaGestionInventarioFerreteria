@@ -5,15 +5,15 @@
 
     class SalidaController {
         
-        // Mostrar Productos 
+        // Mostrar Salidas 
         static public function mostrarSalidaController(){
             
             $obj = new SalidaModel();
             $datos = $obj->mostrarSalidaModel();
-           
+            
             $tabla ='<table id="tablaProducto" class="table table-bordered border-dark table-hover">
                         <thead>
-                         <tr class="table-dark"> 
+                        <tr class="table-dark"> 
                                 <th>Id</th>
                                 <th>Producto</th>
                                 <th>Cantidad</th>
@@ -48,44 +48,23 @@
 											    </td>
                                             </tr>';
             }
-           // echo "<script>console.log('Entra Controller Mostrar');</script>";
+
             echo $tabla.$datosTabla.' </tbody> </table>';
         }
-
-        // Insertar Productos
-       /* public function insertarProductosController(){
-            
-        
-            $datosController = array (
-                'nombre'=> $_POST['nombre'],
-                'descripcion'=> $_POST['descripcion'],
-                'marca'=> $_POST['marca']
-            );
-           
-            echo ProductoModel::insertarProductoModel($datosController);
-          
-        }*/
-
     }
-  // echo "<script>console.log('Hola');</script>";
+
 
     if(!empty($_POST['funcion'])) {
+
         $funcionExecute = $_POST['funcion'];
-       // echo "<script>console.log('{$funcionExecute}');</script>";
-        //En función del parámetro que nos llegue ejecutamos una función u otra
+
         switch($funcionExecute) {
+
             case '1': 
                 $mostrar = new SalidaController();
                 $mostrar->mostrarSalidaController();
-                //echo "<script>console.log('Entra Case Mostrar');</script>";
                 break;
-          /*  case '2': 
-                $insertar = new ProductoController();
-                $insertar->insertarProductosController();
-                echo "<script>console.log('Entra Case Funciones');</script>";
-                break;*/
         }
     }
-    
+
 ?>
-    

@@ -9,16 +9,18 @@
             
             $stmt = Connect::connectBd()-> prepare("SELECT p.id, p.nombre, p.descripcion, p.marca, pd.valorUnitario FROM producto p LEFT JOIN pedido pd ON p.id = pd.producto_id;");
             $stmt->execute();
+            
             return $stmt->fetchAll();
             $stmt = null;
         }
 
-        // Seleccionar Productos para validar
+        // Seleccionar Productos para Validar
         static public function seleccionarProductoModel($datosModel){
             
             $stmt = Connect::connectBd()-> prepare("SELECT id,nombre,descripcion,marca FROM producto WHERE nombre=:nombre"); 
             $stmt->bindParam(":nombre", $datosModel["nombre"], PDO::PARAM_STR);
             $stmt->execute();
+            
             return $stmt->fetchAll();
             $stmt = null;
         }
@@ -30,6 +32,7 @@
             $stmt->bindParam(":nombre", $datosModel["nombre"], PDO::PARAM_STR);
             $stmt->bindParam(":descripcion", $datosModel["descripcion"], PDO::PARAM_STR);
             $stmt->bindParam(":marca", $datosModel["marca"], PDO::PARAM_STR);
+            
             return $stmt->execute();
             $stmt = null;
         }
@@ -39,6 +42,7 @@
             
             $stmt =Connect::connectBd()-> prepare("DELETE FROM producto WHERE id=:id");
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+            
             return $stmt->execute();
         }
 
@@ -48,6 +52,7 @@
             $stmt = Connect::connectBd()-> prepare("SELECT id,nombre,descripcion,marca FROM producto WHERE id=:id");
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
             $stmt->execute();
+            
             return $stmt->fetch();
             $stmt = null;
         }
@@ -61,26 +66,10 @@
             $stmt->bindParam(":descripcion", $descripcion, PDO::PARAM_STR);
             $stmt->bindParam(":marca", $marca, PDO::PARAM_STR);
             $stmt->execute();
+            
             return $stmt->fetch();
             $stmt = null;
         }
-
-        //Ordenar Alfabeticamente A-Z
-        static public function ordenarProductoAscModel(){
-            
-            $stmt = Connect::connectBd()->prepare("SELECT * FROM producto ORDER BY nombre ASC");
-            $stmt->execute();
-            return $stmt->fetchAll();
-            $stmt = null;
-        }
-
-        //Ordenar Alfabeticamente Z-A
-        static public function ordenarProductoDescModel(){
-            
-            $stmt = Connect::connectBd()->prepare("SELECT * FROM producto ORDER BY nombre DESC");
-            $stmt->execute();
-            return $stmt->fetchAll();
-            $stmt = null;
-        }
-    }    
+    } 
+    
 ?>

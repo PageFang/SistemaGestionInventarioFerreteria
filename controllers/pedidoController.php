@@ -15,6 +15,7 @@
                         <thead>
                             <tr class="table-dark"> 
                                 <th>Id</th>
+                                <th>Id</th>
                                 <th>Cantidad</th>
                                 <th>Fecha Ingreso</th>
                                 <th>Valor Unitario</th>
@@ -30,6 +31,7 @@
             foreach ($datos as $key => $value) {
                 $datosTabla = $datosTabla.' <tr>
                                                 <td>'.$value['id'].'</td>
+                                                <td>'.$value['nombre'].'</td>
                                                 <td>'.$value['cantidad'].'</td>
                                                 <td>'.$value['fechaIngreso'].'</td>
                                                 <td>'.$value['valorUnitario'].'</td>
@@ -46,7 +48,7 @@
 											    </td>
                                             </tr>';
             }
-           // echo "<script>console.log('Entra Controller Mostrar');</script>";
+
             echo $tabla.$datosTabla.' </tbody> </table>';
         }
     }
@@ -56,11 +58,12 @@
         $funcionExecute = $_POST['funcion'];
         
         switch($funcionExecute) {
+
             case '1': 
                 $mostrar = new PedidoController();
                 $mostrar->mostrarPedidoController();
                 break;
-          
+            
         }
     }
 ?>

@@ -5,7 +5,7 @@
 
     class ProveedorController {
         
-        // Mostrar Productos 
+        // Mostrar Proveedores 
         static public function mostrarProveedorController(){
             
             $obj = new ProveedorModel();
@@ -17,6 +17,7 @@
                                 <th>Id</th>
                                 <th>Nombre</th>
                                 <th>Direccion</th>
+                                <th>Correo Electronico</th>
                                 <th>Telefono</th>
                                 <th></th>
                                 <th></th>
@@ -31,6 +32,7 @@
                                                 <td>'.$value['id'].'</td>
                                                 <td>'.$value['nombre'].'</td>
                                                 <td>'.$value['direccion'].'</td>
+                                                <td>'.$value['correoElectronico'].'</td>
                                                 <td>'.$value['telefono'].'</td>
                                                 <td>
                                                     <span class="btn btn-dark btn-sm" onclick="obtenerProveedor('.$value['id'].')" data-bs-toggle="modal" data-bs-target="#actualizarModalProveedor">
@@ -44,26 +46,23 @@
 											    </td>
                                             </tr>';
             }
-           
+
             echo $tabla.$datosTabla.' </tbody> </table>';
         }
     }
-    echo "<script>console.log('Hola');</script>";
 
     if(!empty($_POST['funcion'])) {
         
         $funcionExecute = $_POST['funcion'];
         
-        //En función del parámetro que nos llegue ejecutamos una función u otra
         switch($funcionExecute) {
+            
             case '1': 
                 $mostrar = new ProveedorController();
                 $mostrar->mostrarProveedorController();
-                echo "<script>console.log('Entra Case Mostrar');</script>";
                 break;
-          
         }
     }
     
 ?>
-    
+

@@ -1,8 +1,9 @@
 
-// Funcion mostrar lista de productos
-function mostrar(){
+// Funcion Mostrar Lista Productos
+function mostrarProducto(){
 
     $.ajax({
+        
         type:"POST",
         url:"../../../../Inventario_Ferreteria/controllers/productoController.php",
         data:{funcion: "1"},
@@ -13,28 +14,32 @@ function mostrar(){
     });
 }
 
+
 // Funcion Insertar Producto
-function insertarDatos(){
+function insertarProducto(){
 
     $.ajax({
+        
         type:"POST",
         url:"../../../../Inventario_Ferreteria/controllers/insertarProducto.php",
         data:$('#frminsert').serialize(),
         
         success:function(r){
-            mostrar();
-            console.log(r); 
-            if(r!= null){
+            mostrarProducto();
+            
+            console.log("Respuesta Insertar : " + r); 
+            if(r != null) { // VALIDAR
                 // Limpia el formulario despues de llenarlo
                 $('#frminsert')[0].reset();
-                swal("El Producto ha sido Registrado", "", "success");
+               // swal("El Producto ha sido Registrado", "", "success");
             }else{
-                swal("El Producto no ha sido Registrado", "", "error");
+                // swal("El Producto no ha sido Registrado", "", "error");
             }
         }
     });
     return false;
 }
+
 
 // Funcion Eliminar Producto
 function eliminarProducto(id){
@@ -57,7 +62,7 @@ function eliminarProducto(id){
             success:function(r){
             console.log(r);
                if(r!=null) { //VERFICAR VALIDACION R =! NULL
-                    mostrar();
+                    mostrarProducto();
                     swal("Producto Eliminado Exitosamente", "", "info");
                 }else{
                     swal("Error al Eliminar", "", "error");
@@ -66,6 +71,7 @@ function eliminarProducto(id){
         });
     })
 }
+
 
 // Funcion Editar Producto
 function obtenerProducto(id){
@@ -90,14 +96,14 @@ function actualizarProducto(){
     $.ajax({
         type:"POST",
         url:"../../../../Inventario_Ferreteria/controllers/actualizarProducto.php",
-        data:$('#frminsertUp').serialize(),
+        data:$('#formUptadeProducto').serialize(),
         
         success:function(r){
-            mostrar();
+            mostrarProducto();
             if(r!= null){
-                swal("El Producto ha sido Actualizado", "", "success");
+                //swal("El Producto ha sido Actualizado", "", "success");
             }else{
-                swal("El Producto no ha sido Actualizado", "", "error");
+                //swal("El Producto no ha sido Actualizado", "", "error");
             }
         }
     });
