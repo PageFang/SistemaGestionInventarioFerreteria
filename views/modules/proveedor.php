@@ -89,13 +89,29 @@
                             <!-- Card Tabla Inventario Productos Contenido -->
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-4">
+                                    <div class="col">
 
                                         <div class="row">
                                             <div class="col">
                                                 <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ingresar Proveedor </button>
                                             </div>
-                                            
+
+                                            <div class="col">
+                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ordenar A-Z</button>
+                                            </div>
+
+                                            <div class="col">
+                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ordenar Z-A</button>
+                                            </div>
+
+                                            <div class="col">
+                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ordenar Mas Recientes</button>
+                                            </div>
+
+                                            <div class="col">
+                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ordenar Mas Antiguos</button>
+                                            </div>
+
                                             <!-- Modal Insertar Proveedor -->
                                             <div class="col">
                                                 <div class="modal fade" id="myModal" data-bs-backdrop="static">

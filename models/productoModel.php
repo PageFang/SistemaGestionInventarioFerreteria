@@ -70,6 +70,42 @@
             return $stmt->fetch();
             $stmt = null;
         }
+
+        // Ordenar Producto A-Z Nombre
+        static public function ordenarNombreProductoAscModel(){
+            $stmt = Connect::connectBd()-> prepare("SELECT p.id, p.nombre, p.descripcion, p.marca, pd.valorUnitario FROM producto p LEFT JOIN pedido pd ON p.id = pd.producto_id ORDER BY nombre ASC");
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+            $stmt = null; 
+        }
+
+        // Ordenar Producto A-Z Nombre
+        static public function ordenarNombreProductoDescModel(){
+            $stmt = Connect::connectBd()-> prepare("SELECT p.id, p.nombre, p.descripcion, p.marca, pd.valorUnitario FROM producto p LEFT JOIN pedido pd ON p.id = pd.producto_id ORDER BY nombre DESC");
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+            $stmt = null; 
+        }
+
+        // Ordenar Mas reciente
+        static public function ordenarMasAntiguoProductoModel(){
+            $stmt = Connect::connectBd()-> prepare("SELECT p.id, p.nombre, p.descripcion, p.marca, pd.valorUnitario FROM producto p LEFT JOIN pedido pd ON p.id = pd.producto_id ORDER BY id ASC");
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+            $stmt = null; 
+        }
+
+        // Ordenar Mas Antiguo
+        static public function ordenarMasRecienteProductoModel(){
+            $stmt = Connect::connectBd()-> prepare("SELECT p.id, p.nombre, p.descripcion, p.marca, pd.valorUnitario FROM producto p LEFT JOIN pedido pd ON p.id = pd.producto_id ORDER BY id DESC");
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+            $stmt = null; 
+        }
     } 
     
 ?>

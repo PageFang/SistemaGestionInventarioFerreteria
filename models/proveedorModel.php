@@ -57,6 +57,38 @@
             return $stmt->fetch();
             $stmt = null;
         }
+
+        static public function ordenarNombreProveedorAscModel(){
+            $stmt = Connect::connectBd()-> prepare("SELECT * FROM proveedor ORDER BY nombre ASC");
+            $stmt->execute();
+            
+            return $stmt->fetchAll();
+            $stmt = null;
+        }
+
+        static public function ordenarNombreProveedorDescModel(){
+            $stmt = Connect::connectBd()-> prepare("SELECT * FROM proveedor ORDER BY nombre DESC");
+            $stmt->execute();
+            
+            return $stmt->fetchAll();
+            $stmt = null;
+        }
+
+        static public function ordenarMasRecientesProveedoresModel(){
+            $stmt = Connect::connectBd()-> prepare("SELECT * FROM proveedor ORDER BY id DESC");
+            $stmt->execute();
+            
+            return $stmt->fetchAll();
+            $stmt = null;
+        }
+
+        static public function ordenarMasAntiguosProveedoresModel(){
+            $stmt = Connect::connectBd()-> prepare("SELECT * FROM proveedor ORDER BY id ASC");
+            $stmt->execute();
+            
+            return $stmt->fetchAll();
+            $stmt = null;
+        }
     }
 
 ?>

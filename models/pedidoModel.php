@@ -31,19 +31,23 @@
             $pedido_id = $pdo->lastInsertId();
             echo "<script>console.log('Id Pedido : {$pedido_id}');</script>";
             
-            $stmt_3 = Connect::connectBd()-> prepare("INSERT INTO inventario(cantidad,producto_id,pedido_id) VALUES (:cantidad, :producto_id, :pedido_id)");
+            /*$stmt_3 = Connect::connectBd()-> prepare("INSERT INTO inventario(cantidad,producto_id,pedido_id) VALUES (:cantidad, :producto_id, :pedido_id)");
             $stmt_3->bindParam(":cantidad", $cantidad, PDO::PARAM_INT);
             $stmt_3->bindParam(":producto_id", $producto_id, PDO::PARAM_INT);
             $stmt_3->bindParam(":pedido_id", $pedido_id, PDO::PARAM_INT);
 
-            $stmt_3->execute();
-            return $stmt = null;
+            $stmt_3->execute();*/
+            //return $stmt = null;
+
+            return $pedido_id;
+            $stmt = null;
         }
 
-        static public actuaslizarCantidadPedido (){
-            $stmt = Connect::connectBd()-> prepare(("SELECT cantidad, producto_id FROM inventario WHERE producto_id=2");
+        static public function buscarPedidoInventarioModel(){
+            $stmt = Connect::connectBd()-> prepare("SELECT cantidad, producto_id, pedido_id FROM inventario");
             $stmt->execute();
-            echo "<script>console.log('Id Cantidad : {$datos}');</script>";
+            echo "<script>console.log('Ejecuta Cantidad Inventario');</script>";
+            return $stmt->fetchAll();
             $stmt = null;
         }
             
@@ -55,6 +59,54 @@
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
             
             return $stmt->execute();
+        }
+        // Ordenar Mas Recientes
+        static public function ordenarCantidadPedidoAscModel(){
+            $stmt = Connect::connectBd()-> prepare("SELECT pd.id,p.nombre, pd.cantidad, pd.fechaIngreso, pd.valorUnitario, pd.valorTotal from producto p left join pedido pd ON pd.producto_id = p.id ORDER BY cantidad DESC");
+            $stmt->execute();
+            
+            return $stmt->fetchAll();
+            $stmt = null;
+        }
+
+        static public function ordenarCantidadPedidoDescModel(){
+            $stmt = Connect::connectBd()-> prepare("SELECT pd.id,p.nombre, pd.cantidad, pd.fechaIngreso, pd.valorUnitario, pd.valorTotal from producto p left join pedido pd ON pd.producto_id = p.id ORDER BY cantidad ASC");
+            $stmt->execute();
+            
+            return $stmt->fetchAll();
+            $stmt = null;
+        }
+
+        static public function ordenarValorPedidoAscModel(){
+            $stmt = Connect::connectBd()-> prepare("SELECT pd.id,p.nombre, pd.cantidad, pd.fechaIngreso, pd.valorUnitario, pd.valorTotal from producto p left join pedido pd ON pd.producto_id = p.id ORDER BY valorTotal ASC");
+            $stmt->execute();
+            
+            return $stmt->fetchAll();
+            $stmt = null;
+        }
+
+        static public function ordenarValorPedidoDescModel(){
+            $stmt = Connect::connectBd()-> prepare("SELECT pd.id,p.nombre, pd.cantidad, pd.fechaIngreso, pd.valorUnitario, pd.valorTotal from producto p left join pedido pd ON pd.producto_id = p.id ORDER BY valorTotal DESC");
+            $stmt->execute();
+            
+            return $stmt->fetchAll();
+            $stmt = null;
+        }
+
+        static public function ordenarMasRecientePedidoModel(){
+            $stmt = Connect::connectBd()-> prepare("SELECT pd.id,p.nombre, pd.cantidad, pd.fechaIngreso, pd.valorUnitario, pd.valorTotal from producto p left join pedido pd ON pd.producto_id = p.id ORDER BY fechaIngreso ASC");
+            $stmt->execute();
+            
+            return $stmt->fetchAll();
+            $stmt = null;
+        }
+
+        static public function ordenarMasAntiguoPedidoModel(){
+            $stmt = Connect::connectBd()-> prepare("SELECT pd.id,p.nombre, pd.cantidad, pd.fechaIngreso, pd.valorUnitario, pd.valorTotal from producto p left join pedido pd ON pd.producto_id = p.id ORDER BY fechaIngreso DESC");
+            $stmt->execute();
+            
+            return $stmt->fetchAll();
+            $stmt = null;
         }
     }
     

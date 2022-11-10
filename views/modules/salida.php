@@ -89,11 +89,35 @@
                             <!-- Formulario Ingreso-->
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-4">
+                                    <div class="col">
                                         
                                         <div class="row">
                                             <div class="col">
                                                 <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ingresar Salida </button>
+                                            </div>
+
+                                            <div class="col">
+                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ordenar Mas Reciente</button>
+                                            </div>
+
+                                            <div class="col">
+                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ordenar Mas Antiguo</button>
+                                            </div>
+
+                                            <div class="col">
+                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ordenar Max a Min Cantidad</button>
+                                            </div>
+
+                                            <div class="col">
+                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ordenar Max a Min Cantidad</button>
+                                            </div>
+
+                                            <div class="col">
+                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ordenar Max a Min Valor</button>
+                                            </div>
+
+                                            <div class="col">
+                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ordenar Max a Min Valor</button>
                                             </div>
 
                                             <div class="col">

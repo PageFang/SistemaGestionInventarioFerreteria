@@ -88,13 +88,36 @@
 
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-4">
+                                    <div class="col"><!-- col 4-->
                                         
                                         <div class="row">
                                             <div class="col">
                                                 <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ingresar Pedido </button>
                                             </div>
 
+                                            <div class="col">
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMasRecientesPedidos()"> Ordenar Mas Reciente</button>
+                                            </div>
+
+                                            <div class="col">
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMasAntiguosPedidos()"> Ordenar Mas Antiguo</button>
+                                            </div>
+
+                                            <div class="col">
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxCantidadPedidos()"> Ordenar Max a Min Cantidad</button>
+                                            </div>
+
+                                            <div class="col">
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMinCantidadPedidos()"> Ordenar Max a Min Cantidad</button>
+                                            </div>
+
+                                            <div class="col">
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxValorPedidos()"> Ordenar Max a Min Valor</button>
+                                            </div>
+
+                                            <div class="col">
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMinValorPedidos()"> Ordenar Max a Min Valor</button>
+                                            </div>
                                             <div class="col">
                                                 
                                                 <!-- Modal Insertar Pedido -->

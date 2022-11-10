@@ -109,3 +109,59 @@ function actualizarProducto(){
     });
     return false;
 }
+
+function ordenarNombreProductoAsc(){
+    console.log("Hola Asc");
+    $.ajax({
+        
+        type:"POST",
+        url:"../../../../Inventario_Ferreteria/controllers/ordenarProductoController.php",
+        data:{funcion: "1"},
+        
+        success:function(r){
+            $('#tablaProducto').html(r);
+        }
+    });
+}
+
+function ordenarNombreProductoDesc(){
+    console.log("Hola Desc");
+    $.ajax({
+        
+        type:"POST",
+        url:"../../../../Inventario_Ferreteria/controllers/ordenarProductoController.php",
+        data:{funcion: "2"},
+        
+        success:function(r){
+            $('#tablaProducto').html(r);
+        }
+    });
+}
+
+function ordenarMasRecientesProductoDesc(){
+    console.log("Hola Recientes");
+    $.ajax({
+        
+        type:"POST",
+        url:"../../../../Inventario_Ferreteria/controllers/ordenarProductoController.php",
+        data:{funcion: "3"},
+        
+        success:function(r){
+            $('#tablaProducto').html(r);
+        }
+    });
+}
+
+function ordenarMasAntiguosProductoDesc(){
+    console.log("Hola Antiguos");
+    $.ajax({
+        
+        type:"POST",
+        url:"../../../../Inventario_Ferreteria/controllers/ordenarProductoController.php",
+        data:{funcion: "4"},
+        
+        success:function(r){
+            $('#tablaProducto').html(r);
+        }
+    });
+}
