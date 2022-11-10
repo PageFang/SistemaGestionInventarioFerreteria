@@ -97,27 +97,35 @@
                                             </div>
 
                                             <div class="col">
-                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ordenar Mas Reciente</button>
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxValorPedidos()"> Ordenar Mas Reciente</button>
                                             </div>
 
                                             <div class="col">
-                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ordenar Mas Antiguo</button>
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxValorPedidos()"> Ordenar Mas Antiguo</button>
                                             </div>
 
                                             <div class="col">
-                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ordenar Max a Min Cantidad</button>
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxValorPedidos()"> Ordenar Max a Min Cantidad</button>
                                             </div>
 
                                             <div class="col">
-                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ordenar Max a Min Cantidad</button>
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxValorPedidos()"> Ordenar Max a Min Cantidad</button>
                                             </div>
 
                                             <div class="col">
-                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ordenar Max a Min Valor</button>
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxValorPedidos()"> Ordenar Max a Min Valor</button>
                                             </div>
 
                                             <div class="col">
-                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ordenar Max a Min Valor</button>
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxValorPedidos()"> Ordenar Max a Min Valor</button>
+                                            </div>
+
+                                            <div class="col">
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxValorPedidos()"> Ordenar Max a Min Valor</button>
+                                            </div>
+
+                                            <div class="col">
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxValorPedidos()"> Ordenar Max a Min Valor</button>
                                             </div>
 
                                             <div class="col">

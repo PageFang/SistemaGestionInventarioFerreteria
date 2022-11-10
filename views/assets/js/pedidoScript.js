@@ -76,7 +76,7 @@ function ordenarMasRecientesPedidos(){
     $.ajax({
         
         type:"POST",
-        url:"../../../../Inventario_Ferreteria/controllers/ordenarPedidoController.php",
+        url:"../../../../Inventario_Ferreteria/controllers/pedidoOrdenarController.php",
         data:{funcion: "1"},
         
         success:function(r){
@@ -90,7 +90,7 @@ function ordenarMasAntiguosPedidos(){
     $.ajax({
         
         type:"POST",
-        url:"../../../../Inventario_Ferreteria/controllers/ordenarPedidoController.php",
+        url:"../../../../Inventario_Ferreteria/controllers/pedidoOrdenarController.php",
         data:{funcion: "2"},
         
         success:function(r){
@@ -104,7 +104,7 @@ function ordenarMaxCantidadPedidos(){
     $.ajax({
         
         type:"POST",
-        url:"../../../../Inventario_Ferreteria/controllers/ordenarPedidoController.php",
+        url:"../../../../Inventario_Ferreteria/controllers/pedidoOrdenarController.php",
         data:{funcion: "3"},
         
         success:function(r){
@@ -118,7 +118,7 @@ function ordenarMinCantidadPedidos(){
     $.ajax({
         
         type:"POST",
-        url:"../../../../Inventario_Ferreteria/controllers/ordenarPedidoController.php",
+        url:"../../../../Inventario_Ferreteria/controllers/pedidoOrdenarController.php",
         data:{funcion: "4"},
         
         success:function(r){
@@ -127,13 +127,40 @@ function ordenarMinCantidadPedidos(){
     });
 }
 
+function ordenarMaxValorUnidadPedidos(){
+    console.log("Hola Recientes");
+    $.ajax({
+        
+        type:"POST",
+        url:"../../../../Inventario_Ferreteria/controllers/pedidoOrdenarController.php",
+        data:{funcion: "5"},
+        
+        success:function(r){
+            $('#tablaPedido').html(r);
+        }
+    });
+}
+
+function ordenarMinValorUnidadPedidos(){
+    console.log("Hola Recientes");
+    $.ajax({
+        
+        type:"POST",
+        url:"../../../../Inventario_Ferreteria/controllers/pedidoOrdenarController.php",
+        data:{funcion: "6"},
+        
+        success:function(r){
+            $('#tablaPedido').html(r);
+        }
+    });
+}
 function ordenarMaxValorPedidos(){
     console.log("Hola Recientes");
     $.ajax({
         
         type:"POST",
-        url:"../../../../Inventario_Ferreteria/controllers/ordenarPedidoController.php",
-        data:{funcion: "5"},
+        url:"../../../../Inventario_Ferreteria/controllers/pedidoOrdenarController.php",
+        data:{funcion: "7"},
         
         success:function(r){
             $('#tablaPedido').html(r);
@@ -146,8 +173,8 @@ function ordenarMinValorPedidos(){
     $.ajax({
         
         type:"POST",
-        url:"../../../../Inventario_Ferreteria/controllers/ordenarPedidoController.php",
-        data:{funcion: "6"},
+        url:"../../../../Inventario_Ferreteria/controllers/pedidoOrdenarController.php",
+        data:{funcion: "8"},
         
         success:function(r){
             $('#tablaPedido').html(r);

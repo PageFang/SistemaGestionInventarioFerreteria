@@ -108,7 +108,15 @@
                                             </div>
 
                                             <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarMinCantidadPedidos()"> Ordenar Max a Min Cantidad</button>
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMinCantidadPedidos()"> Ordenar Min a Max Cantidad</button>
+                                            </div>
+
+                                            <div class="col">
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxValorUnidadPedidos()"> Ordenar Max a Min Valor Unidad</button>
+                                            </div>
+
+                                            <div class="col">
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMinValorUnidadPedidos()"> Ordenar Max a Min Valor Unidad</button>
                                             </div>
 
                                             <div class="col">
@@ -118,6 +126,7 @@
                                             <div class="col">
                                                 <button type="button" class="btn btn-dark" onclick="ordenarMinValorPedidos()"> Ordenar Max a Min Valor</button>
                                             </div>
+
                                             <div class="col">
                                                 
                                                 <!-- Modal Insertar Pedido -->

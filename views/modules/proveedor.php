@@ -97,19 +97,19 @@
                                             </div>
 
                                             <div class="col">
-                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ordenar A-Z</button>
+                                                <button type="button" class="btn btn-dark" onclick="ordenarNombreProveedorAsc()"> Ordenar A-Z</button>
                                             </div>
 
                                             <div class="col">
-                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ordenar Z-A</button>
+                                                <button type="button" class="btn btn-dark" onclick="ordenarNombreProveedorDesc()"> Ordenar Z-A</button>
                                             </div>
 
                                             <div class="col">
-                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ordenar Mas Recientes</button>
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMasRecienteProveedor()"> Ordenar Mas Recientes</button>
                                             </div>
 
                                             <div class="col">
-                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ordenar Mas Antiguos</button>
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMasAntiguoProveedor()"> Ordenar Mas Antiguos</button>
                                             </div>
 
                                             <!-- Modal Insertar Proveedor -->

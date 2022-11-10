@@ -192,6 +192,98 @@
             echo $tabla.$datosTabla.' </tbody> </table>';
         }
 
+        static public function ordenarMaxValorUnidadPedidoController(){
+            
+            $obj = new PedidoModel();
+            $datos = $obj->ordenarValorUnidadPedidoAscModel();
+           
+            $tabla ='<table id="tablaPedido " class="table table-bordered border-dark table-hover">
+                        <thead>
+                            <tr class="table-dark"> 
+                                <th>Id</th>
+                                <th>Id</th>
+                                <th>Cantidad</th>
+                                <th>Fecha Ingreso</th>
+                                <th>Valor Unitario</th>
+                                <th>Valor Total</th>
+                                <th> </th>
+                                <th> </th>
+                            </tr>
+                        </thead> 
+                        <tbody>';
+
+            $datosTabla = "";
+
+            foreach ($datos as $key => $value) {
+                $datosTabla = $datosTabla.' <tr>
+                                                <td>'.$value['id'].'</td>
+                                                <td>'.$value['nombre'].'</td>
+                                                <td>'.$value['cantidad'].'</td>
+                                                <td>'.$value['fechaIngreso'].'</td>
+                                                <td>'.$value['valorUnitario'].'</td>
+                                                <td>'.$value['valorTotal'].'</td>
+                                                <td>
+                                                    <span class="btn btn-dark btn-sm" onclick="obtenerDatos('.$value['id'].')" data-toggle="modal" data-target="#actualizarModal">
+                                                        <i class="fas fa-edit"></i>
+                                                    </span>
+											    </td>
+                                                <td>
+                                                    <span class="btn btn-dark" onclick="eliminarPedido('.$value['id'].')">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </span>
+											    </td>
+                                            </tr>';
+            }
+
+            echo $tabla.$datosTabla.' </tbody> </table>';
+        }
+
+        static public function ordenarMinValorUnidadPedidoController(){
+            
+            $obj = new PedidoModel();
+            $datos = $obj->ordenarValorUnidadPedidoDescModel();
+           
+            $tabla ='<table id="tablaPedido " class="table table-bordered border-dark table-hover">
+                        <thead>
+                            <tr class="table-dark"> 
+                                <th>Id</th>
+                                <th>Id</th>
+                                <th>Cantidad</th>
+                                <th>Fecha Ingreso</th>
+                                <th>Valor Unitario</th>
+                                <th>Valor Total</th>
+                                <th> </th>
+                                <th> </th>
+                            </tr>
+                        </thead> 
+                        <tbody>';
+
+            $datosTabla = "";
+
+            foreach ($datos as $key => $value) {
+                $datosTabla = $datosTabla.' <tr>
+                                                <td>'.$value['id'].'</td>
+                                                <td>'.$value['nombre'].'</td>
+                                                <td>'.$value['cantidad'].'</td>
+                                                <td>'.$value['fechaIngreso'].'</td>
+                                                <td>'.$value['valorUnitario'].'</td>
+                                                <td>'.$value['valorTotal'].'</td>
+                                                <td>
+                                                    <span class="btn btn-dark btn-sm" onclick="obtenerDatos('.$value['id'].')" data-toggle="modal" data-target="#actualizarModal">
+                                                        <i class="fas fa-edit"></i>
+                                                    </span>
+											    </td>
+                                                <td>
+                                                    <span class="btn btn-dark" onclick="eliminarPedido('.$value['id'].')">
+                                                        <i class="fa-solid fa-trash"></i>
+                                                    </span>
+											    </td>
+                                            </tr>';
+            }
+
+            echo $tabla.$datosTabla.' </tbody> </table>';
+        }
+
         static public function ordenarMaxValorPedidoController(){
             
             $obj = new PedidoModel();
@@ -313,15 +405,25 @@
                 $mostrar->ordenarMinCantidadPedidoController();
                 break;
 
-                case '5': 
+            case '5': 
+                $mostrar = new OrdenarPedidoController();
+                $mostrar->ordenarMaxValorUnidadPedidoController();
+                break;
+
+                case '6': 
+                    $mostrar = new OrdenarPedidoController();
+                    $mostrar->ordenarMinValorUnidadPedidoController();
+                    break;
+
+                case '7': 
                     $mostrar = new OrdenarPedidoController();
                     $mostrar->ordenarMaxValorPedidoController();
                     break;
-
-                    case '6': 
-                        $mostrar = new OrdenarPedidoController();
-                        $mostrar->ordenarMinValorPedidoController();
-                        break;
+        
+                case '8': 
+                    $mostrar = new OrdenarPedidoController();
+                    $mostrar->ordenarMinValorPedidoController();
+                    break;
         }
     } 
 ?>

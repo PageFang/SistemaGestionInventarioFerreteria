@@ -112,3 +112,65 @@ function actualizarProducto(){
     });
     return false;
 }*/
+
+
+
+function ordenarNombreProveedorAsc(){
+    console.log("Hola Asc");
+    $.ajax({
+        
+        type:"POST",
+        url:"../../../../Inventario_Ferreteria/controllers/proveedorOrdenarController.php",
+        data:{funcion: "1"},
+        
+        success:function(r){
+            $('#tablaProveedor').html(r);
+        }
+    });
+}
+
+
+function ordenarNombreProveedorDesc(){
+    console.log("Hola Asc");
+    $.ajax({
+        
+        type:"POST",
+        url:"../../../../Inventario_Ferreteria/controllers/proveedorOrdenarController.php",
+        data:{funcion: "2"},
+        
+        success:function(r){
+            $('#tablaProveedor').html(r);
+        }
+    });
+}
+
+
+function ordenarMasRecienteProveedor(){
+    console.log("Hola Asc");
+    $.ajax({
+        
+        type:"POST",
+        url:"../../../../Inventario_Ferreteria/controllers/proveedorOrdenarController.php",
+        data:{funcion: "3"},
+        
+        success:function(r){
+            $('#tablaProveedor').html(r);
+        }
+    });
+}
+
+
+
+function ordenarMasAntiguoProveedor(){
+    console.log("Hola Asc");
+    $.ajax({
+        
+        type:"POST",
+        url:"../../../../Inventario_Ferreteria/controllers/proveedorOrdenarController.php",
+        data:{funcion: "4"},
+        
+        success:function(r){
+            $('#tablaProveedor').html(r);
+        }
+    });
+}

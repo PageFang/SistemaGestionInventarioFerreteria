@@ -1,5 +1,5 @@
 <?php
-
+    
     require_once("../../Inventario_Ferreteria/models/productoModel.php");
     $funcionExecute = "";
 
