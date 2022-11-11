@@ -1,4 +1,4 @@
----------------------------------------------------- Sprint 1 ----------------------------------------------------
+----------------------------------------------------------------- Sprint 1 -----------------------------------------------------------------
 
 Productos : 
     > Insertar  ***Validar que no existan dos productos Iguales
@@ -12,6 +12,7 @@ Productos :
    
     > Mostrar   ***Muestra elementos foraneos (Valor Unitario (Pedido))
                 - Validar si la tabla esta vacia mostrar un texto (No se han Ingresado Productos)
+
 
 Ciudad : 
     > Insertar  **Validar que no existan dos ciudades Iguales
@@ -49,6 +50,7 @@ Pedidos :
     > Mostrar   ***Muestra elementos foraneos (Nombre Produto)
                 - Validar si la tabla esta vacia mostrar un texto (No se han Ingresado Pedidos)
     
+
 Salidas : 
     > Insertar  - Validar que se limpien los datos despues de Cerrar y Guardar
                 - Solucionar problemas graficos Mostrar cuando es correcto o incorrecto
@@ -61,11 +63,11 @@ Salidas :
     > Mostrar   ***Muestra elementos foraneos (Nombre Producto)
                 - Validar si la tabla esta vacia mostrar un texto (No se han Ingresado Salidas)
 
-Inventario : 
-    
+
+Inventario :    
     > Mostrar   - Muestra elementos foraneos (Nombre Producto, Descripcion, Marca, Valor Unitario, Valor Total, Cantidad);
 
----------------------------------------------------- Sprint 2 ----------------------------------------------------
+----------------------------------------------------------------- Sprint 2 -----------------------------------------------------------------
 
 Productos :     
     > Eliminar  ***Eliminar
@@ -77,6 +79,11 @@ Productos :
                 ***Deshabilita el id como Modificable
                 -Convierte la primera en Mayuscula y las demas en minusculas (Nombre,Descripcion,Marca)
     
+    > Listar     -Alfabetico A-Z
+                -Alfabetico Z-A
+                -Mas reciente (Orden Id)
+                -Mas Antiguo(Orden Id)
+    
 Pedidos : 
     > Eliminar  ***Eliminar
                 -Solucionar problema reiniciar el id luego de eliminar un registro
@@ -85,6 +92,21 @@ Pedidos :
     > Modificar -Modificar
                 -Deshabilita el id como Modificable
                 -Convierte la primera en Mayuscula y las demas en minusculas (Nombre,Descripcion,Marca)
+
+    > Listar    -Mas reciente (Fecha Ingreso)
+                -Mas Antiguo(Fecha Ingreso)
+                -Mayor a Menor Cantidad
+                -Menor a Mayor Cantidad
+                -Mayor a Menor Valor Unitario
+                -Menor a Mayor Valor Unitario
+                -Mayor a Menor Valor Total
+                -Menor a Mayor Valor Total
+    
+    > Generar Reporte   -Encabezado
+                        -Logo Imagen
+                        -Nombre,Cantidad,Valor Unitario,Valor Total,Fecha Pedido,Proveedor
+                        -Total Unidades Compradas, Total Valor Total
+    
 Proveedores : 
     > Eliminar  ***Eliminar
                 -Solucionar problema reiniciar el id luego de eliminar un registro
@@ -93,7 +115,12 @@ Proveedores :
     > Modificar -Modificar
                 -Deshabilita el id como Modificable
                 -Convierte la primera en Mayuscula y las demas en minusculas (Nombre,Descripcion,Marca)
-    
+
+    > Listar    -Alfabetico A-Z
+                -Alfabetico Z-A 
+                -Mas Recientes (Orden Id)
+                -Mas Antiguos (Orden Id)
+ 
 Ciudades : 
     > Eliminar  -Eliminar
                 -Solucionar problema reiniciar el id luego de eliminar un registro
@@ -101,6 +128,11 @@ Ciudades :
     
     > Modificar -Deshabilita el id como Modificable
                 -Convierte la primera en Mayuscula y las demas en minusculas (Nombre,Descripcion,Marca)
+
+    > Listar    -Alfabetico A-Z
+                -Alfabetico Z-A 
+                -Mas Recientes (Orden Id)
+                -Mas Antiguos (Orden Id)
 
 Salidas : 
     > Eliminar  ***Eliminar
@@ -110,7 +142,20 @@ Salidas :
     > Modificar -Modificar
                 -Deshabilita el id como Modificable
                 -Convierte la primera en Mayuscula y las demas en minusculas (Nombre,Descripcion,Marca)  
-        
+
+    > Listar    -Mas reciente (Fecha Ingreso)
+                -Mas Antiguo(Fecha Ingreso)
+                -Mayor a Menor Cantidad
+                -Menor a Mayor Cantidad
+                -Mayor a Menor Valor Unitario
+                -Menor a Mayor Valor Unitario
+                -Mayor a Menor Valor Total
+                -Menor a Mayor Valor Total
+    
+    > Generar Reporte   -Encabezado
+                        -Logo Imagen
+                        -Nombre,Cantidad,Valor Unitario,Valor Total,Fecha Pedido,Proveedor
+                        -Total Unidades Vendidas, Total Valor Total
 
 
 

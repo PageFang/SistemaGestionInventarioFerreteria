@@ -128,6 +128,10 @@
                                             </div>
 
                                             <div class="col">
+                                                <button type="button" class="btn btn-dark" onclick="generarReportePedido()"> Generar Reporte </button>
+                                            </div>
+
+                                            <div class="col">
                                                 
                                                 <!-- Modal Insertar Pedido -->
                                                 <div class="modal fade" id="myModal" data-bs-backdrop="static">

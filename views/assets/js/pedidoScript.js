@@ -181,3 +181,14 @@ function ordenarMinValorPedidos(){
         }
     });
 }
+
+/// ****++
+function generarReportePedido(){
+    console.log("Generar Reporte Pedidos");
+    $.ajax({
+        
+        type:"POST",
+        url:"../../../../Inventario_Ferreteria/controllers/pedidoReporte.php",
+        data:{funcion: "1"},
+    });
+}
