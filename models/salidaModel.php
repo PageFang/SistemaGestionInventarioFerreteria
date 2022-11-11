@@ -44,6 +44,80 @@
             
             return $stmt->execute();
         }
+
+        static public function ordenarMasRecienteSalidaModel(){
+            
+            $stmt = Connect::connectBd()-> prepare("SELECT s.id, p.nombre, s.cantidad, s.fechaSalida, s.valorUnitario, s.valorTotal FROM producto p LEFT JOIN salida s ON s.producto_id = p.id ORDER BY fechaSalida ASC");
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+            $stmt = null;
+        }
+
+        static public function ordenarMasAntiguoSalidaModel(){
+            
+            $stmt = Connect::connectBd()-> prepare("SELECT s.id, p.nombre, s.cantidad, s.fechaSalida, s.valorUnitario, s.valorTotal FROM producto p LEFT JOIN salida s ON s.producto_id = p.id ORDER BY fechaSalida DESC");
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+            $stmt = null;
+        }
+
+        static public function ordenarMaxCantidadSalidaModel(){
+            
+            $stmt = Connect::connectBd()-> prepare("SELECT s.id, p.nombre, s.cantidad, s.fechaSalida, s.valorUnitario, s.valorTotal FROM producto p LEFT JOIN salida s ON s.producto_id = p.id ORDER BY cantidad DESC");
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+            $stmt = null;
+        }
+
+        static public function ordenarMinCantidadSalidaModel(){
+            
+            $stmt = Connect::connectBd()-> prepare("SELECT s.id, p.nombre, s.cantidad, s.fechaSalida, s.valorUnitario, s.valorTotal FROM producto p LEFT JOIN salida s ON s.producto_id = p.id  ORDER BY cantidad ASC");
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+            $stmt = null;
+        }
+
+        static public function ordenarMaxValorUnidadSalidaModel(){
+            
+            $stmt = Connect::connectBd()-> prepare("SELECT s.id, p.nombre, s.cantidad, s.fechaSalida, s.valorUnitario, s.valorTotal FROM producto p LEFT JOIN salida s ON s.producto_id = p.id ORDER BY valorUnitario DESC");
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+            $stmt = null;
+        }
+
+        static public function ordenarMinValorUnidadSalidaModel(){
+            
+            $stmt = Connect::connectBd()-> prepare("SELECT s.id, p.nombre, s.cantidad, s.fechaSalida, s.valorUnitario, s.valorTotal FROM producto p LEFT JOIN salida s ON s.producto_id = p.id ORDER BY valorUnitario ASC");
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+            $stmt = null;
+        }
+
+        static public function ordenarMaxValorSalidaModel(){
+            
+            $stmt = Connect::connectBd()-> prepare("SELECT s.id, p.nombre, s.cantidad, s.fechaSalida, s.valorUnitario, s.valorTotal FROM producto p LEFT JOIN salida s ON s.producto_id = p.id ORDER BY valorTotal DESC");
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+            $stmt = null;
+        }
+
+        static public function ordenarMinValorSalidaModel(){
+            
+            $stmt = Connect::connectBd()-> prepare("SELECT s.id, p.nombre, s.cantidad, s.fechaSalida, s.valorUnitario, s.valorTotal FROM producto p LEFT JOIN salida s ON s.producto_id = p.id  ORDER BY valorTotal ASC");
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+            $stmt = null;
+        }
+
+        
     }
     
 ?>

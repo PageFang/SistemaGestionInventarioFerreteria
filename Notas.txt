@@ -79,7 +79,7 @@ Productos :
                 ***Deshabilita el id como Modificable
                 -Convierte la primera en Mayuscula y las demas en minusculas (Nombre,Descripcion,Marca)
     
-    > Listar     -Alfabetico A-Z
+    > Listar    -Alfabetico A-Z
                 -Alfabetico Z-A
                 -Mas reciente (Orden Id)
                 -Mas Antiguo(Orden Id)
@@ -116,10 +116,10 @@ Proveedores :
                 -Deshabilita el id como Modificable
                 -Convierte la primera en Mayuscula y las demas en minusculas (Nombre,Descripcion,Marca)
 
-    > Listar    -Alfabetico A-Z
-                -Alfabetico Z-A 
-                -Mas Recientes (Orden Id)
-                -Mas Antiguos (Orden Id)
+    > Listar    *** Alfabetico A-Z
+                *** Alfabetico Z-A 
+                *** Mas Recientes (Orden Id)
+                *** Mas Antiguos (Orden Id)
  
 Ciudades : 
     > Eliminar  -Eliminar
@@ -157,7 +157,9 @@ Salidas :
                         -Nombre,Cantidad,Valor Unitario,Valor Total,Fecha Pedido,Proveedor
                         -Total Unidades Vendidas, Total Valor Total
 
-
+Usuario :
+    > Crear Usuario - Nombre de Usuario/ Correo Electronico / Telefono / Foto de Perfil
+                                                                                                
 
 
 

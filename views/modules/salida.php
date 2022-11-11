@@ -97,35 +97,35 @@
                                             </div>
 
                                             <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxValorPedidos()"> Ordenar Mas Reciente</button>
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMasRecientesSalida()"> Ordenar Mas Reciente</button>
                                             </div>
 
                                             <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxValorPedidos()"> Ordenar Mas Antiguo</button>
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMasAntiguosSalida()"> Ordenar Mas Antiguo</button>
                                             </div>
 
                                             <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxValorPedidos()"> Ordenar Max a Min Cantidad</button>
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxCantidadSalida()"> Ordenar Max a Min Cantidad</button>
                                             </div>
 
                                             <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxValorPedidos()"> Ordenar Max a Min Cantidad</button>
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMinCantidadSalida()"> Ordenar Max a Min Cantidad</button>
                                             </div>
 
                                             <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxValorPedidos()"> Ordenar Max a Min Valor</button>
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxValorUnidadSalida()"> Ordenar Max a Min Valor</button>
                                             </div>
 
                                             <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxValorPedidos()"> Ordenar Max a Min Valor</button>
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMinValorUnidadSalida()"> Ordenar Max a Min Valor</button>
                                             </div>
 
                                             <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxValorPedidos()"> Ordenar Max a Min Valor</button>
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxValorSalida()"> Ordenar Max a Min Valor</button>
                                             </div>
 
                                             <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxValorPedidos()"> Ordenar Max a Min Valor</button>
+                                                <button type="button" class="btn btn-dark" onclick="ordenarMinValorSalida()"> Ordenar Max a Min Valor</button>
                                             </div>
 
                                             <div class="col">
