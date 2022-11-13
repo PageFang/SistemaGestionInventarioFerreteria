@@ -96,27 +96,25 @@
                                         <div class="row"> 
                                             
                                             <!-- Ingresar Producto -->
-                                            <div class="col">
-                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalInsertarProducto"> Ingresar Producto </button>
+                                            <div class="col-2">
+                                                <button type="button" class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#modalInsertarProducto"> Ingresar Producto </button>
                                             </div>
 
                                             <!-- Listar Productos -->
-                                            <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarNombreProductoAsc()">Ordenar Producto A-Z</button>
+                                            <div class="col-1">
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn btn-dark btn-lg dropdown-toggle" data-bs-toggle="dropdown"> Listar Por </button>
+                                                    
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" onclick="ordenarNombreProductoAsc()">Filtrar Producto A-Z</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarNombreProductoDesc()">Filtrar Producto Z-A</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMasRecientesProductoDesc()">Filtrar por Mas Recientes</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMasAntiguosProductoDesc()">Filtrar por Mas Antiguos</a></li>
+                                                    </ul>
+
+                                                </div>
                                             </div>
 
-                                            <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarNombreProductoDesc()">Ordenar Producto Z-A</button>
-                                            </div>
-
-                                            <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarMasRecientesProductoDesc()">Ordenar Mas Recientes</button>
-                                            </div>
-
-                                            <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarMasAntiguosProductoDesc()">Ordenar Mas Antiguos</button>
-                                            </div>
-                                            
                                             <!-- Modal Insertar Producto -->
                                             <div class="col">
                                                 <div class="modal fade" id="modalInsertarProducto" data-bs-backdrop="static">
@@ -129,7 +127,7 @@
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                                             </div>
 
-                                                            <!-- Cuerpo Modal -->
+                                                            <!-- Cuerpo Modal --> 
                                                             <div class="modal-body">
                                                                 
                                                                 <!-- Formulario Ingreso Producto -->

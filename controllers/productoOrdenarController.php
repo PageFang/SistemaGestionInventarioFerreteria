@@ -18,7 +18,6 @@
                                 <th>Nombre</th>
                                 <th>Descripcion</th>
                                 <th>Marca </th>
-                                <th>Valor Unitario </th>
                                 <th> </th>
                                 <th> </th>
                             </tr>
@@ -33,7 +32,6 @@
                                                 <td>'.$value['nombre'].'</td>
                                                 <td>'.$value['descripcion'].'</td>
                                                 <td>'.$value['marca'].'</td>
-                                                <td>'.$value['valorUnitario'].'</td>
                                                 <td>
                                                     <span class="btn btn-dark btn-sm" onclick="obtenerProducto('.$value['id'].')"  data-bs-toggle="modal" data-bs-target="#actualizarModalProducto">
                                                         <i class="fa-solid fa-pen"></i>
@@ -78,7 +76,6 @@
                                                 <td>'.$value['nombre'].'</td>
                                                 <td>'.$value['descripcion'].'</td>
                                                 <td>'.$value['marca'].'</td>
-                                                <td>'.$value['valorUnitario'].'</td>
                                                 <td>
                                                     <span class="btn btn-dark btn-sm" onclick="obtenerProducto('.$value['id'].')"  data-bs-toggle="modal" data-bs-target="#actualizarModalProducto">
                                                         <i class="fa-solid fa-pen"></i>
@@ -109,7 +106,6 @@
                                 <th>Nombre</th>
                                 <th>Descripcion</th>
                                 <th>Marca </th>
-                                <th>Valor Unitario </th>
                                 <th> </th>
                                 <th> </th>
                             </tr>
@@ -124,7 +120,6 @@
                                                 <td>'.$value['nombre'].'</td>
                                                 <td>'.$value['descripcion'].'</td>
                                                 <td>'.$value['marca'].'</td>
-                                                <td>'.$value['valorUnitario'].'</td>
                                                 <td>
                                                     <span class="btn btn-dark btn-sm" onclick="obtenerProducto('.$value['id'].')"  data-bs-toggle="modal" data-bs-target="#actualizarModalProducto">
                                                         <i class="fa-solid fa-pen"></i>
@@ -153,7 +148,6 @@
                                 <th>Nombre</th>
                                 <th>Descripcion</th>
                                 <th>Marca </th>
-                                <th>Valor Unitario </th>
                                 <th> </th>
                                 <th> </th>
                             </tr>
@@ -168,7 +162,6 @@
                                                 <td>'.$value['nombre'].'</td>
                                                 <td>'.$value['descripcion'].'</td>
                                                 <td>'.$value['marca'].'</td>
-                                                <td>'.$value['valorUnitario'].'</td>
                                                 <td>
                                                     <span class="btn btn-dark btn-sm" onclick="obtenerProducto('.$value['id'].')"  data-bs-toggle="modal" data-bs-target="#actualizarModalProducto">
                                                         <i class="fa-solid fa-pen"></i>

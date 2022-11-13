@@ -75,7 +75,7 @@
 
         // Ordenar Producto A-Z Nombre
         static public function ordenarNombreProductoAscModel(){
-            $stmt = Connect::connectBd()-> prepare("SELECT p.id, p.nombre, p.descripcion, p.marca, pd.valorUnitario FROM producto p LEFT JOIN pedido pd ON p.id = pd.producto_id ORDER BY nombre ASC");
+            $stmt = Connect::connectBd()-> prepare("SELECT id,nombre,descripcion, marca FROM producto ORDER BY nombre ASC");
             $stmt->execute();
 
             return $stmt->fetchAll();
@@ -84,7 +84,7 @@
 
         // Ordenar Producto A-Z Nombre
         static public function ordenarNombreProductoDescModel(){
-            $stmt = Connect::connectBd()-> prepare("SELECT p.id, p.nombre, p.descripcion, p.marca, pd.valorUnitario FROM producto p LEFT JOIN pedido pd ON p.id = pd.producto_id ORDER BY nombre DESC");
+            $stmt = Connect::connectBd()-> prepare("SELECT id,nombre,descripcion,marca FROM producto ORDER BY nombre DESC");
             $stmt->execute();
 
             return $stmt->fetchAll();
@@ -93,7 +93,7 @@
 
         // Ordenar Mas reciente
         static public function ordenarMasAntiguoProductoModel(){
-            $stmt = Connect::connectBd()-> prepare("SELECT p.id, p.nombre, p.descripcion, p.marca, pd.valorUnitario FROM producto p LEFT JOIN pedido pd ON p.id = pd.producto_id ORDER BY id ASC");
+            $stmt = Connect::connectBd()-> prepare("SELECT id,nombre,descripcion, marca FROM producto ORDER BY id ASC");
             $stmt->execute();
 
             return $stmt->fetchAll();
@@ -102,7 +102,7 @@
 
         // Ordenar Mas Antiguo
         static public function ordenarMasRecienteProductoModel(){
-            $stmt = Connect::connectBd()-> prepare("SELECT p.id, p.nombre, p.descripcion, p.marca, pd.valorUnitario FROM producto p LEFT JOIN pedido pd ON p.id = pd.producto_id ORDER BY id DESC");
+            $stmt = Connect::connectBd()-> prepare("SELECT id,nombre,descripcion, marca FROM producto ORDER BY id DESC");
             $stmt->execute();
 
             return $stmt->fetchAll();

@@ -187,7 +187,7 @@ function ordenarNombreProductoAsc(){
     $.ajax({
         
         type:"POST",
-        url:"../../../../Inventario_Ferreteria/controllers/ordenarProductoController.php",
+        url:"../../../../Inventario_Ferreteria/controllers/productoOrdenarController.php",
         data:{funcion: "1"},
         
         success:function(r){
@@ -205,7 +205,7 @@ function ordenarNombreProductoDesc(){
     $.ajax({
         
         type:"POST",
-        url:"../../../../Inventario_Ferreteria/controllers/ordenarProductoController.php",
+        url:"../../../../Inventario_Ferreteria/controllers/productoOrdenarController.php",
         data:{funcion: "2"},
         
         success:function(r){
@@ -223,7 +223,7 @@ function ordenarMasRecientesProductoDesc(){
     $.ajax({
         
         type:"POST",
-        url:"../../../../Inventario_Ferreteria/controllers/ordenarProductoController.php",
+        url:"../../../../Inventario_Ferreteria/controllers/productoOrdenarController.php",
         data:{funcion: "3"},
         
         success:function(r){
@@ -241,7 +241,7 @@ function ordenarMasAntiguosProductoDesc(){
     $.ajax({
         
         type:"POST",
-        url:"../../../../Inventario_Ferreteria/controllers/ordenarProductoController.php",
+        url:"../../../../Inventario_Ferreteria/controllers/productoOrdenarController.php",
         data:{funcion: "4"},
         
         success:function(r){
