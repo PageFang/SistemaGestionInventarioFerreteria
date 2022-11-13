@@ -21,7 +21,8 @@
         
         <!-- Scripts -->  
         <script src="../../../Inventario_Ferreteria/views/assets/plugins/jquery/jquery.min.js"></script>
-        <script src="../../../Inventario_Ferreteria/views/assets/plugins/sweetalert.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     </head>
 
     <body class="sb-nav-fixed">
@@ -90,18 +91,33 @@
                             <!-- Card Tabla Inventario Ciudades Contenido -->
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col-4">
+                                    <div class="col-5">
                                         
                                         <div class="row"> 
 
                                             <!-- Ingresar Ciudad -->
-                                            <div class="col">
-                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ingresar Ciudad </button>
+                                            <div class="col-3">
+                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#insertarCiudadModal"> Ingresar Ciudad </button>
                                             </div>
                                             
+                                            <!-- Listar Ciudad -->
+                                            <div class="col-2">
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"> Listar Por </button>
+                                                    
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" onclick="ordenarNombreCiudadAsc()">Filtrar Ciudad A-Z</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarNombreCiudadDesc()">Filtrar Ciudad Z-A</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMasRecientesCiudad()">Filtrar por Mas Recientes</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMasAntiguosCiudad()">Filtrar por Mas Antiguos</a></li>
+                                                    </ul>
+
+                                                </div>
+                                            </div>
+
                                             <!-- Modal Insertar Ciudad -->
                                             <div class="col">
-                                                <div class="modal fade" id="myModal" data-bs-backdrop="static">
+                                                <div class="modal fade" id="insertarCiudadModal" data-bs-backdrop="static">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
 
@@ -133,7 +149,7 @@
 
                                             <!-- Modal Actualizar Ciudad -->
                                             <div class="col">
-                                                <div class="modal fade" id="actualizarModalCiudad"  data-bs-backdrop="static">
+                                                <div class="modal fade" id="modalActualizarCiudad"  data-bs-backdrop="static">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
 

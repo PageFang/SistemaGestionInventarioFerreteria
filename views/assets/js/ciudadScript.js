@@ -1,4 +1,5 @@
 
+
 // Funcion Mostrar Lista Ciudad
 function mostrarCiudad(){
 
@@ -21,6 +22,8 @@ function mostrarCiudad(){
 // Funcion Insertar Ciudad
 function insertarCiudad(){
 
+    console.log("Insertar Ciudad Js");
+
     $.ajax({
         
         type:"POST",
@@ -28,29 +31,29 @@ function insertarCiudad(){
         data:$('#formInsertarCiudad').serialize(),
         
         success:function(respuesta){
-            
             mostrarCiudad();
-            console.log("Respuesta Insertar Ciudad : " + respuesta); 
+            console.log("Respuesta Insertar Ciudad : " + respuesta);
+            
             if(respuesta == 1) {
                 
                 // Limpia el formulario 
                 $('#formInsertarCiudad')[0].reset();
-                swal({
-                    title: "Ciudad Registrado",
-                    text: "La Ciudad ha sido registrado con exito",
+                Swal.fire({
+                    title: "Ciudad Registrada",
+                    text: "La ciudad ha sido registrada con exito",
                     icon: "success",
-                    button: "Aceptar",
+                    confirmButtonText: "Aceptar",
                 });
 
             } else if(respuesta == 2) {
                 
                 // Limpia el formulario 
                 $('#formInsertarCiudad')[0].reset();
-                swal({
+                Swal.fire({
                     title: "Error al Registrar",
-                    text: "La Ciudad que desea ingresar ya existe en el Inventario",
+                    text: "La ciudad que desea ingresar ya existe en el Inventario",
                     icon: "error",
-                    button: "Aceptar",
+                    confirmButtonText: "Aceptar",
                 });
             }
         }
@@ -59,38 +62,189 @@ function insertarCiudad(){
 }
 
 
-// Funcion Editar Producto *
-function obtenerCiudad(id){
+// Funcion Eliminar Producto
+function eliminarCiudad(id){
     
-    $.ajax({
-        type:"POST",
-        data:"id="+id,
-        url:"../../../../Inventario_Ferreteria/controllers/obtenerCiudad.php",
+    Swal.fire({
+        title: " ¿ Desea eliminar esta ciudad del Inventario ? ",
+        text : " Una vez eliminado la ciudad no podra recuperarse ",
+        icon:  "warning",
+        showCancelButton: true,
+        confirmButtonText: "Eliminar",
+        cancelButtonText: "Cancelar",
+    })
+
+    .then(resultado  => {
         
-        success:function(r){
-            r=jQuery.parseJSON(r);
-            $('#idUp').val(r['id']);
-            $('#nombreUp').val(r['nombre']);
+        if(resultado.value){
+            
+            $.ajax({
+                
+                type: "POST",
+                url: "../../../../Inventario_Ferreteria/controllers/ciudadEliminarController.php",
+                data:"id=" + id,
+                
+                success:function(respuesta){
+                    console.log("Respuesta Eliminar Ciudad : " + respuesta);
+                    mostrarCiudad();
+    
+                    if(respuesta == 1) {
+                        
+                        Swal.fire({
+                            title: "Ciudad Eliminada",
+                            text: "La ciudad ha sido eliminada con exito",
+                            icon: "success",
+                            confirmButtonText: "Aceptar",
+                        });
+    
+                    } else if(respuesta == 2) {
+                        
+                        Swal.fire({
+                            title: "Error al Eliminar",
+                            text: "No se ha podido Eliminar la Ciudad del Inventario",
+                            icon: "error",
+                            confirmButtonText: "Aceptar",
+                        });
+                    }
+                }
+            });
+    
+        } else {
+
         }
     });
 }
 
+
+// Funcion Obtener Datos  Ciudad
+function obtenerDatosCiudad(id){
+    
+    console.log("Obtener Datos Ciudad Js");
+
+    $.ajax({
+
+        type:"POST",
+        data:"id="+id,
+        url:"../../../../Inventario_Ferreteria/controllers/ciudadObtenerDatosController.php",
+        
+        success:function(respuesta){
+            console.log("Respuesta Obtener Datos Ciudad : " + respuesta);
+
+            respuesta=jQuery.parseJSON(respuesta);
+            $('#idUp').val(respuesta['id']);
+            $('#nombreUp').val(respuesta['nombre']);
+        }
+    });
+}
+
+
+// Funcion Actualizar Datos Ciudad
 function actualizarCiudad(){
     
-    console.log("A");
+    console.log("Actualizar Datos Ciudad Js");
+
     $.ajax({
+
         type:"POST",
-        url:"../../../../Inventario_Ferreteria/controllers/actualizarProducto.php",
+        url:"../../../../Inventario_Ferreteria/controllers/ciudadActualizarController.php",
         data:$('#formUptadeCiudad').serialize(),
         
-        success:function(r){
+        success:function(respuesta){
+            console.log("Respuesta Actualizar Datos Ciudad : " + respuesta);
             mostrarCiudad();
-            if(r!= null){
-                //swal("El Producto ha sido Actualizado", "", "success");
-            }else{
-                //swal("El Producto no ha sido Actualizado", "", "error");
+
+            if(respuesta == 1) {
+                        
+                Swal.fire({
+                    title: "Ciudad Actualizada",
+                    text: "Se han actualizado los Datos de Ciudad",
+                    icon: "success",
+                    confirmButtonText: "Aceptar",
+                });
+
+            } else if(respuesta == 2) {
+                
+                Swal.fire({
+                    title: "Error al Actualizar",
+                    text: "No se ha podido actualizar la informacion de Ciudad",
+                    icon: "error",
+                    confirmButtonText: "Aceptar",
+                });
             }
         }
     });
     return false;
+}
+
+
+
+// Funcion Ordenar Nombre Ciudad A-Z
+function ordenarNombreCiudadAsc(){
+    
+    console.log("Ordenar Ciudad Asc Js");
+    
+    $.ajax({
+        
+        type:"POST",
+        url:"../../../../Inventario_Ferreteria/controllers/ciudadOrdenarController.php",
+        data:{funcion: "1"},
+        
+        success:function(r){
+            $('#tablaCiudad').html(r);
+        }
+    });
+}
+
+
+// Funcion Ordenar Ciudad Producto Z-A
+function ordenarNombreCiudadDesc(){
+    
+    console.log("Ordenar Ciudad Desc Js");
+    
+    $.ajax({
+        
+        type:"POST",
+        url:"../../../../Inventario_Ferreteria/controllers/ciudadOrdenarController.php",
+        data:{funcion: "2"},
+        
+        success:function(r){
+            $('#tablaCiudad').html(r);
+        }
+    });
+}
+
+
+// Funcion Ordenar Ciudad Mas Recientes
+function ordenarMasRecientesCiudad(){
+    
+    console.log("Ordenar Ciudad Mas Recientes Js");
+    
+    $.ajax({
+        
+        type:"POST",
+        url:"../../../../Inventario_Ferreteria/controllers/ciudadOrdenarController.php",
+        data:{funcion: "3"},
+        
+        success:function(r){
+            $('#tablaCiudad').html(r);
+        }
+    });
+}
+
+
+// Funcion Ordenar Ciudad Mas Antiguos
+function ordenarMasAntiguosCiudad(){
+    
+    console.log("Ordenar Ciudad Mas Antiguos Js");
+    
+    $.ajax({
+        
+        type:"POST",
+        url:"../../../../Inventario_Ferreteria/controllers/ciudadOrdenarController.php",
+        data:{funcion: "4"},
+        
+        success:function(r){
+            $('#tablaCiudad').html(r);
+        }
+    });
 }

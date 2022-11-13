@@ -29,7 +29,7 @@
                                                 <td>'.$value['id'].'</td>
                                                 <td>'.$value['nombre'].'</td>
                                                 <td>
-                                                    <span class = "btn btn-dark btn-sm" onclick = "obtenerCiudad('.$value['id'].')"  data-bs-toggle = "modal" data-bs-target = "#actualizarModalCiudad">
+                                                    <span class = "btn btn-dark btn-sm" onclick = "obtenerDatosCiudad('.$value['id'].')"  data-bs-toggle = "modal" data-bs-target = "#modalActualizarCiudad">
                                                         <i class="fa-solid fa-pen"></i>
                                                     </span>
 											    </td>

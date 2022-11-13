@@ -97,19 +97,19 @@
                                             
                                             <!-- Ingresar Producto -->
                                             <div class="col-2">
-                                                <button type="button" class="btn btn-dark btn-lg" data-bs-toggle="modal" data-bs-target="#modalInsertarProducto"> Ingresar Producto </button>
+                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalInsertarProducto"> Ingresar Producto </button>
                                             </div>
 
                                             <!-- Listar Productos -->
                                             <div class="col-1">
                                                 <div class="dropdown">
-                                                    <button type="button" class="btn btn-dark btn-lg dropdown-toggle" data-bs-toggle="dropdown"> Listar Por </button>
+                                                    <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"> Listar Por </button>
                                                     
                                                     <ul class="dropdown-menu">
                                                         <li><a class="dropdown-item" onclick="ordenarNombreProductoAsc()">Filtrar Producto A-Z</a></li>
                                                         <li><a class="dropdown-item" onclick="ordenarNombreProductoDesc()">Filtrar Producto Z-A</a></li>
-                                                        <li><a class="dropdown-item" onclick="ordenarMasRecientesProductoDesc()">Filtrar por Mas Recientes</a></li>
-                                                        <li><a class="dropdown-item" onclick="ordenarMasAntiguosProductoDesc()">Filtrar por Mas Antiguos</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMasRecientesProducto()">Filtrar por Mas Recientes</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMasAntiguosProducto()">Filtrar por Mas Antiguos</a></li>
                                                     </ul>
 
                                                 </div>

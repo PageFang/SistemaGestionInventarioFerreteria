@@ -115,7 +115,7 @@ function eliminarProducto(id){
 }
 
 
-// Funcion Editar Producto
+// Funcion Obtener Datos Producto
 function obtenerDatosProducto(id){
     
     console.log("Obtener Datos Producto Js");
@@ -216,7 +216,7 @@ function ordenarNombreProductoDesc(){
 
 
 // Funcion Ordenar Productos Mas Recientes
-function ordenarMasRecientesProductoDesc(){
+function ordenarMasRecientesProducto(){
     
     console.log("Ordenar Producto Mas Recientes Js");
     
@@ -234,7 +234,7 @@ function ordenarMasRecientesProductoDesc(){
 
 
 // Funcion Ordenar Productos Mas Antiguos
-function ordenarMasAntiguosProductoDesc(){
+function ordenarMasAntiguosProducto(){
     
     console.log("Ordenar Producto Mas Antiguos Js");
     

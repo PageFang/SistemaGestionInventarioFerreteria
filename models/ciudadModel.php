@@ -14,7 +14,7 @@
             $stmt = null;
         }
 
-        // Seleccionar Ciudad para Validar
+        // Seleccionar Ciudad 
         static public function seleccionarCiudadModel($datosModel){
             
             $stmt = Connect::connectBd()-> prepare("SELECT id,nombre FROM ciudad WHERE nombre=:nombre"); 
@@ -35,8 +35,18 @@
             $stmt = null;
         }
 
-        // Obtener Producto for Modificar 
-        static public function obtenerCiudadModel($id){
+        // Eliminar Ciudad
+        static public function eliminarCiudadModel($id){
+            
+            $stmt =Connect::connectBd()-> prepare("DELETE FROM ciudad WHERE id=:id");
+            $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+            
+            return $stmt->execute();
+            $stmt = null;
+        }
+
+        // Obtener Datos Ciudad 
+        static public function obtenerDatosCiudadModel($id){
             
             $stmt = Connect::connectBd()-> prepare("SELECT id,nombre FROM ciudad WHERE id=:id");
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
@@ -46,8 +56,8 @@
             $stmt = null;
         }
 
-        // Modificar Producto 
-        static public function actualizarCiudadModel($id,$nombre){
+        // Modificar Datos Ciudad 
+        static public function actualizarDatosCiudadModel($id,$nombre){
             
             $stmt = Connect::connectBd()-> prepare("UPDATE ciudad SET nombre = :nombre WHERE id = :id");
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
@@ -57,6 +67,42 @@
             
             return $stmt->fetch();
             $stmt = null;
+        }
+
+        // Ordenar Producto A-Z Nombre
+        static public function ordenarNombreCiudadAscModel(){
+            $stmt = Connect::connectBd()-> prepare("SELECT * FROM ciudad ORDER BY nombre ASC");
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+            $stmt = null; 
+        }
+
+        // Ordenar Producto A-Z Nombre
+        static public function ordenarNombreCiudadDescModel(){
+            $stmt = Connect::connectBd()-> prepare("SELECT * FROM ciudad ORDER BY nombre DESC");
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+            $stmt = null; 
+        }
+
+        // Ordenar Mas reciente Ciudad
+        static public function ordenarMasAntiguoCiudadModel(){
+            $stmt = Connect::connectBd()-> prepare("SELECT * FROM ciudad ORDER BY id ASC");
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+            $stmt = null; 
+        }
+
+        // Ordenar Mas Antiguo Ciudad
+        static public function ordenarMasRecienteCiudadModel(){
+            $stmt = Connect::connectBd()-> prepare("SELECT * FROM ciudad ORDER BY id DESC");
+            $stmt->execute();
+
+            return $stmt->fetchAll();
+            $stmt = null; 
         }
     } 
     

@@ -1,0 +1,190 @@
+<?php
+
+    require_once("../../Inventario_Ferreteria/models/ciudadModel.php");
+    $funcionExecute = "";
+
+    class OrdenarCiudadController {
+        
+        // Funcion Ordenar Ciudad Asc
+        static public function ordenarNombreCiudadAsc(){
+            
+            $object = new CiudadModel();
+            $datos = $object->ordenarNombreCiudadAscModel();
+            
+            $tabla = '<table id="tablaCiudad" class="table table-bordered border-dark table-hover">
+                        <thead>
+                            <tr class="table-dark"> 
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th> </th>
+                                <th> </th>
+                            </tr>
+                        </thead> 
+                        <tbody>';
+
+            $datosTabla = "";
+
+            foreach ($datos as $key => $value) {
+                $datosTabla = $datosTabla.' <tr>
+                                                <td>'.$value['id'].'</td>
+                                                <td>'.$value['nombre'].'</td>
+                                                <td>
+                                                    <span class = "btn btn-dark btn-sm" onclick = "obtenerDatosCiudad('.$value['id'].')"  data-bs-toggle = "modal" data-bs-target = "#modalActualizarCiudad">
+                                                        <i class="fa-solid fa-pen"></i>
+                                                    </span>
+											    </td>
+                                                <td>
+                                                    <span class = "btn btn-dark" onclick = "eliminarCiudad('.$value['id'].')">
+                                                        <i class = "fa-solid fa-trash"></i>
+                                                    </span>
+											    </td>
+                                            </tr>';
+            }
+            echo $tabla.$datosTabla.'</tbody> </table>';
+        }
+
+
+        // Funcion Ordenar Ciudad Desc
+        static public function ordenarNombreCiudadDesc(){
+            
+            $object = new CiudadModel();
+            $datos = $object->ordenarNombreCiudadDescModel();
+            
+            $tabla = '<table id="tablaCiudad" class="table table-bordered border-dark table-hover">
+                        <thead>
+                            <tr class="table-dark"> 
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th> </th>
+                                <th> </th>
+                            </tr>
+                        </thead> 
+                        <tbody>';
+
+            $datosTabla = "";
+
+            foreach ($datos as $key => $value) {
+                $datosTabla = $datosTabla.' <tr>
+                                                <td>'.$value['id'].'</td>
+                                                <td>'.$value['nombre'].'</td>
+                                                <td>
+                                                    <span class = "btn btn-dark btn-sm" onclick = "obtenerDatosCiudad('.$value['id'].')"  data-bs-toggle = "modal" data-bs-target = "#modalActualizarCiudad">
+                                                        <i class="fa-solid fa-pen"></i>
+                                                    </span>
+											    </td>
+                                                <td>
+                                                    <span class = "btn btn-dark" onclick = "eliminarCiudad('.$value['id'].')">
+                                                        <i class = "fa-solid fa-trash"></i>
+                                                    </span>
+											    </td>
+                                            </tr>';
+            }
+            echo $tabla.$datosTabla.'</tbody> </table>';
+        }
+
+
+        // Funcion Ordenar Mas Recientes
+        static public function ordenarMasRecientesCiudad(){
+            
+            $object = new CiudadModel();
+            $datos = $object->ordenarMasRecienteCiudadModel();
+            
+            $tabla = '<table id="tablaCiudad" class="table table-bordered border-dark table-hover">
+                        <thead>
+                            <tr class="table-dark"> 
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th> </th>
+                                <th> </th>
+                            </tr>
+                        </thead> 
+                        <tbody>';
+
+            $datosTabla = "";
+
+            foreach ($datos as $key => $value) {
+                $datosTabla = $datosTabla.' <tr>
+                                                <td>'.$value['id'].'</td>
+                                                <td>'.$value['nombre'].'</td>
+                                                <td>
+                                                    <span class = "btn btn-dark btn-sm" onclick = "obtenerDatosCiudad('.$value['id'].')"  data-bs-toggle = "modal" data-bs-target = "#modalActualizarCiudad">
+                                                        <i class="fa-solid fa-pen"></i>
+                                                    </span>
+											    </td>
+                                                <td>
+                                                    <span class = "btn btn-dark" onclick = "eliminarCiudad('.$value['id'].')">
+                                                        <i class = "fa-solid fa-trash"></i>
+                                                    </span>
+											    </td>
+                                            </tr>';
+            }
+            echo $tabla.$datosTabla.'</tbody> </table>';
+        }
+
+        static public function ordenarMasAntiguoCiudad(){
+            
+            $object = new CiudadModel();
+            $datos = $object->ordenarMasAntiguoCiudadModel();
+            
+            $tabla = '<table id="tablaCiudad" class="table table-bordered border-dark table-hover">
+                        <thead>
+                            <tr class="table-dark"> 
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th> </th>
+                                <th> </th>
+                            </tr>
+                        </thead> 
+                        <tbody>';
+
+            $datosTabla = "";
+
+            foreach ($datos as $key => $value) {
+                $datosTabla = $datosTabla.' <tr>
+                                                <td>'.$value['id'].'</td>
+                                                <td>'.$value['nombre'].'</td>
+                                                <td>
+                                                    <span class = "btn btn-dark btn-sm" onclick = "obtenerDatosCiudad('.$value['id'].')"  data-bs-toggle = "modal" data-bs-target = "#modalActualizarCiudad">
+                                                        <i class="fa-solid fa-pen"></i>
+                                                    </span>
+											    </td>
+                                                <td>
+                                                    <span class = "btn btn-dark" onclick = "eliminarCiudad('.$value['id'].')">
+                                                        <i class = "fa-solid fa-trash"></i>
+                                                    </span>
+											    </td>
+                                            </tr>';
+            }
+            echo $tabla.$datosTabla.'</tbody> </table>';
+        }
+
+    }
+    
+    if(!empty($_POST['funcion'])) {
+        
+        $funcionExecute = $_POST['funcion'];
+        
+        switch($funcionExecute) {
+            
+            case '1': 
+                $mostrar = new OrdenarCiudadController();
+                $mostrar->ordenarNombreCiudadAsc();
+                break;
+
+            case '2': 
+                $mostrar = new OrdenarCiudadController();
+                $mostrar->ordenarNombreCiudadDesc();
+                break;
+        
+            case '3': 
+                $mostrar = new OrdenarCiudadController();
+                $mostrar->ordenarMasRecientesCiudad();
+                break;
+
+            case '4': 
+                $mostrar = new OrdenarCiudadController();
+                $mostrar->ordenarMasAntiguoCiudad();
+                break;
+        }
+    } 
+?>
