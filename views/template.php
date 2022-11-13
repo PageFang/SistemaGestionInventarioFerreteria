@@ -8,8 +8,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Inventario</title>
         
+        <title> Inventario </title>
+        <link rel="icon" href="../../Inventario_Ferreteria/views/assets/img/Logo.ico">
+
         <!-- Styles -->   
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="../../Inventario_Ferreteria/views/assets/css/styles.css" rel="stylesheet" />
@@ -89,7 +91,7 @@
                                         <span> Productos </span>
                                     </div>
                                     <div class="card-footer  border-secondary d-flex  align-items-center justify-content-center">
-                                        <a class="small text-white stretched-link text-decoration-none" href="../../Inventario_Ferreteria/views/modules/producto.php">Ver Mas </a>
+                                        <a class="small text-white stretched-link text-decoration-none" href="../../Inventario_Ferreteria/views/modules/producto.php"> Ver Mas </a>
                                     </div>
                                 </div>
                             </div>
@@ -102,7 +104,7 @@
                                         <span> Pedidos </span>
                                     </div>
                                     <div class="card-footer  border-secondary d-flex align-items-center justify-content-center">
-                                        <a class="small text-white stretched-link text-decoration-none" href="../../Inventario_Ferreteria/views/modules/pedido.php">Ver Mas</a>
+                                        <a class="small text-white stretched-link text-decoration-none" href="../../Inventario_Ferreteria/views/modules/pedido.php"> Ver Mas </a>
                                     </div>
                                 </div>
                             </div>
@@ -115,7 +117,7 @@
                                         <span> Salidas </span>
                                     </div>
                                     <div class="card-footer  border-secondary d-flex align-items-center justify-content-center">
-                                        <a class="small text-white stretched-link text-decoration-none" href="../../Inventario_Ferreteria/views/modules/salida.php"">Ver Mas</a>
+                                        <a class="small text-white stretched-link text-decoration-none" href="../../Inventario_Ferreteria/views/modules/salida.php"> Ver Mas </a>
                                     </div>
                                 </div>
                             </div>
@@ -128,7 +130,7 @@
                                         <span>Proveedores</span>
                                     </div>
                                     <div class="card-footer border-secondary d-flex align-items-center justify-content-center">
-                                        <a class="small text-white stretched-link text-decoration-none" href="../../Inventario_Ferreteria/views/modules/proveedor.php">Ver Mas</a>
+                                        <a class="small text-white stretched-link text-decoration-none" href="../../Inventario_Ferreteria/views/modules/proveedor.php"> Ver Mas </a>
                                     </div>
                                 </div>
                             </div>
@@ -156,6 +158,7 @@
                             </div>
 
                         </div>
+
                     </div>
                 </main>
             </div>
@@ -164,10 +167,14 @@
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        
+        <!-- Scripts Funcionalidades -->
         <script src="../../../Inventario_Ferreteria/views/assets/js/inicioScript.js"></script>
         
+        <!-- Funcion Mostrar Tabla Inventario -->
         <script type="text/javascript">
             mostrarInventario();
         </script>
+        
     </body>
 </html>

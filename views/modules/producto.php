@@ -10,6 +10,7 @@
         <meta name="author" content="" />
         
         <title> Inventario - Productos </title>
+        <link rel="icon" href="../../../Inventario_Ferreteria/views/assets/img/Logo.ico">
         
         <!-- Styles -->   
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -20,7 +21,8 @@
         
         <!-- Scripts -->  
         <script src="../../../Inventario_Ferreteria/views/assets/plugins/jquery/jquery.min.js"></script>
-        <script src="../../../Inventario_Ferreteria/views/assets/plugins/sweetalert.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     </head>
 
     <body class="sb-nav-fixed">
@@ -92,10 +94,13 @@
                                     <div class="col">
                                         
                                         <div class="row"> 
+                                            
+                                            <!-- Ingresar Producto -->
                                             <div class="col">
-                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ingresar Producto </button>
+                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalInsertarProducto"> Ingresar Producto </button>
                                             </div>
 
+                                            <!-- Listar Productos -->
                                             <div class="col">
                                                 <button type="button" class="btn btn-dark" onclick="ordenarNombreProductoAsc()">Ordenar Producto A-Z</button>
                                             </div>
@@ -114,7 +119,7 @@
                                             
                                             <!-- Modal Insertar Producto -->
                                             <div class="col">
-                                                <div class="modal fade" id="myModal" data-bs-backdrop="static">
+                                                <div class="modal fade" id="modalInsertarProducto" data-bs-backdrop="static">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
 
@@ -128,8 +133,8 @@
                                                             <div class="modal-body">
                                                                 
                                                                 <!-- Formulario Ingreso Producto -->
-                                                                <form form id="frminsert" onsubmit="return insertarProducto()" method="POST"> 
-    
+                                                                <form form id="formInsertarProducto" onsubmit="return insertarProducto()" method="POST"> 
+                                                                
                                                                     <label>Nombre : </label>
                                                                     <input type="text" id="nombre" name="nombre" class="form-control form-control-sm" placeholder="Ej. Alambre de Cobre" required="" >
                                                                     
@@ -138,9 +143,11 @@
                                                                     
                                                                     <label>Marca : </label>
                                                                     <input type="text" id="marca" name="marca" class="form-control form-control-sm" placeholder="Ej. Nexans" required="">
+                                                                    
                                                                     <br>
+                                                                    
                                                                     <input type="submit" value="Guardar" class="btn btn-primary">
-                                                    
+
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -150,7 +157,7 @@
 
                                             <!-- Modal Actualizar Producto -->
                                             <div class="col">
-                                                <div class="modal fade" id="actualizarModalProducto"  data-bs-backdrop="static">
+                                                <div class="modal fade" id="modalActualizarProducto"  data-bs-backdrop="static">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
 
@@ -177,9 +184,11 @@
                                                                     
                                                                     <label>Marca : </label>
                                                                     <input type="text" id="marcaUp" name="marcaUp" class="form-control form-control-sm" required="">
+                                                                    
                                                                     <br>
+                                                                    
                                                                     <input type="submit" value="Actualizar Datos" class="btn btn-primary">
-                                                    
+
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -211,8 +220,11 @@
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        
+        <!-- Scripts Funcionalidades -->
         <script src="../../../Inventario_Ferreteria/views/assets/js/productoScript.js"></script>
         
+        <!-- Funcion Mostrar Tabla Inventario -->
         <script type="text/javascript">
             mostrarProducto();
         </script>

@@ -10,6 +10,7 @@
         <meta name="author" content="" />
         
         <title> Inventario - Pedidos </title>
+        <link rel="icon" href="../../../Inventario_Ferreteria/views/assets/img/Logo.ico">
         
         <!-- Styles -->   
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -77,10 +78,10 @@
                     <div class="container-fluid px-4">
                         <h1 class="mt-4"> Pedidos </h1>
                         
-                        <!-- Card Tabla Inventario Productos -->
+                        <!-- Card Tabla Inventario Pedidos -->
                         <div class="card mb-4">
 
-                            <!-- Card Tabla Inventario Productos Encabezado -->
+                            <!-- Card Tabla Inventario Pedidos Encabezado -->
                             <div class="card-header">
                                     <i class="fa-solid fa-table-list"></i>
                                     <span> Listado de Pedidos :  </span>
@@ -91,10 +92,13 @@
                                     <div class="col"><!-- col 4-->
                                         
                                         <div class="row">
+                                            
+                                            <!-- Ingresar Pedidos -->
                                             <div class="col">
-                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ingresar Pedido </button>
+                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalInsertarPedido"> Ingresar Pedido </button>
                                             </div>
 
+                                            <!-- Listar Pedidos -->
                                             <div class="col">
                                                 <button type="button" class="btn btn-dark" onclick="ordenarMasRecientesPedidos()"> Ordenar Mas Reciente</button>
                                             </div>
@@ -134,7 +138,7 @@
                                             <div class="col">
                                                 
                                                 <!-- Modal Insertar Pedido -->
-                                                <div class="modal fade" id="myModal" data-bs-backdrop="static">
+                                                <div class="modal fade" id="modalInsertarPedido" data-bs-backdrop="static">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
 
@@ -147,7 +151,7 @@
                                                             <!-- Cuerpo Modal -->
                                                             <div class="modal-body">
                                                                 
-                                                                <form form id="formPedido" onsubmit="return insertarPedido()" method="POST"> 
+                                                                <form form id="formInsertarPedido" onsubmit="return insertarPedido()" method="POST"> 
                                                                     
                                                                     <label> Producto : </label>
                                                                     <select name="productoSelect" id="">
@@ -201,7 +205,6 @@
                                                                     <input type="submit" value="Guardar" class="btn btn-primary">
                                                                 
                                                                 </form>
-
                                                             </div>
                                                         </div>
                                                     </div>
@@ -211,11 +214,12 @@
                                     </div>
                                 </div>
 
-                                <!-- Tabla Inventario de Pedido -->
+                                <!-- InterEspacio -->
                                 <div class="row">
                                     <div class="col mb-4"></div>
                                 </div>
-
+                                
+                                <!-- Tabla Inventario de Pedido -->
                                 <div class="row">
                                     <div id="tablaPedido"></div>
                                 </div>
@@ -230,11 +234,15 @@
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+
+        <!-- Scripts Funcionalidades -->
         <script src="../../../Inventario_Ferreteria/views/assets/js/pedidoScript.js"></script>
         <script src="../../../Inventario_Ferreteria/views/assets/js/validaciones.js"></script>
         
+        <!-- Funcion Mostrar Tabla Inventario -->
         <script type="text/javascript">
             mostrarPedido();
         </script>
+
     </body>
 </html>

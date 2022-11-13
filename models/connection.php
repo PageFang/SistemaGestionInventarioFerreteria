@@ -5,7 +5,7 @@
         
             static public function connectBd() {   
             $conn = new PDO("mysql:host=localhost;dbname=inventario_ferreteria","root","");
-            
+
             return $conn;
         }
     }

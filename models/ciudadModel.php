@@ -4,7 +4,7 @@
     
     class CiudadModel {
         
-        // Mostrar Productos 
+        // Mostrar Listado Ciudad 
         static public function mostrarCiudadModel(){
             
             $stmt = Connect::connectBd()-> prepare("SELECT id,nombre FROM ciudad");

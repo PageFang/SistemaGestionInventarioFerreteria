@@ -1,20 +1,23 @@
 
+
 // Funcion mostrar Pedidos
 function mostrarPedido(){
 
-    console.log("Entra Mostrar Js");
+    console.log("Mostar Pedido Js");
 
     $.ajax({
         
         type:"POST",
-        url:"../../../../Inventario_Ferreteria/controllers/pedidoController.php",
+        url:"../../../../Inventario_Ferreteria/controllers/pedidoMostrarController.php",
         data:{funcion: "1"},
         
         success:function(r){
+            //console.log("Respuesta Mostrar Producto : " + respuesta); 
             $('#tablaPedido').html(r);
         }
     });
 }
+
 
 // Funcion Insertar Pedido
 function insertarPedido(){
@@ -22,23 +25,40 @@ function insertarPedido(){
     $.ajax({
         
         type:"POST",
-        url:"../../../../Inventario_Ferreteria/controllers/insertarPedido.php",
-        data:$('#formPedido').serialize(),
+        url:"../../../../Inventario_Ferreteria/controllers/pedidoInsertarController.php",
+        data:$('#formInsertarPedido').serialize(),
         
-        success:function(r){
-            console.log(r);
+        success:function(respuesta){
+            console.log("Respuesta Insertar Pedido " + respuesta);
             mostrarPedido();
-            if(r!= null){
-                // Limpia el Formulario
-                $('#formPedido')[0].reset();
-                // swal("El Pedido ha sido Registrado", "", "success");
-            }else{
-                // swal("El Pedido no ha sido Registrado", "", "error");
+            
+            if(respuesta == 1) {
+                
+                // Limpia el formulario 
+                $('#formInsertarPedido')[0].reset();
+                swal({
+                    title: "Pedido Registrado",
+                    text: "El Pedido ha sido registrado con exito",
+                    icon: "success",
+                    button: "Aceptar",
+                });
+
+            } else if(respuesta == 2) {
+                
+                // Limpia el formulario 
+                $('#formInsertarPedido')[0].reset();
+                swal({
+                    title: "Error al Registrar",
+                    text: "No se ha podido Insertar el pedido",
+                    icon: "error",
+                    button: "Aceptar",
+                });
             }
         }
     });
     return false;
 }
+
 
 // Funcion Eliminar Pedido
 function eliminarPedido(id){

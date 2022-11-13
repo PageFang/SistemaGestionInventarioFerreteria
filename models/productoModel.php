@@ -4,17 +4,17 @@
     
     class ProductoModel {
         
-        // Mostrar Productos 
+        // Mostrar Lista Productos 
         static public function mostrarProductoModel(){
             
-            $stmt = Connect::connectBd()-> prepare("SELECT p.id, p.nombre, p.descripcion, p.marca, pd.valorUnitario FROM producto p LEFT JOIN pedido pd ON p.id = pd.producto_id;");
+            $stmt = Connect::connectBd()-> prepare("SELECT id, nombre, descripcion, marca FROM producto");
             $stmt->execute();
             
             return $stmt->fetchAll();
             $stmt = null;
         }
 
-        // Seleccionar Productos para Validar
+        // Seleeccionar Productos 
         static public function seleccionarProductoModel($datosModel){
             
             $stmt = Connect::connectBd()-> prepare("SELECT id,nombre,descripcion,marca FROM producto WHERE nombre=:nombre"); 
@@ -25,10 +25,11 @@
             $stmt = null;
         }
 
-        // Insertar Productos
+        // Insertar Producto
         static public function insertarProductoModel($datosModel){
             
             $stmt =Connect::connectBd()-> prepare("INSERT INTO producto (nombre,descripcion,marca) VALUE (:nombre, :descripcion, :marca)");
+            
             $stmt->bindParam(":nombre", $datosModel["nombre"], PDO::PARAM_STR);
             $stmt->bindParam(":descripcion", $datosModel["descripcion"], PDO::PARAM_STR);
             $stmt->bindParam(":marca", $datosModel["marca"], PDO::PARAM_STR);
@@ -37,27 +38,28 @@
             $stmt = null;
         }
         
-        // Eliminar Productos
+        // Eliminar Producto
         static public function eliminarProductoModel($id){
             
             $stmt =Connect::connectBd()-> prepare("DELETE FROM producto WHERE id=:id");
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
             
             return $stmt->execute();
+            $stmt = null;
         }
 
-        // Obtener Producto for Modificar 
-        static public function obtenerProducto($id){
+        // Obtener Datos del Producto
+        static public function obtenerDatosProductoModel($id){
             
             $stmt = Connect::connectBd()-> prepare("SELECT id,nombre,descripcion,marca FROM producto WHERE id=:id");
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
-            $stmt->execute();
             
+            $stmt->execute();
             return $stmt->fetch();
             $stmt = null;
         }
 
-        // Modificar Producto 
+        // Actualizar Datos del  Producto 
         static public function actualizarProductoModel($id,$nombre,$descripcion,$marca ){
             
             $stmt = Connect::connectBd()-> prepare("UPDATE producto SET nombre = :nombre, descripcion = :descripcion, marca = :marca WHERE id = :id");

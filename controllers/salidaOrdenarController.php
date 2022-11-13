@@ -5,7 +5,6 @@
 
     class OrdenarSalidaController {
         
-        // Mostrar Salidas 
         static public function ordenarMasRecienteSalidaController(){
             
             $obj = new SalidaModel();

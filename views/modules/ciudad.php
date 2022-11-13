@@ -10,6 +10,7 @@
         <meta name="author" content="" />
         
         <title> Inventario - Ciudades </title>
+        <link rel="icon" href="../../../Inventario_Ferreteria/views/assets/img/Logo.ico">
         
         <!-- Styles -->   
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -77,21 +78,23 @@
                     <div class="container-fluid px-4">
                         <h1 class="mt-4"> Ciudades </h1>
                         
-                        <!-- Card Tabla Inventario Productos -->
+                        <!-- Card Tabla Inventario Ciudades -->
                         <div class="card mb-4">
 
-                            <!-- Card Tabla Inventario Productos Encabezado -->
+                            <!-- Card Tabla Inventario Ciudades Encabezado -->
                             <div class="card-header">
                                     <i class="fa-solid fa-table-list"></i>
                                     <span> Listado de Ciudades : </span>
                             </div>
                             
-                            <!-- Card Tabla Inventario Productos Contenido -->
+                            <!-- Card Tabla Inventario Ciudades Contenido -->
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-4">
                                         
                                         <div class="row"> 
+
+                                            <!-- Ingresar Ciudad -->
                                             <div class="col">
                                                 <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ingresar Ciudad </button>
                                             </div>
@@ -118,6 +121,7 @@
                                                                     <input type="text" id="nombre" name="nombre" class="form-control form-control-sm" placeholder="Ej. Bogota" required="" >
 
                                                                     <br>
+                                                                    
                                                                     <input type="submit" value="Guardar" class="btn btn-primary">
                                                     
                                                                 </form>
@@ -152,6 +156,7 @@
                                                                     <input type="text" id="nombreUp" name="nombreUp" class="form-control form-control-sm" required="">
 
                                                                     <br>
+                                                                    
                                                                     <input type="submit" value="Actualizar Datos" class="btn btn-primary">
 
                                                                 </form>
@@ -184,8 +189,11 @@
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        
+        <!-- Scripts Funcionalidades -->
         <script src="../../../Inventario_Ferreteria/views/assets/js/ciudadScript.js"></script>
         
+        <!-- Funcion Mostara Tabla Inventarios -->
         <script type="text/javascript">
             mostrarCiudad();
         </script>

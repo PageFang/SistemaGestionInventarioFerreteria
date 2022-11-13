@@ -3,17 +3,18 @@
     require_once("../../Inventario_Ferreteria/models/proveedorModel.php");
     $funcionExecute = "";
 
-    class ProveedorController {
+    class MostarProveedor {
         
         // Mostrar Proveedores 
         static public function mostrarProveedorController(){
             
             $obj = new ProveedorModel();
             $datos = $obj->mostrarProveedorModel();
-           
+            $datosTabla = "";
+
             $tabla ='<table id="tablaProveedor" class="table table-bordered border-dark table-hover">
                         <thead>
-                        <tr class="table-dark"> 
+                            <tr class="table-dark"> 
                                 <th>Id</th>
                                 <th>Nombre</th>
                                 <th>Direccion</th>
@@ -23,9 +24,8 @@
                                 <th></th>
                             </tr>
                         </thead> 
-                        <tbody>';
 
-            $datosTabla = "";
+                        <tbody>';
 
             foreach ($datos as $key => $value) {
                 $datosTabla = $datosTabla.' <tr>
@@ -35,7 +35,7 @@
                                                 <td>'.$value['correoElectronico'].'</td>
                                                 <td>'.$value['telefono'].'</td>
                                                 <td>
-                                                    <span class="btn btn-dark btn-sm" onclick="obtenerProveedor('.$value['id'].')" data-bs-toggle="modal" data-bs-target="#actualizarModalProveedor">
+                                                    <span class="btn btn-dark btn-sm" onclick="obtenerDatosProveedor('.$value['id'].')" data-bs-toggle="modal" data-bs-target="#actualizarModalProveedor">
                                                         <i class="fas fa-edit"></i>
                                                     </span>
 											    </td>
@@ -46,8 +46,7 @@
 											    </td>
                                             </tr>';
             }
-
-            echo $tabla.$datosTabla.' </tbody> </table>';
+            echo $tabla.$datosTabla.'</tbody> </table>';
         }
     }
 
@@ -55,10 +54,10 @@
         
         $funcionExecute = $_POST['funcion'];
         
-        switch($funcionExecute) {
+        switch ($funcionExecute) {
             
             case '1': 
-                $mostrar = new ProveedorController();
+                $mostrar = new MostarProveedor();
                 $mostrar->mostrarProveedorController();
                 break;
         }

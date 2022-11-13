@@ -1,44 +1,65 @@
 
-// Funcion Mostrar Lista Productos
+// Funcion Mostrar Lista Ciudad
 function mostrarCiudad(){
+
+    console.log("Mostrar Ciudad Js");
 
     $.ajax({
         
         type:"POST",
-        url:"../../../../Inventario_Ferreteria/controllers/ciudadController.php",
+        url:"../../../../Inventario_Ferreteria/controllers/ciudadMostrarController.php",
         data:{funcion: "1"},
         
-        success:function(r){
-            $('#tablaCiudad').html(r);
+        success:function(respuesta){
+            //console.log("Respuesta Mostrar Ciudad : " + respuesta); 
+            $('#tablaCiudad').html(respuesta);
         }
     });
 }
 
+
+// Funcion Insertar Ciudad
 function insertarCiudad(){
 
     $.ajax({
         
         type:"POST",
-        url:"../../../../Inventario_Ferreteria/controllers/insertarCiudad.php",
+        url:"../../../../Inventario_Ferreteria/controllers/ciudadInsertarController.php",
         data:$('#formInsertarCiudad').serialize(),
         
-        success:function(r){
-            mostrarCiudad();
+        success:function(respuesta){
             
-            console.log("Respuesta Insertar : " + r); 
-            if(r != null) { // VALIDAR
-                // Limpia el formulario despues de llenarlo
+            mostrarCiudad();
+            console.log("Respuesta Insertar Ciudad : " + respuesta); 
+            if(respuesta == 1) {
+                
+                // Limpia el formulario 
                 $('#formInsertarCiudad')[0].reset();
-               // swal("El Producto ha sido Registrado", "", "success");
-            }else{
-                // swal("El Producto no ha sido Registrado", "", "error");
+                swal({
+                    title: "Ciudad Registrado",
+                    text: "La Ciudad ha sido registrado con exito",
+                    icon: "success",
+                    button: "Aceptar",
+                });
+
+            } else if(respuesta == 2) {
+                
+                // Limpia el formulario 
+                $('#formInsertarCiudad')[0].reset();
+                swal({
+                    title: "Error al Registrar",
+                    text: "La Ciudad que desea ingresar ya existe en el Inventario",
+                    icon: "error",
+                    button: "Aceptar",
+                });
             }
         }
     });
     return false;
 }
 
-// Funcion Editar Producto
+
+// Funcion Editar Producto *
 function obtenerCiudad(id){
     
     $.ajax({

@@ -1,10 +1,14 @@
+
+
 // Funcion mostrar lista de productos
 function mostrarSalida(){
+
+    console.log("Mostrar Salida Js");
 
     $.ajax({
         
         type:"POST",
-        url:"../../../../Inventario_Ferreteria/controllers/salidaController.php",
+        url:"../../../../Inventario_Ferreteria/controllers/salidaMostrarController.php",
         data:{funcion: "1"},
         
         success:function(r){
@@ -13,25 +17,41 @@ function mostrarSalida(){
     });
 }
 
-// Funcion Insertar Producto
+
+// Funcion Insertar Salida
 function insertarSalida(){
 
     $.ajax({
         
         type:"POST",
-        url:"../../../../Inventario_Ferreteria/controllers/insertarSalida.php",
-        data:$('#formSalida').serialize(),
+        url:"../../../../Inventario_Ferreteria/controllers/salidaInsertarController.php",
+        data:$('#formInsertarSalida').serialize(),
         
-        success:function(r){
-            console.log(r);
+        success:function(respuesta){
+            console.log("Respuesta Insertar Salida : " + respuesta);
             mostrarSalida();
-            if(r!= null){
-                // Limpia el Formulario
-                $('#formSalida')[0].reset();
-            
-                //swal("Producto Registrado", ":)", "success");
-            }else{
-                //swal("Error al Registrar", ":(", "error");
+
+            if(respuesta == 1) {
+                
+                // Limpia el formulario 
+                $('#formInsertarSalida')[0].reset();
+                swal({
+                    title: "Salida Registrado",
+                    text: "Las Salida ha sido registrada con exito",
+                    icon: "success",
+                    button: "Aceptar",
+                });
+
+            } else if(respuesta == 2) {
+                
+                // Limpia el formulario 
+                $('#formInsertarSalida')[0].reset();
+                swal({
+                    title: "Error al Registrar",
+                    text: "La salida no se ha podido Ingresar",
+                    icon: "error",
+                    button: "Aceptar",
+                });
             }
         }
     });

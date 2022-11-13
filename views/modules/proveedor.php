@@ -9,7 +9,8 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         
-        <title> Inventario - Proveedores</title>
+        <title> Inventario - Proveedores </title>
+        <link rel="icon" href="../../../Inventario_Ferreteria/views/assets/img/Logo.ico">
         
         <!-- Styles -->   
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -77,25 +78,28 @@
                     <div class="container-fluid px-4">
                         <h1 class="mt-4"> Proveedores </h1>
                         
-                        <!-- Card Tabla Inventario Proveeedore -->
+                        <!-- Card Tabla Inventario Proveeedores -->
                         <div class="card mb-4">
 
-                            <!-- Card Tabla Inventario Proveeedore Encabezado -->
+                            <!-- Card Tabla Inventario Proveeedores Encabezado -->
                             <div class="card-header">
                                     <i class="fa-solid fa-table-list"></i>
                                     <span> Listado de Proveedores : </span>
                             </div>
                             
-                            <!-- Card Tabla Inventario Productos Contenido -->
+                            <!-- Card Tabla Inventario Proveeedores Contenido -->
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col">
-
+                                        
                                         <div class="row">
+                                            
+                                            <!-- Ingresar Ciudades -->
                                             <div class="col">
-                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ingresar Proveedor </button>
+                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalInsertarProveedor"> Ingresar Proveedor </button>
                                             </div>
 
+                                            <!-- Listar Proveedores -->
                                             <div class="col">
                                                 <button type="button" class="btn btn-dark" onclick="ordenarNombreProveedorAsc()"> Ordenar A-Z</button>
                                             </div>
@@ -114,7 +118,7 @@
 
                                             <!-- Modal Insertar Proveedor -->
                                             <div class="col">
-                                                <div class="modal fade" id="myModal" data-bs-backdrop="static">
+                                                <div class="modal fade" id="modalInsertarProveedor" data-bs-backdrop="static">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
 
@@ -127,7 +131,7 @@
                                                             <!-- Cuerpo Modal -->
                                                             <div class="modal-body">
                                                                 
-                                                                <form form id="formProveedor" onsubmit="return insertarProveedor()" method="POST"> 
+                                                                <form form id="formInsertarProveedor" onsubmit="return insertarProveedor()" method="POST"> 
                                                                     
                                                                     <label>Nombre : </label>
                                                                     <input type="text" id="nombre" name="nombre" class="form-control form-control-sm" placeholder="Ej. Alejandro Rodriguez" required="">
@@ -142,6 +146,7 @@
                                                                     <input type="text" id="telefono" name="telefono" class="form-control form-control-sm" placeholder="3117709431"  required="" maxlength="10" onkeypress='return validaNumericos(event)'>
 
                                                                     <br>
+                                                                    
                                                                     <label>Ciudad : </label>
                                                                     <select name="ciudadProveedor" id="">
                                                                     
@@ -159,11 +164,12 @@
                                                                         ?>
 
                                                                     </select>
+                                                                    
                                                                     <br> <br>
+                                                                    
                                                                     <input type="submit" value="Guardar" class="btn btn-primary">
 
                                                                 </form>
-
                                                             </div>
                                                         </div>
                                                     </div>
@@ -202,15 +208,17 @@
                                                                     
                                                                     <label>Telefono : </label>
                                                                     <input type="text" id="telefonoUp" name="telefonoUp" class="form-control form-control-sm" equired="" maxlength="10">
+                                                                    
                                                                     <br>
+                                                                    
                                                                     <label>Ciudad : </label>
 
                                                                     <br> <br>
+                                                                    
                                                                     <input type="submit" value="Actualizar Datos" class="btn btn-primary">
 
                                                                 </form>
                                                             </div>
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -219,6 +227,7 @@
                                     </div>
                                 </div>
                                 
+                                <!-- InterEspacio-->
                                 <div class="row">
                                     <div class="col mb-4"></div>
                                 </div>
@@ -238,11 +247,15 @@
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        
+        <!-- Scripts Funcionalidades -->
         <script src="../../../Inventario_Ferreteria/views/assets/js/proveedorScript.js"></script>
         <script src="../../../Inventario_Ferreteria/views/assets/js/validaciones.js"></script>
         
+        <!-- Funcion Mostar Tabla Inventario -->
         <script type="text/javascript">
             mostrarProveedor();
         </script>
+
     </body>
 </html>

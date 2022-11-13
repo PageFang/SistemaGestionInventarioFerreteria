@@ -9,7 +9,8 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         
-        <title> Inventario</title>
+        <title> Inventario - Salidas </title>
+        <link rel="icon" href="../../../Inventario_Ferreteria/views/assets/img/Logo.ico">
         
         <!-- Styles -->   
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -77,10 +78,10 @@
                     <div class="container-fluid px-4">
                         <h1 class="mt-4"> Salidas </h1>
                         
-                        <!-- Card Tabla Inventario Productos -->
+                        <!-- Card Tabla Inventario Salidas -->
                         <div class="card mb-4">
 
-                            <!-- Card Tabla Inventario Productos Encabezado -->
+                            <!-- Card Tabla Inventario Salidas Encabezado -->
                             <div class="card-header">
                                     <i class="fa-solid fa-table-list"></i>
                                     <span> Listado de Salidas : </span>
@@ -92,10 +93,13 @@
                                     <div class="col">
                                         
                                         <div class="row">
+                                            
+                                            <!-- Ingresar Salida -->
                                             <div class="col">
-                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#myModal"> Ingresar Salida </button>
+                                                <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalInsertarSalida"> Ingresar Salida </button>
                                             </div>
 
+                                            <!-- Listar Salida -->
                                             <div class="col">
                                                 <button type="button" class="btn btn-dark" onclick="ordenarMasRecientesSalida()"> Ordenar Mas Reciente</button>
                                             </div>
@@ -131,7 +135,7 @@
                                             <div class="col">
                                             
                                             <!-- Modal Insertar Salida-->
-                                            <div class="modal fade" id="myModal" data-bs-backdrop="static">
+                                            <div class="modal fade" id="modalInsertarSalida" data-bs-backdrop="static">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
 
@@ -145,7 +149,7 @@
                                                             <div class="modal-body">
                                                             
                                                                 <!-- Formulario Insertar Salida -->
-                                                                <form form id="formSalida" onsubmit="return insertarSalida()" method="POST"> 
+                                                                <form form id="formInsertarSalida" onsubmit="return insertarSalida()" method="POST"> 
 
                                                                     <label>Producto : </label>
                                                                     <select name="productoSalida" id="" required="">
@@ -176,11 +180,11 @@
                                                                     <input type="text" id="valorUnitario" name="valorUnitario" class="form-control form-control-sm" placeholder="Ej. 3000"  required="" onkeypress='return validaNumericos(event)'>
                                                                         
                                                                     <br>
+                                                                    
                                                                     <input type="submit" value="Guardar" class="btn btn-primary">
 
                                                                 </form>
                                                             </div>
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -188,7 +192,8 @@
                                         </div>
                                     </div>
                                 </div>
-
+                                
+                                <!-- InterEspacio -->
                                 <div class="row">
                                     <div class="col mb-4"></div>
                                 </div>
@@ -208,11 +213,15 @@
         <!-- Scripts -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+        
+        <!-- Scripts Funcionalidades -->
         <script src="../../../Inventario_Ferreteria/views/assets/js/salidaScript.js"></script>
         <script src="../../../Inventario_Ferreteria/views/assets/js/validaciones.js"></script>
         
+        <!-- Funcion Mostrar Tabla Inventario -->
         <script type="text/javascript">
             mostrarSalida();
         </script>
+        
     </body>
 </html>

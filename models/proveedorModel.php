@@ -4,6 +4,7 @@
     
     class ProveedorModel {
         
+        // Mostar Lista de Proveedores
         static public function mostrarProveedorModel(){
             
             $stmt = Connect::connectBd()-> prepare("SELECT id,nombre,direccion,correoElectronico,telefono FROM proveedor");
@@ -14,7 +15,7 @@
         }
         
 
-        // Seleccionar Productos para Validar
+        // Seleccionar Proveedor
         static public function seleccionarProveedorModel($datosModel){
             
             $stmt = Connect::connectBd()-> prepare("SELECT id,nombre,direccion,correoElectronico,telefono FROM proveedor WHERE nombre=:nombre"); 
@@ -25,6 +26,7 @@
             $stmt = null;
         }
 
+        // Insertar Proveedor
         static public function insertarProveedorModel($datosModel){
             
             $stmt =Connect::connectBd()-> prepare("INSERT INTO proveedor (nombre,direccion,correoElectronico,telefono,ciudad_id) VALUE (:nombre, :direccion, :correoElectronico, :telefono, :ciudad_id)");

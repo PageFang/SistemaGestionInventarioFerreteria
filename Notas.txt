@@ -1,50 +1,65 @@
+*** Agregar Icono Logo
+- Cambiar Botonos Por Select Listar
+- Cambiar ID nombres de Metodos, Clases
+- Agregar Hovers
+- Agregar Animaciones 
+- URL htppaccess
+- Reodenar Precios
+
 ----------------------------------------------------------------- Sprint 1 -----------------------------------------------------------------
 
 Productos : 
-    > Insertar  ***Validar que no existan dos productos Iguales
-                - Validar de que muestre un mensaje "El producto que desea Ingresar ya existe"
+    > Insertar  *** Validar Espacios Vacios
+                *** Validar que no existan dos productos Iguales
+                *** Validar de que muestre un mensaje "El producto que desea Ingresar ya existe"
                 - Validar Caracteres Especiales
                 ***Validar que se conviertan la primera en Mayuscula y las demas en minusculas (Cadena Texto) (Nombre,Descripcion,Marca)
                 - Validar que se limpien los datos despues de Cerrar la ventana y Guardar
-                ***Colocar PlaecHolder a los Inputs
-                ***Animaciones al modal y validar que no se cierre si hace click en el display
-                - Solucionar problemas graficos Mostrar cuando es correcto o incorrecto
+                *** Colocar PlaecHolder a los Inputs
+                *** Animaciones al modal y validar que no se cierre si hace click en el display
+                *** Solucionar problemas graficos Mostrar cuando es correcto o incorrecto
    
     > Mostrar   ***Muestra elementos foraneos (Valor Unitario (Pedido))
                 - Validar si la tabla esta vacia mostrar un texto (No se han Ingresado Productos)
+                - Validar Si no se ha Ingresado el Pedido de Algun Producto Muestre "No se ha Ingresado un Valor"
 
 
 Ciudad : 
-    > Insertar  **Validar que no existan dos ciudades Iguales
-                - Validar de que muestre un mensaje "la Ciudad que desea Ingresar ya existe"
-                **Convierte la primera en Mayuscula y las demas en minusculas (Nombre)
+    > Insertar  *** Validar Espacios Vacios
+                *** Validar que no existan dos ciudades Iguales
+                *** Validar de que muestre un mensaje "la Ciudad que desea Ingresar ya existe"
+                *** Convierte la primera en Mayuscula y las demas en minusculas (Nombre)
                 - Validar que se limpien los datos despues de Cerrar y Guardar
-                - Solucionar problemas graficos Mostrar cuando es correcto o incorrecto
-                ***Quemar datos de las capitales 
+                - Validar Caracteres Especiales
+                *** Solucionar problemas graficos Mostrar cuando es correcto o incorrecto
+                *** Quemar datos de las capitales 
    
     > Mostrar   ***Muestra elementos
                 - Validar si la tabla esta vacia mostrar un texto (No se han Ingresado Ciudades)
 
     
 Proveedores : 
-    > Insertar  ***Validar que no existan dos Proveedores Iguales
-                - Validar de que muestre un mensaje "El proveedor que desea Ingresar ya existe"
-                ***Convierte la primera en Mayuscula y las demas en minusculas (Nombre,Direccion)
+    > Insertar  *** Validar Espacios Vacios
+                - Validar Select Option no quede en "Seleccione"
+                *** Validar que no existan dos Proveedores Iguales
+                *** Validar de que muestre un mensaje "El proveedor que desea Ingresar ya existe"
+                *** Convierte la primera en Mayuscula y las demas en minusculas (Nombre,Direccion)
                 - Validar que se limpien los datos despues de Cerrar y Guardar
-                ***Validar que en el campo de Telefono solo se ingresen Numeros y sean 10
-                - Solucionar problemas graficos Mostrar cuando es correcto o incorrecto
-                ***Agregar Columna Correo Electronico
+                *** Validar que en el campo de Telefono solo se ingresen Numeros y sean 10
+                *** Solucionar problemas graficos Mostrar cuando es correcto o incorrecto
+                *** Agregar Columna Correo Electronico
    
     > Mostrar   - Muestra elementos foraneos (Ciudad de Residencia)
                 - Validar si la tabla esta vacia mostrar un texto (No se han Ingresado Proveedores)
 
     
 Pedidos : 
-    > Insertar  - Validar que se limpien los datos despues de Cerrar y Guardar
-                - Solucionar problemas graficos Mostrar cuando es correcto o incorrecto
-                ***Validar que solo se puedan Ingresar Numeros en Cantidad y Valor Unitario
-                - Buscar un Input de Fecha
-                ***Agregar Cantidad a TABLE Inventario
+    > Insertar  *** Validar Espacios Vacios
+                - Validar Select Option no quede en "Seleccione"
+                - Validar que se limpien los datos despues de Cerrar y Guardar
+                *** Solucionar problemas graficos Mostrar cuando es correcto o incorrecto
+                *** Validar que solo se puedan Ingresar Numeros en Cantidad y Valor Unitario
+                *** Agregar Cantidad a TABLE Inventario
                 - Actualizar la Cantidad cuando se Inserte un Pedido (Acumulando la cantidad)
 
     > Mostrar   ***Muestra elementos foraneos (Nombre Produto)
@@ -53,14 +68,13 @@ Pedidos :
 
 Salidas : 
     > Insertar  - Validar que se limpien los datos despues de Cerrar y Guardar
-                - Solucionar problemas graficos Mostrar cuando es correcto o incorrecto
-                ***Validar que solo se puedan Ingresar Numeros en Cantidad y Valor Unitario
-                - Buscar un Input de Fecha
-                ***Agregar Cantidad a TABLE Inventario
+                *** Solucionar problemas graficos Mostrar cuando es correcto o incorrecto
+                *** Validar que solo se puedan Ingresar Numeros en Cantidad y Valor Unitario
+                *** Agregar Cantidad a TABLE Inventario
                 - Actualizar la Cantidad cuando se Inserte una Salida (Disminuir la cantidad)
                 - Validar de que si inserto una cantidad mayor a la Cantidad en Stock me avise de que no hay Productos suficientes
    
-    > Mostrar   ***Muestra elementos foraneos (Nombre Producto)
+    > Mostrar   *** Muestra elementos foraneos (Nombre Producto)
                 - Validar si la tabla esta vacia mostrar un texto (No se han Ingresado Salidas)
 
 
@@ -70,19 +84,20 @@ Inventario :
 ----------------------------------------------------------------- Sprint 2 -----------------------------------------------------------------
 
 Productos :     
-    > Eliminar  ***Eliminar
+    > Eliminar  *** Eliminar
                 -Solucionar problema reiniciar el id luego de eliminar un registro
                 -Solucionar problema (No elimina elementos que se relacionen en otras tablas) (SET NULL)
-                -Solucionar problemas graficos en el alert de eliminar
+                *** Solucionar problemas graficos en el alert de eliminar
     
-    > Modificar ***Modificar
-                ***Deshabilita el id como Modificable
-                -Convierte la primera en Mayuscula y las demas en minusculas (Nombre,Descripcion,Marca)
+    > Modificar *** Modificar
+                *** Deshabilita el id como Modificable
+                *** Convierte la primera en Mayuscula y las demas en minusculas (Nombre,Descripcion,Marca)
+                *** Solucionar problemas graficos en el alert de Modificar
     
-    > Listar    -Alfabetico A-Z
-                -Alfabetico Z-A
-                -Mas reciente (Orden Id)
-                -Mas Antiguo(Orden Id)
+    > Listar    *** Alfabetico A-Z
+                *** Alfabetico Z-A
+                *** Mas reciente (Orden Id)
+                *** Mas Antiguo(Orden Id)
     
 Pedidos : 
     > Eliminar  ***Eliminar
@@ -93,14 +108,14 @@ Pedidos :
                 -Deshabilita el id como Modificable
                 -Convierte la primera en Mayuscula y las demas en minusculas (Nombre,Descripcion,Marca)
 
-    > Listar    -Mas reciente (Fecha Ingreso)
-                -Mas Antiguo(Fecha Ingreso)
-                -Mayor a Menor Cantidad
-                -Menor a Mayor Cantidad
-                -Mayor a Menor Valor Unitario
-                -Menor a Mayor Valor Unitario
-                -Mayor a Menor Valor Total
-                -Menor a Mayor Valor Total
+    > Listar    *** Mas reciente (Fecha Ingreso)
+                *** Mas Antiguo(Fecha Ingreso)
+                *** Mayor a Menor Cantidad
+                *** Menor a Mayor Cantidad
+                *** Mayor a Menor Valor Unitario
+                *** Menor a Mayor Valor Unitario
+                *** Mayor a Menor Valor Total
+                *** Menor a Mayor Valor Total
     
     > Generar Reporte   -Encabezado
                         -Logo Imagen
@@ -143,14 +158,14 @@ Salidas :
                 -Deshabilita el id como Modificable
                 -Convierte la primera en Mayuscula y las demas en minusculas (Nombre,Descripcion,Marca)  
 
-    > Listar    -Mas reciente (Fecha Ingreso)
-                -Mas Antiguo(Fecha Ingreso)
-                -Mayor a Menor Cantidad
-                -Menor a Mayor Cantidad
-                -Mayor a Menor Valor Unitario
-                -Menor a Mayor Valor Unitario
-                -Mayor a Menor Valor Total
-                -Menor a Mayor Valor Total
+    > Listar    *** Mas reciente (Fecha Ingreso)
+                *** Mas Antiguo(Fecha Ingreso)
+                *** Mayor a Menor Cantidad
+                *** Menor a Mayor Cantidad
+                *** Mayor a Menor Valor Unitario
+                *** Menor a Mayor Valor Unitario
+                *** Mayor a Menor Valor Total
+                *** Menor a Mayor Valor Total
     
     > Generar Reporte   -Encabezado
                         -Logo Imagen

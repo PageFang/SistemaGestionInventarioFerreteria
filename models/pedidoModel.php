@@ -4,6 +4,7 @@
     
     class PedidoModel {
         
+        // Mostar Lista de Pedidos
         static public function mostrarPedidoModel(){
             
             $stmt = Connect::connectBd()-> prepare("SELECT pd.id,p.nombre, pd.cantidad, pd.fechaIngreso, pd.valorUnitario, pd.valorTotal from producto p left join pedido pd ON pd.producto_id = p.id");
@@ -13,6 +14,7 @@
             $stmt = null;
         }
 
+        // Insertar Pedido
         static public function insertarPedidoModel($cantidad,$fechaIngreso,$valorUnitario,$producto_id,$proveedor_id,$valorTotal){
             
             $pdo = Connect::connectBd();
@@ -27,22 +29,14 @@
             
             $stmt->execute();
 
-            // Trae la id insertada para relacionarla con el Inventario
+            // Ultima Id Insertada
             $pedido_id = $pdo->lastInsertId();
-            echo "<script>console.log('Id Pedido : {$pedido_id}');</script>";
-            
-            /*$stmt_3 = Connect::connectBd()-> prepare("INSERT INTO inventario(cantidad,producto_id,pedido_id) VALUES (:cantidad, :producto_id, :pedido_id)");
-            $stmt_3->bindParam(":cantidad", $cantidad, PDO::PARAM_INT);
-            $stmt_3->bindParam(":producto_id", $producto_id, PDO::PARAM_INT);
-            $stmt_3->bindParam(":pedido_id", $pedido_id, PDO::PARAM_INT);
-
-            $stmt_3->execute();*/
-            //return $stmt = null;
 
             return $pedido_id;
             $stmt = null;
         }
-
+        
+        /*
         static public function buscarPedidoInventarioModel(){
             $stmt = Connect::connectBd()-> prepare("SELECT cantidad, producto_id, pedido_id FROM inventario");
             $stmt->execute();
@@ -124,6 +118,7 @@
             return $stmt->fetchAll();
             $stmt = null;
         }
+        */
     }
     
 ?>

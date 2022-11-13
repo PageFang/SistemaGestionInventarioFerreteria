@@ -3,17 +3,18 @@
     require_once("../../Inventario_Ferreteria/models/salidaModel.php");
     $funcionExecute = "";
 
-    class SalidaController {
+    class MostarSalida {
         
         // Mostrar Salidas 
         static public function mostrarSalidaController(){
             
-            $obj = new SalidaModel();
-            $datos = $obj->mostrarSalidaModel();
+            $object = new SalidaModel();
+            $datos = $object->mostrarSalidaModel();
+            $datosTabla = "";
             
             $tabla ='<table id="tablaProducto" class="table table-bordered border-dark table-hover">
                         <thead>
-                        <tr class="table-dark"> 
+                            <tr class="table-dark"> 
                                 <th>Id</th>
                                 <th>Producto</th>
                                 <th>Cantidad</th>
@@ -24,9 +25,8 @@
                                 <th></th>
                             </tr>
                         </thead> 
-                        <tbody>';
 
-            $datosTabla = "";
+                        <tbody>';
 
             foreach ($datos as $key => $value) {
                 $datosTabla = $datosTabla.' <tr>
@@ -37,19 +37,18 @@
                                                 <td>'.$value['valorUnitario'].'</td>
                                                 <td>'.$value['valorTotal'].'</td>
                                                 <td>
-                                                    <span class="btn btn-dark btn-sm" onclick="obtenerDatos('.$value['id'].')" data-toggle="modal" data-target="#actualizarModal">
-                                                        <i class="fas fa-edit"></i>
+                                                    <span class = "btn btn-dark btn-sm" onclick = "obtenerDatos('.$value['id'].')" data-toggle = "modal" data-target = "#actualizarModal">
+                                                        <i class = "fas fa-edit"></i>
                                                     </span>
 											    </td>
                                                 <td>
-                                                    <span class="btn btn-dark" onclick="eliminarSalida('.$value['id'].')">
-                                                        <li class="fas fa-trash-alt"></li>
+                                                    <span class = "btn btn-dark" onclick = "eliminarSalida('.$value['id'].')">
+                                                        <li class = "fas fa-trash-alt"></li>
                                                     </span>
 											    </td>
                                             </tr>';
             }
-
-            echo $tabla.$datosTabla.' </tbody> </table>';
+            echo $tabla.$datosTabla.'</tbody> </table>';
         }
     }
 
@@ -58,10 +57,10 @@
 
         $funcionExecute = $_POST['funcion'];
 
-        switch($funcionExecute) {
+        switch ($funcionExecute) {
 
             case '1': 
-                $mostrar = new SalidaController();
+                $mostrar = new MostarSalida();
                 $mostrar->mostrarSalidaController();
                 break;
         }

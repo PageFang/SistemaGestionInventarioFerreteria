@@ -3,14 +3,17 @@
 // Funcion mostrar lista de productos
 function mostrarProveedor(){
 
+    console.log("Mostrar Proveedores Js");
+
     $.ajax({
         
         type:"POST",
-        url:"../../../../Inventario_Ferreteria/controllers/proveedorController.php",
+        url:"../../../../Inventario_Ferreteria/controllers/proveedorMostrarController.php",
         data:{funcion: "1"},
         
-        success:function(r){
-            $('#tablaProveedor').html(r);
+        success:function(respuesta){
+            //console.log("Respuesta Mostrar Proveedor : " + respuesta);
+            $('#tablaProveedor').html(respuesta);
         }
     });
 }
@@ -19,22 +22,40 @@ function mostrarProveedor(){
 // Funcion Insertar Producto
 function insertarProveedor(){
 
+    console.log("Insertar Proveedores Js");
+
     $.ajax({
         
         type:"POST",
-        url:"../../../../Inventario_Ferreteria/controllers/insertarProveedor.php",
-        data:$('#formProveedor').serialize(),
+        url:"../../../../Inventario_Ferreteria/controllers/proveedorInsertarController.php",
+        data:$('#formInsertarProveedor').serialize(),
         
-        success:function(r){
-            mostrarProveedor();
-            console.log(r);
-            if(r!= null){
-                // Limpia el Formulario
-                $('#formProveedor')[0].reset();
+        success:function(respuesta){
             
-                //swal("El Proveedor ha sido Registrado", "", "success");
-            }else{
-                //swal("El Proveedor no ha sido Registrado", "", "error");
+            console.log("Respuesta Insertar Proveedor : " + respuesta);
+            mostrarProveedor();
+            
+            if(respuesta == 1) {
+                
+                // Limpia el formulario 
+                $('#formInsertarProveedor')[0].reset();
+                swal({
+                    title: "Proveedor Registrado",
+                    text: "El Proveedor ha sido registrado con exito",
+                    icon: "success",
+                    button: "Aceptar",
+                });
+
+            } else if(respuesta == 2) {
+                
+                // Limpia el formulario 
+                $('#formInsertarProveedor')[0].reset();
+                swal({
+                    title: "Error al Registrar",
+                    text: "El Proveedor que desea ingresar ya existe en el Inventario",
+                    icon: "error",
+                    button: "Aceptar",
+                });
             }
         }
     });
