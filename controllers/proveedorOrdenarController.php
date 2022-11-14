@@ -10,7 +10,7 @@
             
             $obj = new ProveedorModel();
             $datos = $obj->ordenarNombreProveedorAscModel();
-           
+
             $tabla ='<table id="tablaProveedor" class="table table-bordered border-dark table-hover">
                         <thead>
                         <tr class="table-dark"> 
@@ -35,7 +35,7 @@
                                                 <td>'.$value['correoElectronico'].'</td>
                                                 <td>'.$value['telefono'].'</td>
                                                 <td>
-                                                    <span class="btn btn-dark btn-sm" onclick="obtenerProveedor('.$value['id'].')" data-bs-toggle="modal" data-bs-target="#actualizarModalProveedor">
+                                                    <span class="btn btn-dark btn-sm" onclick="obtenerDatosProveedor('.$value['id'].')" data-bs-toggle="modal" data-bs-target="#actualizarModalProveedor">
                                                         <i class="fas fa-edit"></i>
                                                     </span>
 											    </td>
@@ -54,7 +54,7 @@
             
             $obj = new ProveedorModel();
             $datos = $obj->ordenarNombreProveedorDescModel();
-           
+
             $tabla ='<table id="tablaProveedor" class="table table-bordered border-dark table-hover">
                         <thead>
                         <tr class="table-dark"> 

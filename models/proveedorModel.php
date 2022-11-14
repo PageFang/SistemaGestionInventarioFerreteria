@@ -41,6 +41,7 @@
             $stmt = null;
         }
 
+        // Eliminar Proveedor
         static public function eliminarProveedorModel($id){
             
             $stmt =Connect::connectBd()-> prepare("DELETE FROM proveedor WHERE id=:id");
@@ -49,11 +50,26 @@
             return $stmt->execute();
         }
 
-        // Obtener Producto for Modificar 
-        static public function obtenerProveedorModel($id){
+        // Obtener Datos Proveedor
+        static public function obtenerDatosProveedorModel($id){
             
             $stmt = Connect::connectBd()-> prepare("SELECT id,nombre,direccion,correoElectronico,telefono FROM proveedor WHERE id=:id");
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+            $stmt->execute();
+            
+            return $stmt->fetch();
+            $stmt = null;
+        }
+
+        // Actualizar Proveedor
+        static public function actualizarProveedorModel($id,$nombre,$direccion,$correoElectronico,$telefono){
+            
+            $stmt = Connect::connectBd()-> prepare("UPDATE proveedor SET nombre = :nombre, direccion = :direccion, correoElectronico = :correoElectronico, telefono = :telefono WHERE id = :id");
+            $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+            $stmt->bindParam(":nombre",  $nombre, PDO::PARAM_STR);
+            $stmt->bindParam(":direccion", $direccion, PDO::PARAM_STR);
+            $stmt->bindParam(":correoElectronico", $correoElectronico, PDO::PARAM_STR);
+            $stmt->bindParam(":telefono", $telefono, PDO::PARAM_STR);
             $stmt->execute();
             
             return $stmt->fetch();

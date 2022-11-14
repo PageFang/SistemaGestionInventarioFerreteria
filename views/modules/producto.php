@@ -91,17 +91,17 @@
                             <!-- Card Tabla Inventario Productos Contenido -->
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col-5">
                                         
                                         <div class="row"> 
                                             
                                             <!-- Ingresar Producto -->
-                                            <div class="col-2">
+                                            <div class="col-3">
                                                 <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalInsertarProducto"> Ingresar Producto </button>
                                             </div>
 
                                             <!-- Listar Productos -->
-                                            <div class="col-1">
+                                            <div class="col-2">
                                                 <div class="dropdown">
                                                     <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"> Listar Por </button>
                                                     

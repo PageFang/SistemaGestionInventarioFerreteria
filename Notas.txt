@@ -137,17 +137,17 @@ Proveedores :
                 *** Mas Antiguos (Orden Id)
  
 Ciudades : 
-    > Eliminar  -Eliminar
+    > Eliminar  *** Eliminar
                 -Solucionar problema reiniciar el id luego de eliminar un registro
                 -Solucionar problema (No elimina elementos que se relacionen en otras tablas) (SET NULL)
     
-    > Modificar -Deshabilita el id como Modificable
+    > Modificar *** Deshabilita el id como Modificable
                 -Convierte la primera en Mayuscula y las demas en minusculas (Nombre,Descripcion,Marca)
 
-    > Listar    -Alfabetico A-Z
-                -Alfabetico Z-A 
-                -Mas Recientes (Orden Id)
-                -Mas Antiguos (Orden Id)
+    > Listar    *** Alfabetico A-Z
+                *** Alfabetico Z-A 
+                *** Mas Recientes (Orden Id)
+                *** Mas Antiguos (Orden Id)
 
 Salidas : 
     > Eliminar  ***Eliminar

@@ -21,7 +21,7 @@
         
         <!-- Scripts -->  
         <script src="../../../Inventario_Ferreteria/views/assets/plugins/jquery/jquery.min.js"></script>
-        <script src="../../../Inventario_Ferreteria/views/assets/plugins/sweetalert.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
 
     <body class="sb-nav-fixed">
@@ -90,32 +90,30 @@
                             <!-- Card Tabla Inventario Proveeedores Contenido -->
                             <div class="card-body">
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col-5">
                                         
                                         <div class="row">
                                             
                                             <!-- Ingresar Ciudades -->
-                                            <div class="col">
+                                            <div class="col-4">
                                                 <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalInsertarProveedor"> Ingresar Proveedor </button>
                                             </div>
 
-                                            <!-- Listar Proveedores -->
-                                            <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarNombreProveedorAsc()"> Ordenar A-Z</button>
-                                            </div>
+                                            <!-- Listar Productos -->
+                                            <div class="col-2">
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"> Listar Por </button>
+                                                    
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" onclick="ordenarNombreProveedorAsc()"> Filtrar Proveedor A-Z </a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarNombreProveedorDesc()"> Filtrar Proveedor Z-A </a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMasRecienteProveedor()"> Filtrar por Mas Recientes </a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMasAntiguoProveedor()"> Filtrar por Mas Antiguos </a></li>
+                                                    </ul>
 
-                                            <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarNombreProveedorDesc()"> Ordenar Z-A</button>
+                                                </div>
                                             </div>
-
-                                            <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarMasRecienteProveedor()"> Ordenar Mas Recientes</button>
-                                            </div>
-
-                                            <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarMasAntiguoProveedor()"> Ordenar Mas Antiguos</button>
-                                            </div>
-
+                                            
                                             <!-- Modal Insertar Proveedor -->
                                             <div class="col">
                                                 <div class="modal fade" id="modalInsertarProveedor" data-bs-backdrop="static">
@@ -154,13 +152,14 @@
                                                                         
                                                                         <?php 
                                                                             include("../../../Inventario_Ferreteria/models/connection.php");
-                                                                                // Trae el id y el nombre de los productos de la base de datos para mostralos como un option tomando como referencia el id del producto 
-                                                                                $stmt = Connect::connectBd()-> prepare("SELECT * FROM ciudad");
-                                                                                $stmt->execute();
-                                                                                $datos = $stmt->fetchAll();
-                                                                                foreach ($datos as $valores) {
-                                                                                    echo  ('<option value="'.$valores['id'].'">'.$valores['nombre'].'</>') ;
-                                                                                }
+
+                                                                            // Select Ciudad 
+                                                                            $stmt = Connect::connectBd()-> prepare("SELECT * FROM ciudad");
+                                                                            $stmt->execute();
+                                                                            $datos = $stmt->fetchAll();
+                                                                            foreach ($datos as $valores) {
+                                                                                echo  ('<option value="'.$valores['id'].'">'.$valores['nombre'].'</>') ;
+                                                                            }
                                                                         ?>
 
                                                                     </select>
@@ -178,7 +177,7 @@
                                             
                                             <!-- Modal Actualizar Proveedor -->
                                             <div class="col">
-                                                <div class="modal fade" id="actualizarModalProveedor" data-bs-backdrop="static">
+                                                <div class="modal fade" id="modalActualizarProveedor" data-bs-backdrop="static">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
 
@@ -195,7 +194,7 @@
                                                                 <form form id="formUpdateProveedor" onsubmit="return actualizarProveedor()" method="POST"> 
                                                                     
                                                                     <label>Id : </label>
-                                                                    <input type="text" id="idUp" name="idUp" class="form-control form-control-sm" >
+                                                                    <input type="text" id="idUp" name="idUp" class="form-control form-control-sm"  readonly="readonly" >
 
                                                                     <label>Nombre : </label>
                                                                     <input type="text" id="nombreUp" name="nombreUp" class="form-control form-control-sm" required="">
@@ -204,10 +203,10 @@
                                                                     <input type="text" id="direccionUp" name="direccionUp" class="form-control form-control-sm" required="">
 
                                                                     <label>CorreoElectronico : </label>
-                                                                    <input type="email" id="correoElectronicoUp" name="correoElectronicoUp" class="form-control form-control-sm" equired="" maxlength="10">
+                                                                    <input type="email" id="correoElectronicoUp" name="correoElectronicoUp" class="form-control form-control-sm" required="">
                                                                     
                                                                     <label>Telefono : </label>
-                                                                    <input type="text" id="telefonoUp" name="telefonoUp" class="form-control form-control-sm" equired="" maxlength="10">
+                                                                    <input type="text" id="telefonoUp" name="telefonoUp" class="form-control form-control-sm" required="" maxlength="10">
                                                                     
                                                                     <br>
                                                                     

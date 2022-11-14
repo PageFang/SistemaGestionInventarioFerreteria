@@ -35,7 +35,7 @@
                                                 <td>'.$value['correoElectronico'].'</td>
                                                 <td>'.$value['telefono'].'</td>
                                                 <td>
-                                                    <span class="btn btn-dark btn-sm" onclick="obtenerDatosProveedor('.$value['id'].')" data-bs-toggle="modal" data-bs-target="#actualizarModalProveedor">
+                                                    <span class="btn btn-dark btn-sm" onclick="obtenerDatosProveedor('.$value['id'].')" data-bs-toggle="modal" data-bs-target="#modalActualizarProveedor">
                                                         <i class="fas fa-edit"></i>
                                                     </span>
 											    </td>
