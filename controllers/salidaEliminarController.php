@@ -1,0 +1,19 @@
+<?php
+
+    require_once("../../Inventario_Ferreteria/models/salidaModel.php");
+
+    class EliminarSalida {
+
+        static public function eliminarSalidaController(){
+
+            $id=$_POST['id'];
+
+            $respuesta =  SalidaModel::eliminarSalidaModel($id);
+            echo "1";
+        }
+    }
+
+    // Ejecuta el metodo Insertar
+    $eliminar = new EliminarSalida();
+    $eliminar->eliminarSalidaController();
+?>

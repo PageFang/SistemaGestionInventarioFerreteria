@@ -21,6 +21,8 @@ function mostrarSalida(){
 // Funcion Insertar Salida
 function insertarSalida(){
 
+    console.log("Insertar Salida Js");
+
     $.ajax({
         
         type:"POST",
@@ -35,22 +37,22 @@ function insertarSalida(){
                 
                 // Limpia el formulario 
                 $('#formInsertarSalida')[0].reset();
-                swal({
-                    title: "Salida Registrado",
-                    text: "Las Salida ha sido registrada con exito",
+                Swal.fire({
+                    title: "Salida Registrada",
+                    text: "la salida ha sido registrada con exito",
                     icon: "success",
-                    button: "Aceptar",
+                    confirmButtonText: "Aceptar",
                 });
 
             } else if(respuesta == 2) {
                 
                 // Limpia el formulario 
                 $('#formInsertarSalida')[0].reset();
-                swal({
+                Swal.fire({
                     title: "Error al Registrar",
-                    text: "La salida no se ha podido Ingresar",
+                    text: "La salida no se ha prodido registrar",
                     icon: "error",
-                    button: "Aceptar",
+                    confirmButtonText: "Aceptar",
                 });
             }
         }
@@ -59,36 +61,125 @@ function insertarSalida(){
 }
 
 
-// Funcion Eliminar Producto
+// Funcion Eliminar Salida
 function eliminarSalida(id){
 
-    swal({
-        title:  "¿ Desea eliminar este proveedor del Inventario ?",
-        text :  "Una vez eliminado no podra recuperarse",
-        icon:   "warning",
-        buttons : true,
-        dangerMode : true,
+    console.log("Eliminar Salida Js");
+
+    Swal.fire({
+        title: " ¿ Desea eliminar este salida del Inventario ? ",
+        text : " Una vez eliminada la informacion de la salida no podra recuperarse ",
+        icon:  "warning",
+        showCancelButton: true,
+        confirmButtonText: "Eliminar",
+        cancelButtonText: "Cancelar",
     })
 
-    .then((willDelete) => {
+    .then(resultado  => {
         
-        $.ajax({
-            type:"POST",
-            url:"../../../../Inventario_Ferreteria/controllers/eliminarSalida.php",
-            data:"id=" + id,
-            success:function(r){
-            console.log(r);
-                if(r!=null){
+        if(resultado.value){
+            
+            $.ajax({
+                
+                type: "POST",
+                url: "../../../../Inventario_Ferreteria/controllers/salidaEliminarController.php",
+                data:"id=" + id,
+                
+                success:function(respuesta){
+                    console.log("Respuesta Eliminar Salida : " + respuesta);
                     mostrarSalida();
-                    swal("Eliminado Exitosamente", ":)", "info");
-                }else{
-                    swal("Error al Eliminar", ":(", "error");
+    
+                    if(respuesta == 1) {
+                        
+                        Swal.fire({
+                            title: "Salida Eliminada",
+                            text: "La Salida ha sido eliminado con exito",
+                            icon: "success",
+                            confirmButtonText: "Aceptar",
+                        });
+    
+                    } else if(respuesta == 2) {
+                        
+                        Swal.fire({
+                            title: "Error al Eliminar",
+                            text: "No se ha podido Eliminar la Salida del Inventario",
+                            icon: "error",
+                            confirmButtonText: "Aceptar",
+                        });
+                    }
                 }
-            }
-        });
+            });
+    
+        } else {
 
-    })
+        }
+    });
 }
+
+
+// Funcion Obtener Datos Salida
+function obtenerDatosSalida(id){
+    
+    console.log("Obtener Datos Salida Js");
+
+    $.ajax({
+        
+        type:"POST",
+        data:"id="+id,
+        url:"../../../../Inventario_Ferreteria/controllers/salidaObtenerDatosController.php",
+        
+        success:function(respuesta){
+            console.log("Respuesta Obtener Datos Producto : " + respuesta);
+
+            respuesta=jQuery.parseJSON(respuesta);
+            $('#idUp').val(respuesta['id']);
+            $('#cantidadUp').val(respuesta['cantidad']);
+            $('#fechaSalidaUp').val(respuesta['fechaSalida']);
+            $('#valorUnitarioUp').val(respuesta['valorUnitario']);
+        }
+    });
+}
+
+
+// Funcion Actualizar Salida
+function actualizarSalida(){
+    
+    console.log("Actualizar Datos Salida Js");
+
+    $.ajax({
+        
+        type:"POST",
+        url:"../../../../Inventario_Ferreteria/controllers/salidaActualizarController.php",
+        data:$('#formUpdateSalida').serialize(),
+        
+        success:function(respuesta){
+            console.log("Respuesta Actualizar Datos Salida : " + respuesta);
+            mostrarSalida();
+
+            if(respuesta == 1) {
+                        
+                Swal.fire({
+                    title: "Salida Actualizada",
+                    text: "Se han actualizado los Datos de la Salida",
+                    icon: "success",
+                    confirmButtonText: "Aceptar",
+                });
+
+            } else if(respuesta == 2) {
+                
+                Swal.fire({
+                    title: "Error al Actualizar",
+                    text: "No se ha podido actualizar la informacion de la Salida",
+                    icon: "error",
+                    confirmButtonText: "Aceptar",
+                });
+            }
+
+        }
+    });
+    return false;
+}
+
 
 function ordenarMasRecientesSalida(){
     console.log("Salida Recientes");

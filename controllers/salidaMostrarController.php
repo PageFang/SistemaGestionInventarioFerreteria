@@ -37,10 +37,10 @@
                                                 <td>'.$value['valorUnitario'].'</td>
                                                 <td>'.$value['valorTotal'].'</td>
                                                 <td>
-                                                    <span class = "btn btn-dark btn-sm" onclick = "obtenerDatos('.$value['id'].')" data-toggle = "modal" data-target = "#actualizarModal">
-                                                        <i class = "fas fa-edit"></i>
-                                                    </span>
-											    </td>
+                                                <span class = "btn btn-dark btn-sm" onclick = "obtenerDatosSalida('.$value['id'].')" data-bs-toggle = "modal" data-bs-target = "#modalActualizarSalida">
+                                                    <i class = "fa-solid fa-pen"></i>
+                                                </span>
+                                                </td>>
                                                 <td>
                                                     <span class = "btn btn-dark" onclick = "eliminarSalida('.$value['id'].')">
                                                         <li class = "fas fa-trash-alt"></li>

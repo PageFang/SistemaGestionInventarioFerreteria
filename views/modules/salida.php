@@ -21,7 +21,7 @@
         
         <!-- Scripts -->  
         <script src="../../../Inventario_Ferreteria/views/assets/plugins/jquery/jquery.min.js"></script>
-        <script src="../../../Inventario_Ferreteria/views/assets/plugins/sweetalert.min.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </head>
 
     <body class="sb-nav-fixed">
@@ -101,41 +101,30 @@
 
                                             <!-- Listar Salida -->
                                             <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarMasRecientesSalida()"> Ordenar Mas Reciente</button>
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"> Listar Por </button>
+                                                    
+                                                    <ul class="dropdown-menu">
+                                                        <li><a class="dropdown-item" onclick="ordenarMasRecientesSalida()">Filtrar Mas Recientes</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMasAntiguosSalida()">Filtrar Mas Antiguos</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMaxCantidadSalida()">Filtrar Mayor Cantidad</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMinCantidadSalida()">Filtrar Menor Cantidad</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMaxValorUnidadSalida()">Filtrar Mayor Valor Unitario</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMinValorUnidadSalida()">Filtrar Menor Valor Unitario</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMaxValorSalida()">Filtrar Mayor Valor </a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMinValorSalida()">Filtrar Menor Valor </a></li>
+                                                    </ul>
+                                                    </ul>
+                                                    </ul>
+
+                                                </div>
                                             </div>
 
-                                            <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarMasAntiguosSalida()"> Ordenar Mas Antiguo</button>
-                                            </div>
-
-                                            <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxCantidadSalida()"> Ordenar Max a Min Cantidad</button>
-                                            </div>
-
-                                            <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarMinCantidadSalida()"> Ordenar Max a Min Cantidad</button>
-                                            </div>
-
-                                            <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxValorUnidadSalida()"> Ordenar Max a Min Valor</button>
-                                            </div>
-
-                                            <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarMinValorUnidadSalida()"> Ordenar Max a Min Valor</button>
-                                            </div>
-
-                                            <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarMaxValorSalida()"> Ordenar Max a Min Valor</button>
-                                            </div>
-
-                                            <div class="col">
-                                                <button type="button" class="btn btn-dark" onclick="ordenarMinValorSalida()"> Ordenar Max a Min Valor</button>
-                                            </div>
-
-                                            <div class="col">
+                                            
                                             
                                             <!-- Modal Insertar Salida-->
-                                            <div class="modal fade" id="modalInsertarSalida" data-bs-backdrop="static">
+                                            <div class="col">
+                                                <div class="modal fade" id="modalInsertarSalida" data-bs-backdrop="static">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
 
@@ -189,9 +178,70 @@
                                                     </div>
                                                 </div>
                                             </div>
+
+                                                <!-- Actualizar Salida -->
+                                            <div class="col">
+                                                <div class="modal fade" id="modalActualizarSalida" data-bs-backdrop="static">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+
+                                                            <!-- Cabecera Modal -->
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title"> Actualizar Salida : </h4>
+                                                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                                            </div>
+
+                                                            <!-- Cuerpo Modal -->
+                                                            <div class="modal-body">
+                                                            
+                                                                <!-- Formulario Actualizar Salida -->
+                                                                <form form id="formUpdateSalida" onsubmit="return actualizarSalida()" method="POST">
+                                                                
+                                                                    <label>Id : </label>
+                                                                    <input type="text" id="idUp" name="idUp" class="form-control form-control-sm " readonly="readonly">
+
+                                                                    <label> Salida : </label>
+                                                                    <select name="productoSalidaUp" id="" required="">
+                                                                        
+                                                                        <option value="0"> Seleccione el producto </option> 
+                                                                        <?php 
+                                                                        
+                                                                            $stmt = Connect::connectBd()-> prepare("SELECT * FROM producto");
+                                                                            $stmt->execute();
+                                                                            $datos = $stmt->fetchAll();
+                                                                            
+                                                                            foreach ($datos as $valores) {
+                                                                                echo  ('<option value="'.$valores['id'].'">'.$valores['nombre'].'</>') ;
+                                                                            }
+                                                                        ?>
+                                                                    </select>
+
+                                                                    <br> <br>
+                                                                    
+                                                                    <label>Cantidad : </label>
+                                                                    <input type="text" id="cantidadUp" name="cantidadUp" class="form-control form-control-sm" placeholder="Ej. 3" required="" onkeypress='return validaNumericos(event)'>
+                                                                    
+                                                                    <label>Fecha Salida : </label>
+                                                                    <input type="date" id="fechaSalidaUp" name="fechaSalidaUp" class="form-control form-control-sm" required="">
+                                                                        
+                                                                    <label>Valor Unitario : </label>
+                                                                    <input type="text" id="valorUnitarioUp" name="valorUnitarioUp" class="form-control form-control-sm" placeholder="Ej. 3000"  required="" onkeypress='return validaNumericos(event)'>
+                                                                        
+                                                                    <br>
+                                                                    
+                                                                    <input type="submit" value="Actualizar" class="btn btn-primary">
+
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
+                            
                                 
                                 <!-- InterEspacio -->
                                 <div class="row">

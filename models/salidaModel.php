@@ -35,6 +35,7 @@
             $stmt = null;
         }
 
+        // Eliminar Salida
         static public function eliminarSalidaModel($id){
             
             $stmt =Connect::connectBd()-> prepare("DELETE FROM salida WHERE id=:id");
@@ -42,6 +43,33 @@
             
             return $stmt->execute();
         }
+
+        // Obtener Datos del Salida
+        static public function obtenerDatosSalidaModel($id){
+            
+            $stmt = Connect::connectBd()-> prepare("SELECT id,cantidad,fechaSalida,valorUnitario,valorTotal FROM salida WHERE id=:id");
+            $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+            
+            $stmt->execute();
+            return $stmt->fetch();
+            $stmt = null;
+        }
+        
+        // Actualizar Datos Salida
+        static public function actualizarSalidaModel($id,$cantidad,$fechaSalida,$valorUnitario,$valorTotal){
+            
+            $stmt = Connect::connectBd()-> prepare("UPDATE salida SET cantidad = :cantidad, fechaSalida = :fechaSalida, valorUnitario = :valorUnitario, valorTotal = :valorTotal WHERE id = :id");
+            $stmt->bindParam(":id", $id, PDO::PARAM_INT);
+            $stmt->bindParam(":cantidad",  $cantidad, PDO::PARAM_INT);
+            $stmt->bindParam(":fechaSalida", $fechaSalida, PDO::PARAM_STR);
+            $stmt->bindParam(":valorUnitario", $valorUnitario, PDO::PARAM_STR);
+            $stmt->bindParam(":valorTotal", $valorTotal, PDO::PARAM_STR);
+            $stmt->execute();
+            
+            return $stmt->fetch();
+            $stmt = null;
+        }
+
 
         static public function ordenarMasRecienteSalidaModel(){
             
