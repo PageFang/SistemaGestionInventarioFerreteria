@@ -50,7 +50,7 @@ function insertarSalida(){
                 $('#formInsertarSalida')[0].reset();
                 Swal.fire({
                     title: "Error al Registrar",
-                    text: "La salida no se ha prodido registrar",
+                    text: "No existe la cantidad suficiente en Stock para realizar esta salida",
                     icon: "error",
                     confirmButtonText: "Aceptar",
                 });

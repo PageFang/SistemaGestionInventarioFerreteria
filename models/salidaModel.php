@@ -35,6 +35,16 @@
             $stmt = null;
         }
 
+        //Buscar CANTIDAD
+        static public function buscarCantidadInventario ($producto_id){
+            
+            $stmt = Connect::connectBd()-> prepare("SELECT  i.cantidad from inventario i left join producto p ON i.producto_id = p.id WHERE i.producto_id = $producto_id");
+            $stmt->execute();
+            
+            return $stmt->fetchAll();
+            $stmt = null;
+        }
+
         // Eliminar Salida
         static public function eliminarSalidaModel($id){
             
