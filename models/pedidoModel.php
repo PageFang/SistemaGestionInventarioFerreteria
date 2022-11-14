@@ -45,6 +45,21 @@
             return $stmt->fetchAll();
             $stmt = null;
         }
+
+        //INSERTAR CANTIDAD INVENTARIO
+        static public function actualizarCantidadInventario($producto_id,$cantidad,$pedido_id){
+            
+            $pdo = Connect::connectBd();
+            $stmt = $pdo-> prepare("INSERT INTO inventario (producto_id,pedido_id,cantidad) VALUE (:producto_id, :pedido_id, :cantidad)");
+            
+            $stmt->bindParam(":producto_id", $producto_id, PDO::PARAM_INT);
+            $stmt->bindParam(":pedido_id", $pedido_id, PDO::PARAM_INT);
+            $stmt->bindParam(":cantidad", $cantidad, PDO::PARAM_INT);
+            
+            $stmt->execute();
+
+            return $stmt = null;
+        }
         
         // Eliminar Pedido
         static public function eliminarPedidoModel($id){

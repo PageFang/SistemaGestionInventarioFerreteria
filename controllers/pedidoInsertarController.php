@@ -13,7 +13,7 @@
             $proveedor_id = $_POST['proveedorSelect'];
             $valorTotal = ($_POST['cantidad'] *  $_POST['valorUnitario'] );
             
-            $datosT = "";
+            $cantidadUpdate = 0;
 
             $respuestaInsertarPedido =  PedidoModel::insertarPedidoModel($cantidad,$fechaIngreso,$valorUnitario,$producto_id,$proveedor_id,$valorTotal);
             echo "1";
@@ -25,11 +25,12 @@
             echo "/Cantidad =  $a";
 
             foreach ($respuestaBuscarCantidad as $key => $value) {
-                $datosT = $value['cantidad'];
-                echo " FOR : $datosT";
+                $cantidadUpdate += intval($value['cantidad']);
             }
 
-            //$a = implode  ($respuestaBuscarCantidad );
+            echo " FOR : $cantidadUpdate";
+            
+            $respuestaActualizarCantidadInventario = PedidoModel::actualizarCantidadInventario($producto_id,$cantidadUpdate,$respuestaInsertarPedido);
         }
     }
 
