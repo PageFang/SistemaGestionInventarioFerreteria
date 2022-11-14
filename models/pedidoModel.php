@@ -35,6 +35,16 @@
             return $pedido_id;
             $stmt = null;
         }
+
+        // BUSCAR CANTIDAD
+        static public function buscarPedidoModel($producto_id){
+            
+            $stmt = Connect::connectBd()-> prepare("SELECT  pd.cantidad from producto p left join pedido pd ON pd.producto_id = p.id WHERE pd.producto_id = $producto_id");
+            $stmt->execute();
+            
+            return $stmt->fetchAll();
+            $stmt = null;
+        }
         
         // Eliminar Pedido
         static public function eliminarPedidoModel($id){
