@@ -5,7 +5,7 @@
 
     class EliminarProducto {
 
-        static public funtion eliminarProductoController(){
+        static public function eliminarProductoController(){
 
             $id=$_POST['id'];
 

@@ -22,6 +22,8 @@ function mostrarPedido(){
 // Funcion Insertar Pedido
 function insertarPedido(){
 
+    console.log("Ingresar Pedido Js");
+
     $.ajax({
         
         type:"POST",
@@ -29,29 +31,29 @@ function insertarPedido(){
         data:$('#formInsertarPedido').serialize(),
         
         success:function(respuesta){
-            console.log("Respuesta Insertar Pedido " + respuesta);
+            console.log("Respuesta Insertar Pedido : " + respuesta);
             mostrarPedido();
-            
+
             if(respuesta == 1) {
                 
                 // Limpia el formulario 
                 $('#formInsertarPedido')[0].reset();
-                swal({
+                Swal.fire({
                     title: "Pedido Registrado",
                     text: "El Pedido ha sido registrado con exito",
                     icon: "success",
-                    button: "Aceptar",
+                    confirmButtonText: "Aceptar",
                 });
 
             } else if(respuesta == 2) {
                 
                 // Limpia el formulario 
                 $('#formInsertarPedido')[0].reset();
-                swal({
+                Swal.fire({
                     title: "Error al Registrar",
-                    text: "No se ha podido Insertar el pedido",
+                    text: "El pedido que desea ingresar no he a podido Registrar",
                     icon: "error",
-                    button: "Aceptar",
+                    confirmButtonText: "Aceptar",
                 });
             }
         }
@@ -59,36 +61,121 @@ function insertarPedido(){
     return false;
 }
 
-
-// Funcion Eliminar Pedido
+// Funcion Eliminar Producto
 function eliminarPedido(id){
-
-    swal({
-        title:  "¿ Desea eliminar este registro de pedido del Inventario ?",
-        text :  "Una vez eliminado el registro no podra recuperarse",
-        icon:   "warning",
-        buttons : true,
-        dangerMode : true,
+    
+    Swal.fire({
+        title: " ¿ Desea eliminar este pedido del Inventario ? ",
+        text : " Una vez eliminado el pedido no podra recuperarse ",
+        icon:  "warning",
+        showCancelButton: true,
+        confirmButtonText: "Eliminar",
+        cancelButtonText: "Cancelar",
     })
 
-    .then((willDelete) => {
+    .then(resultado  => {
         
-        $.ajax({
-            type:"POST",
-            url:"../../../../Inventario_Ferreteria/controllers/eliminarPedido.php",
-            data:"id=" + id,
-            success:function(r){
+        if(resultado.value){
             
-                if(r!=null) {
-                mostrarPedido();
-                    swal("Pedido Eliminado Exitosamente", "", "info");
-                }else{
-                    swal("Error al Eliminar", "", "error");
+            $.ajax({
+                
+                type: "POST",
+                url: "../../../../Inventario_Ferreteria/controllers/pedidoEliminarController.php",
+                data:"id=" + id,
+                
+                success:function(respuesta){
+                    console.log("Respuesta Eliminar Producto : " + respuesta);
+                    mostrarPedido();
+    
+                    if(respuesta == 1) {
+                        
+                        Swal.fire({
+                            title: "Pedido Eliminado",
+                            text: "El Pedido ha sido eliminado con exito",
+                            icon: "success",
+                            confirmButtonText: "Aceptar",
+                        });
+    
+                    } else if(respuesta == 2) {
+                        
+                        Swal.fire({
+                            title: "Error al Eliminar",
+                            text: "No se ha podido Eliminar el Pedido del Inventario",
+                            icon: "error",
+                            confirmButtonText: "Aceptar",
+                        });
+                    }
                 }
-            }
-        });
+            });
+    
+        } else {
 
-    })
+        }
+    });
+}
+
+
+// FUNCION OBTENER DATOS PEDIDO
+function obtenerDatosPedido(id){
+    
+    console.log("Obtener Datos Pedido Js");
+
+    $.ajax({
+        
+        type:"POST",
+        data:"id="+id,
+        url:"../../../../Inventario_Ferreteria/controllers/pedidoObtenerDatosController.php",
+        
+        success:function(respuesta){
+            console.log("Respuesta Obtener Datos Pedido : " + respuesta);
+
+            respuesta=jQuery.parseJSON(respuesta);
+            $('#idUp').val(respuesta['id']);
+            $('#cantidadUp').val(respuesta['cantidad']);
+            $('#fechaIngresoUp').val(respuesta['fechaIngreso']);
+            $('#valorUnitarioUp').val(respuesta['valorUnitario']);
+        }
+    });
+}
+
+
+// Funcion Actualizar Salida
+function actualizarPedido(){
+    
+    console.log("Actualizar Datos Pedido Js");
+
+    $.ajax({
+        
+        type:"POST",
+        url:"../../../../Inventario_Ferreteria/controllers/pedidoActualizarController.php",
+        data:$('#formUpdatePedido').serialize(),
+        
+        success:function(respuesta){
+            console.log("Respuesta Actualizar Datos Pedido : " + respuesta);
+            mostrarPedido();
+
+            if(respuesta == 1) {
+                        
+                Swal.fire({
+                    title: "Pedido Actualizado",
+                    text: "Se han actualizado los Datos del Pedido",
+                    icon: "success",
+                    confirmButtonText: "Aceptar",
+                });
+
+            } else if(respuesta == 2) {
+                
+                Swal.fire({
+                    title: "Error al Actualizar",
+                    text: "No se ha podido actualizar la informacion del Pedido",
+                    icon: "error",
+                    confirmButtonText: "Aceptar",
+                });
+            }
+
+        }
+    });
+    return false;
 }
 
 function ordenarMasRecientesPedidos(){

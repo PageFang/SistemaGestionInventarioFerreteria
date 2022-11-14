@@ -37,9 +37,9 @@
                                                 <td>'.$value['valorUnitario'].'</td>
                                                 <td>'.$value['valorTotal'].'</td>
                                                 <td>
-                                                    <span class = "btn btn-dark btn-sm" onclick = "obtenerDatos('.$value['id'].')" data-toggle = "modal" data-target = "#actualizarModal">
-                                                        <i class="fas fa-edit"></i>
-                                                    </span>
+                                                <span class = "btn btn-dark btn-sm" onclick = "obtenerDatosPedido('.$value['id'].')" data-bs-toggle = "modal" data-bs-target = "#modalActualizarPedido">
+                                                <i class = "fa-solid fa-pen"></i>
+                                            </span
 											    </td>
                                                 <td>
                                                     <span class = "btn btn-dark" onclick = "eliminarPedido('.$value['id'].')">

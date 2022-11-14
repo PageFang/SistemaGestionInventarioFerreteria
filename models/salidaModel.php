@@ -73,7 +73,7 @@
 
         static public function ordenarMasRecienteSalidaModel(){
             
-            $stmt = Connect::connectBd()-> prepare("SELECT s.id, p.nombre, s.cantidad, s.fechaSalida, s.valorUnitario, s.valorTotal FROM producto p LEFT JOIN salida s ON s.producto_id = p.id ORDER BY fechaSalida ASC");
+            $stmt = Connect::connectBd()-> prepare("SELECT s.id, p.nombre, s.cantidad, s.fechaSalida, s.valorUnitario, s.valorTotal FROM producto p LEFT JOIN salida s ON s.producto_id = p.id ORDER BY fechaSalida DESC");
             $stmt->execute();
 
             return $stmt->fetchAll();
@@ -82,7 +82,7 @@
 
         static public function ordenarMasAntiguoSalidaModel(){
             
-            $stmt = Connect::connectBd()-> prepare("SELECT s.id, p.nombre, s.cantidad, s.fechaSalida, s.valorUnitario, s.valorTotal FROM producto p LEFT JOIN salida s ON s.producto_id = p.id ORDER BY fechaSalida DESC");
+            $stmt = Connect::connectBd()-> prepare("SELECT s.id, p.nombre, s.cantidad, s.fechaSalida, s.valorUnitario, s.valorTotal FROM producto p LEFT JOIN salida s ON s.producto_id = p.id ORDER BY fechaSalida ASC");
             $stmt->execute();
 
             return $stmt->fetchAll();
