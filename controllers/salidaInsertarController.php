@@ -22,6 +22,11 @@
             
             if($cantidadStock >= $cantidad){
                 $respuestaInsertarSalida =  SalidaModel::insertarSalidaModel($cantidad,$fechaSalida,$valorUnitario,$valorTotal,$producto_id);
+
+                $cantidadUpdate = $cantidadStock-$cantidad;
+
+                $respuestaActualizarCantidadInventario = SalidaModel::actualizarCantidadInventario($producto_id,$cantidadUpdate,$respuestaInsertarSalida);
+                
                 echo "1";
             }elseif ($cantidadStock < $cantidad) {
                 echo "2";
