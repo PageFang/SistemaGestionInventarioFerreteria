@@ -62,6 +62,15 @@ create table inventario (
     foreign key (pedido_id) references pedido(id)
 );
 
+create table usuario (
+    id int not null auto_increment,
+    nombre  varchar(255) not null,
+    correoElectronico varchar(255) not null,
+    constraseña  varchar(255) not null,
+    telefono float not null,
+    primary key (id)
+);
+
 insert into producto (nombre,descripcion,marca) value ('Alambre de Cobre','Alambres de cobre desnudo, suave, semiduro y duro, cableado concentrico','Nexans');
 insert into producto (nombre,descripcion,marca) value ('Metro','Flexómetro Magnético de 8 Metros Redline','Redline');
 insert into producto (nombre,descripcion,marca) value ('Llave Inglesa','Llave ajustable de 12 Pulgadas moleta central aislada. Para trabajos en equipos de baja tensión hasta 1000 voltios. Aleación de acero de alto rendimiento. Acabado cromado y con tratamiento anti-corrosión','Nexans');

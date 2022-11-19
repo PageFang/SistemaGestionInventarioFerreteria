@@ -12,14 +12,14 @@
         <title> Inventario - Productos </title>
         <link rel="icon" href="../../../Inventario_Ferreteria/views/assets/img/Logo.ico">
         
-        <!-- Styles -->   
+        <!-- STYLES -->   
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link href="../../../Inventario_Ferreteria/views/assets/css/styles.css" rel="stylesheet" />
 
-        <!-- Icons --> 
+        <!-- ICONS  --> 
         <script src="https://kit.fontawesome.com/4afb0f7fd4.js" crossorigin="anonymous"></script>
         
-        <!-- Scripts -->  
+        <!-- SCRIPTS -->  
         <script src="../../../Inventario_Ferreteria/views/assets/plugins/jquery/jquery.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
@@ -27,14 +27,14 @@
 
     <body class="sb-nav-fixed">
 
-        <!-- Barra de Navegacion Superior -->
+        <!-- BARRA DE NAVEGACION SUPERIOR -->
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <span class="navbar-brand ps-4"> Inventario </span>
         </nav>
 
         <div id="layoutSidenav">
             
-            <!-- Barra de Navegacion Lateral --> 
+            <!-- BARRA DE NAVEGACION LATERAL --> 
             <div id="layoutSidenav_nav">
                 
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
@@ -72,39 +72,40 @@
                 </nav>
             </div>
 
-            <!-- Contenido -->
+            <!-- CONTENIDO -->
             <div id="layoutSidenav_content">
                 <main>
 
                     <div class="container-fluid px-4">
                         <h1 class="mt-4"> Productos </h1>
                         
-                        <!-- Card Tabla Inventario Productos -->
+                        <!-- CARD TABLA INVENTARIO PRODUCTO -->
                         <div class="card mb-4">
 
-                            <!-- Card Tabla Inventario Productos Encabezado -->
+                            <!-- CARD TABLA INVENTARIO PRODUCTO  ENCABEZADO -->
                             <div class="card-header">
-                                    <i class="fa-solid fa-table-list"></i>
-                                    <span> Listado de Productos : </span>
+                                <i class="fa-solid fa-clipboard-list"></i>
+                                <span> Listado de Productos : </span>
                             </div>
                             
-                            <!-- Card Tabla Inventario Productos Contenido -->
+                            <!--CARD TABLA INVENTARIO PRODUCTO CONTENIDO -->
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-5">
                                         
                                         <div class="row"> 
                                             
-                                            <!-- Ingresar Producto -->
+                                            <!-- INGRESAR PRODUCTO BTN -->
                                             <div class="col-3">
                                                 <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalInsertarProducto"> Ingresar Producto </button>
                                             </div>
 
-                                            <!-- Listar Productos -->
+                                            <!-- LISTAR PRODUCTOS -->
                                             <div class="col-2">
                                                 <div class="dropdown">
                                                     <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"> Listar Por </button>
                                                     
+                                                    <!-- LISTADO DE FUNCIONES -->
                                                     <ul class="dropdown-menu">
                                                         <li><a class="dropdown-item" onclick="ordenarNombreProductoAsc()">Filtrar Producto A-Z</a></li>
                                                         <li><a class="dropdown-item" onclick="ordenarNombreProductoDesc()">Filtrar Producto Z-A</a></li>
@@ -115,22 +116,22 @@
                                                 </div>
                                             </div>
 
-                                            <!-- Modal Insertar Producto -->
+                                            <!-- MODAL INSERTAR PRODUCTO -->
                                             <div class="col">
                                                 <div class="modal fade" id="modalInsertarProducto" data-bs-backdrop="static">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
 
-                                                            <!-- Cabecera Modal -->
+                                                            <!-- CABECERA MODAL -->
                                                             <div class="modal-header">
                                                                 <h4 class="modal-title"> Ingresar Producto : </h4>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                                             </div>
 
-                                                            <!-- Cuerpo Modal --> 
+                                                            <!-- CUERPO MODAL --> 
                                                             <div class="modal-body">
                                                                 
-                                                                <!-- Formulario Ingreso Producto -->
+                                                                <!-- FORMULARIO INGRESO PRODUCTO -->
                                                                 <form form id="formInsertarProducto" onsubmit="return insertarProducto()" method="POST"> 
                                                                 
                                                                     <label>Nombre : </label>
@@ -144,8 +145,8 @@
                                                                     
                                                                     <br>
                                                                     
-                                                                    <input type="submit" value="Guardar" class="btn btn-primary">
-
+                                                                    <button type="submit" class="btn btn-primary"> <i class="fa-solid fa-floppy-disk"></i> Guardar Producto </button>
+                                                                    
                                                                 </form>
                                                             </div>
                                                         </div>
@@ -153,22 +154,22 @@
                                                 </div>
                                             </div>
 
-                                            <!-- Modal Actualizar Producto -->
+                                            <!-- MODAL ACTUALIZAR PRODUCTO -->
                                             <div class="col">
                                                 <div class="modal fade" id="modalActualizarProducto"  data-bs-backdrop="static">
                                                     <div class="modal-dialog">
                                                         <div class="modal-content">
 
-                                                            <!-- Cabecera Modal -->
+                                                            <!-- CABECERA MODAL -->
                                                             <div class="modal-header">
                                                                 <h4 class="modal-title"> Actualizar Producto : </h4>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                                             </div>
 
-                                                            <!-- Cuerpo Modal -->
+                                                            <!-- CUERPO MODAL -->
                                                             <div class="modal-body">
                                                                 
-                                                                <!-- Formulario Actualizar Datos Producto -->
+                                                                <!-- FORMULARIO ACTUALIZAR PRODUCTO -->
                                                                 <form form id="formUptadeProducto" onsubmit="return actualizarProducto()" method="POST"> 
                                                                     
                                                                     <label>Id : </label>
@@ -198,12 +199,12 @@
                                     </div>
                                 </div>
 
-                                <!-- InterEspacio  -->      
+                                <!-- INTERESPACIO -->      
                                 <div class="row">
                                     <div class="col mb-4"> </div>
                                 </div>
 
-                                <!-- Tabla Inventario de Productos -->
+                                <!-- TABLA DE INVENTARIO PRODUCTOS -->
                                 <div class="row">
                                     <div id="tablaProducto"></div>
                                 </div>
@@ -215,14 +216,14 @@
             </div>
         </div>
         
-        <!-- Scripts -->
+        <!-- SCRIPTS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         
-        <!-- Scripts Funcionalidades -->
+        <!-- SCRIPTS FUNCIONALIDADES -->
         <script src="../../../Inventario_Ferreteria/views/assets/js/productoScript.js"></script>
         
-        <!-- Funcion Mostrar Tabla Inventario -->
+        <!-- FUNCION MOSTRAR INVENTARIO PRODUCTOS -->
         <script type="text/javascript">
             mostrarProducto();
         </script>

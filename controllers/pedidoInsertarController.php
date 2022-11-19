@@ -13,24 +13,25 @@
             $proveedor_id = $_POST['proveedorSelect'];
             $valorTotal = ($_POST['cantidad'] *  $_POST['valorUnitario'] );
             
-            $cantidadUpdate = 0;
+            $cantidadStock = 0;
 
             $respuestaInsertarPedido =  PedidoModel::insertarPedidoModel($cantidad,$fechaIngreso,$valorUnitario,$producto_id,$proveedor_id,$valorTotal);
-            echo "1";
             echo "/ Producto = $producto_id";
             echo "/ Id = $respuestaInsertarPedido";
 
             $respuestaBuscarCantidad = PedidoModel::buscarPedidoModel($producto_id);
             $a = serialize($respuestaBuscarCantidad);
-            echo "/Cantidad =  $a";
+            //echo "/Cantidad =  $a";
 
             foreach ($respuestaBuscarCantidad as $key => $value) {
-                $cantidadUpdate += intval($value['cantidad']);
+                $cantidadStock = intval($value['cantidad']);
+                echo " FOR : $cantidadStock";
             }
-
-            echo " FOR : $cantidadUpdate";
+            $cantidadUpdate = $cantidadStock+$cantidad;
+            //echo " TOTAL FOR : $cantidadStock";
             
             $respuestaActualizarCantidadInventario = PedidoModel::actualizarCantidadInventario($producto_id,$cantidadUpdate,$respuestaInsertarPedido);
+            echo "1";
         }
     }
 

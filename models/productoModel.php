@@ -4,7 +4,7 @@
     
     class ProductoModel {
         
-        // Mostrar Lista Productos 
+        // MOSTRAR LISTA DE PODUCTO
         static public function mostrarProductoModel(){
             
             $stmt = Connect::connectBd()-> prepare("SELECT id, nombre, descripcion, marca FROM producto");
@@ -14,7 +14,7 @@
             $stmt = null;
         }
 
-        // Seleeccionar Productos 
+        // SELECCIONAR PRODUCTO VALIDAR
         static public function seleccionarProductoModel($datosModel){
             
             $stmt = Connect::connectBd()-> prepare("SELECT id,nombre,descripcion,marca FROM producto WHERE nombre=:nombre"); 
@@ -25,7 +25,7 @@
             $stmt = null;
         }
 
-        // Insertar Producto
+        // INSERTAR PRODUCTO
         static public function insertarProductoModel($datosModel){
             
             $stmt =Connect::connectBd()-> prepare("INSERT INTO producto (nombre,descripcion,marca) VALUE (:nombre, :descripcion, :marca)");
@@ -38,7 +38,7 @@
             $stmt = null;
         }
         
-        // Eliminar Producto
+        // ELIMINAR PRODUCTO
         static public function eliminarProductoModel($id){
             
             $stmt =Connect::connectBd()-> prepare("DELETE FROM producto WHERE id=:id");
@@ -48,7 +48,7 @@
             $stmt = null;
         }
 
-        // Obtener Datos del Producto
+        // OBTENER DATOS DEL PRODUCTO
         static public function obtenerDatosProductoModel($id){
             
             $stmt = Connect::connectBd()-> prepare("SELECT id,nombre,descripcion,marca FROM producto WHERE id=:id");
@@ -59,7 +59,7 @@
             $stmt = null;
         }
 
-        // Actualizar Datos del  Producto 
+        // ACTUALIZAR DATOS DEL PRODUCTO
         static public function actualizarProductoModel($id,$nombre,$descripcion,$marca ){
             
             $stmt = Connect::connectBd()-> prepare("UPDATE producto SET nombre = :nombre, descripcion = :descripcion, marca = :marca WHERE id = :id");

@@ -39,7 +39,8 @@
         // BUSCAR CANTIDAD
         static public function buscarPedidoModel($producto_id){
             
-            $stmt = Connect::connectBd()-> prepare("SELECT  pd.cantidad from producto p left join pedido pd ON pd.producto_id = p.id WHERE pd.producto_id = $producto_id");
+            //$stmt = Connect::connectBd()-> prepare("SELECT  pd.cantidad from producto p left join pedido pd ON pd.producto_id = p.id WHERE pd.producto_id = $producto_id");
+            $stmt = Connect::connectBd()-> prepare("SELECT  i.cantidad from inventario i left join producto p ON i.producto_id = p.id WHERE i.producto_id = $producto_id");
             $stmt->execute();
             
             return $stmt->fetchAll();

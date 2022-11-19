@@ -1,5 +1,6 @@
 
-// Funcion Mostrar Lista Productos
+
+// FUNCION MOSTRAR LISTA DE PRODUCTOS
 function mostrarProducto(){
     
     console.log("Mostrar Productos Js");
@@ -8,7 +9,6 @@ function mostrarProducto(){
         
         type:"POST",
         url:"../../../../Inventario_Ferreteria/controllers/productoMostrarController.php",
-        data:{funcion: "1"},
         
         success:function(respuesta){
             //console.log("Respuesta Mostrar Producto : " + respuesta); 
@@ -18,7 +18,7 @@ function mostrarProducto(){
 }
 
 
-// Funcion Insertar Producto
+// FUNCION INSERTAR PRODUCTO
 function insertarProducto(){
 
     console.log("Ingresar Producto Js");
@@ -61,7 +61,7 @@ function insertarProducto(){
 }
 
 
-// Funcion Eliminar Producto
+// FUNCION ELIMINAR PRODUCTO
 function eliminarProducto(id){
     
     Swal.fire({
@@ -115,7 +115,7 @@ function eliminarProducto(id){
 }
 
 
-// Funcion Obtener Datos Producto
+// FUNCION OBTENER DATOS PRODUCTO
 function obtenerDatosProducto(id){
     
     console.log("Obtener Datos Producto Js");
@@ -139,7 +139,7 @@ function obtenerDatosProducto(id){
 }
 
 
-// Funcion Actualizar Producto
+// FUNCION ACTUALIZAR PRODUCTO
 function actualizarProducto(){
     
     console.log("Actualizar Datos Producto Js");
@@ -167,7 +167,7 @@ function actualizarProducto(){
                 
                 Swal.fire({
                     title: "Error al Actualizar",
-                    text: "No se ha podido actualizar la informacion del producto",
+                    text: "No se han podido actualizar la informacion del producto",
                     icon: "error",
                     confirmButtonText: "Aceptar",
                 });
@@ -179,7 +179,7 @@ function actualizarProducto(){
 }
 
 
-// Funcion Ordenar Nombre Producto A-Z
+// FUNCION ORDENAR PRODUCTO A-Z
 function ordenarNombreProductoAsc(){
     
     console.log("Ordenar Producto Asc Js");
@@ -197,7 +197,7 @@ function ordenarNombreProductoAsc(){
 }
 
 
-// Funcion Ordenar Nombre Producto Z-A
+// FUNCION ORDENAR PRODUCTO Z-A
 function ordenarNombreProductoDesc(){
     
     console.log("Ordenar Producto Desc Js");
@@ -215,7 +215,7 @@ function ordenarNombreProductoDesc(){
 }
 
 
-// Funcion Ordenar Productos Mas Recientes
+// FUNCION ORDENAR PRODUCTO RECIENTES
 function ordenarMasRecientesProducto(){
     
     console.log("Ordenar Producto Mas Recientes Js");
@@ -233,7 +233,7 @@ function ordenarMasRecientesProducto(){
 }
 
 
-// Funcion Ordenar Productos Mas Antiguos
+// FUNCION ORDENAR PRODUCTO ANTIGUOS
 function ordenarMasAntiguosProducto(){
     
     console.log("Ordenar Producto Mas Antiguos Js");

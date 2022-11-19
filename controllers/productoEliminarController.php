@@ -7,13 +7,13 @@
         static public function eliminarProductoController(){
 
             $id=$_POST['id'];
-
+            
             $respuesta =  ProductoModel::eliminarProductoModel($id);
             echo "1";
         }
     }
 
-    // Ejecuta el metodo Insertar
+    // EJECUTA EL METODO ELIMINAR
     $eliminar = new EliminarProducto();
     $eliminar->eliminarProductoController();
 ?>

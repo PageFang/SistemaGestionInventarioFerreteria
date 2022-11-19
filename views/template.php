@@ -12,31 +12,32 @@
         <title> Inventario </title>
         <link rel="icon" href="../../Inventario_Ferreteria/views/assets/img/Logo.ico">
 
-        <!-- Styles -->   
+        <!-- STYLES -->   
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="../../Inventario_Ferreteria/views/assets/css/styles.css" rel="stylesheet" />
         
-        <!-- Icons -->   
+        <!-- ICONS -->   
         <script src="https://kit.fontawesome.com/4afb0f7fd4.js" crossorigin="anonymous"></script>
         
-        <!-- Scripts -->   
-        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
-
+        <!-- SCRIPTS -->   
         <script src="../../Inventario_Ferreteria/views/assets/plugins/jquery/jquery.min.js"></script>
-        <script src="../../Inventario_Ferreteria/views/assets/plugins/sweetalert.min.js"></script>
     </head>
 
     <body class="sb-nav-fixed">
 
-        <!-- Barra de Navegacion Superior -->   
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <span class="navbar-brand ps-4"> Inventario </span> 
-        </nav>
+        <!-- BARRA DE NAVEGACION SUPERIOR -->   
+        <div class="row">
+            <div class="col-6">
+                <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+                    <span class="navbar-brand ps-4"> Inventario Ferrerteria La Avenida </span> 
+                </nav>
+            </div>
+        </div>
+        
 
         <div id="layoutSidenav">
 
-            <!-- Barra de Navegacion Lateral -->   
+            <!-- BARRA DE NAVEGACION LATERAL -->   
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
@@ -73,17 +74,17 @@
                 </nav>
             </div>
 
-            <!-- Contenido -->
+            <!-- CONTENIDO -->
             <div id="layoutSidenav_content">
                 <main>
                     
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Inventario</h1> <br>
                         
-                        <!-- Cards de Navegacion -->
+                        <!-- CARDS DE NAVEGACION -->
                         <div class="row">
                             
-                            <!-- Card Producto -->
+                            <!-- CARD PRODUCTO -->
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-dark text-white mb-4">
                                     <div class="card-body text-center">
@@ -96,7 +97,7 @@
                                 </div>
                             </div>
                             
-                            <!-- Card Pedido -->
+                            <!-- CARD PEDIDO -->
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-dark text-white mb-4">
                                     <div class="card-body text-center">
@@ -109,7 +110,7 @@
                                 </div>
                             </div>
 
-                            <!-- Card Salida -->
+                            <!-- CARD SALIDA -->
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-dark text-white mb-4">
                                     <div class="card-body text-center">
@@ -122,7 +123,7 @@
                                 </div>
                             </div>
 
-                            <!-- Card Proveedores -->
+                            <!-- CARD PROVEEDORES -->
                             <div class="col-xl-3 col-md-6">
                                 <div class="card bg-dark text-white mb-4">
                                     <div class="card-body text-center">
@@ -137,22 +138,21 @@
 
                         </div>
 
-                        <!-- Card Tabla Inventario -->
+                        <!-- CARD TABLA INVENTARIO -->
                         <div class="card mb-4">
                             
-                            <!-- Card Tabla Inventario Cabecera-->
+                            <!-- CARD TABLA INVENTARIO CABECERA -->
                             <div class="card-header">
-                                <i class="fa-solid fa-table-list"></i>
+                                <i class="fa-solid fa-clipboard-list"></i>
                                 <span> Inventario General </span>
                             </div>
                             
-                            <!-- Card Tabla Inventario Cuerpo -->
+                            <!-- CARD TABLA INVENTARIO CUERPO -->
                             <div class="card-body">
                                 
-                                <!-- Tabla Inventario -->
+                                <!-- TABLA INVENTARIO -->
                                 <div class="row">
-                                    <div id="tablaInventario">    
-                                    </div>
+                                    <div id="tablaInventario"> </div>
                                 </div>
 
                             </div>
@@ -164,14 +164,14 @@
             </div>
         </div>
     
-        <!-- Scripts -->
+        <!-- SCRIPTS -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         
-        <!-- Scripts Funcionalidades -->
-        <script src="../../../Inventario_Ferreteria/views/assets/js/inicioScript.js"></script>
+        <!-- SCRIPTS FUNCIONALIDADES -->
+        <script src="../../../Inventario_Ferreteria/views/assets/js/inventarioScript.js"></script>
         
-        <!-- Funcion Mostrar Tabla Inventario -->
+        <!-- FUNCION MOSTRAR TABLA INVENTARIO -->
         <script type="text/javascript">
             mostrarInventario();
         </script>

@@ -8,26 +8,25 @@
             
             $id = $_POST['id'];
     
-            // Validar Entrada Mayusculas y Minusculas (Nombre)
+            ## VALIDAR ENTRADA MAYUSCULAS Y MINISCULAS (NOMBRE)
             $nombre = strtolower($_POST['nombreUp']);
             $nombre = ucwords($nombre);
         
-            // Validar Entrada Mayusculas y Minusculas (Descripcion)
+            ## VALIDAR ENTRADA MAYUSCULAS Y MINISCULAS (DESCRIPCION)
             $descripcion = strtolower($_POST['descripcionUp']);
             $descripcion = ucfirst($descripcion);
         
-            // Validar Entrada Mayusculas y Minusculas (Marca)
+            ## VALIDAR ENTRADA MAYUSCULAS Y MINISCULAS (MARCA)
             $marca = strtolower($_POST['marcaUp']);
             $marca = ucwords($marca);
             
-        
             $respuestaActualizaDatos =  ProductoModel::actualizarProductoModel($id, $nombre, $descripcion,$marca);
             
             echo "1";
         }
     }
 
-    // Ejecuta el metodo Insertar
+    ## EJECUTA METODO ACTUALIZAR
     $actualizar = new ActualizarProducto();
     $actualizar->actualizarProductoController();
 

@@ -8,29 +8,29 @@
 
             $respuestaInsertar = "";
 
-            // Validar Entrada Mayusculas y Minusculas (Nombre)
+            ## VALIDAR ENTRADA MAYUSCULAS Y MINISCULAS (NOMBRE)
             $nombre = strtolower($_POST['nombre']);
             $nombre = ucwords($nombre);
 
-            // Validar Entrada Mayusculas y Minusculas (Descripcion)
+            ## VALIDAR ENTRADA MAYUSCULAS Y MINISCULAS (DESCRIPCION)
             $descripcion = strtolower($_POST['descripcion']);
             $descripcion = ucfirst($descripcion);
 
-            // Validar Entrada Mayusculas y Minusculas (Marca)
+            ## VALIDAR ENTRADA MAYUSCULAS Y MINISCULAS (MARCA)
             $marca = strtolower($_POST['marca']);
             $marca = ucwords($marca);
 
-            // Array a enviar los Datos
+            // ARRAY A ENVIAR LOS DATOS
             $datosController = array (
                 'nombre'=> $nombre,
                 'descripcion'=> $descripcion,
                 'marca'=> $marca
             );
 
-             // Busca si el producto existe
+             // BUSCA SI EL PRODUCTO EXITE
             $respuestaSeleccionar = ProductoModel::seleccionarProductoModel($datosController);
 
-            // Inserta el producto
+            // INSERTA EL PRODUCTO
             if (!$respuestaSeleccionar) {
                 $respuestaInsertar = ProductoModel::insertarProductoModel($datosController);
                 echo "1";
@@ -40,7 +40,7 @@
         }
     }
 
-    // Ejecuta el metodo Insertar
+    // EJECUTA EL METODO INSERTAR
     $insertar = new InsertarProducto();
     $insertar->insertarProductoController();
 

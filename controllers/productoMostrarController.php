@@ -5,7 +5,7 @@
 
     class MostrarProducto {
         
-        // Funcion Mostrar Lista Producto 
+        ## FUNCION MOSTRAR LISTA DE PRODUCTOS
         static public function mostrarProductoController(){
             
             $object = new ProductoModel();
@@ -18,50 +18,39 @@
                                 <th>Id</th>
                                 <th>Nombre</th>
                                 <th>Descripcion</th>
-                                <th>Marca </th>
-                                <th> </th>
-                                <th> </th>
+                                <th>Marca</th>
+                                <th>Operaciones</th>
                             </tr>
                         </thead>
                         
                         <tbody>';
 
+            ## IMPRIME LA COLUMNA CON LOS VALORES
             foreach ($datos as $key => $value) {
                 $datosTabla = $datosTabla.' <tr>
                                                 <td>'.$value['id'].'</td>
                                                 <td>'.$value['nombre'].'</td>
                                                 <td>'.$value['descripcion'].'</td>
                                                 <td>'.$value['marca'].'</td>
-                                                
                                                 <td>
-                                                    <span class = "btn btn-dark btn-sm" onclick = "obtenerDatosProducto('.$value['id'].')" data-bs-toggle = "modal" data-bs-target = "#modalActualizarProducto">
+                                                    <span class = "btn btn-dark  btn btn-outline-warning" onclick = "obtenerDatosProducto('.$value['id'].')" data-bs-toggle = "modal" data-bs-target = "#modalActualizarProducto">
                                                         <i class = "fa-solid fa-pen"></i>
                                                     </span>
-											    </td>
-                                                <td>
-                                                    <span class = "btn btn-dark" onclick = "eliminarProducto('.$value['id'].')">
+
+                                                    <span class = "btn btn-dark btn-outline-danger" onclick = "eliminarProducto('.$value['id'].')">
                                                         <i class = "fa-solid fa-trash"></i>
                                                     </span>
 											    </td>
                                             </tr>';
             }
+            ## IMPRIME LA TABLA PRODUCTOS
             echo $tabla.$datosTabla.'</tbody> </table>';
         }
+        
     }
     
-    // Buscar La Funcion a Ejecutar
-    if(!empty($_POST['funcion'])) {
-        
-        $funcionExecute = $_POST['funcion'];
-        
-        switch ($funcionExecute) {
-            
-            case '1': 
-                $mostrar = new MostrarProducto();
-                $mostrar->mostrarProductoController();
-                break;
-        }
-    }
-    
+    $mostrar = new MostrarProducto();
+    $mostrar->mostrarProductoController();
+
 ?>
 

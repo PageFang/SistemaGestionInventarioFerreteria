@@ -5,7 +5,7 @@
 
     class OrdenarProductoController {
         
-        // Funcion Mostrar Productos 
+        ## FUNCION ORDENAR PRODUCTOS A-Z
         static public function ordenarNombreProductoAsc(){
             
             $obj = new ProductoModel();
@@ -18,8 +18,7 @@
                                 <th>Nombre</th>
                                 <th>Descripcion</th>
                                 <th>Marca </th>
-                                <th> </th>
-                                <th> </th>
+                                <th>Operaciones</th>
                             </tr>
                         </thead> 
                         <tbody>';
@@ -33,13 +32,12 @@
                                                 <td>'.$value['descripcion'].'</td>
                                                 <td>'.$value['marca'].'</td>
                                                 <td>
-                                                    <span class="btn btn-dark btn-sm" onclick="obtenerProducto('.$value['id'].')"  data-bs-toggle="modal" data-bs-target="#actualizarModalProducto">
-                                                        <i class="fa-solid fa-pen"></i>
+                                                    <span class = "btn btn-dark  btn btn-outline-warning" onclick = "obtenerDatosProducto('.$value['id'].')" data-bs-toggle = "modal" data-bs-target = "#modalActualizarProducto">
+                                                        <i class = "fa-solid fa-pen"></i>
                                                     </span>
-											    </td>
-                                                <td>
-                                                    <span class="btn btn-dark" onclick="eliminarProducto('.$value['id'].')">
-                                                        <i class="fa-solid fa-trash"></i>
+
+                                                    <span class = "btn btn-dark btn-outline-danger" onclick = "eliminarProducto('.$value['id'].')">
+                                                        <i class = "fa-solid fa-trash"></i>
                                                     </span>
 											    </td>
                                             </tr>';
@@ -48,7 +46,7 @@
             echo $tabla.$datosTabla.' </tbody> </table>';
         }
 
-        // Funcion Mostrar Productos 
+        ## FUNCION ORDENAR PRODUCTOS Z-A
         static public function ordenarNombreProductoDesc(){
             
             $obj = new ProductoModel();
@@ -61,9 +59,7 @@
                                 <th>Nombre</th>
                                 <th>Descripcion</th>
                                 <th>Marca </th>
-                                <th>Valor Unitario </th>
-                                <th> </th>
-                                <th> </th>
+                                <th>Operaciones</th>
                             </tr>
                         </thead> 
                         <tbody>';
@@ -77,13 +73,12 @@
                                                 <td>'.$value['descripcion'].'</td>
                                                 <td>'.$value['marca'].'</td>
                                                 <td>
-                                                    <span class="btn btn-dark btn-sm" onclick="obtenerProducto('.$value['id'].')"  data-bs-toggle="modal" data-bs-target="#actualizarModalProducto">
-                                                        <i class="fa-solid fa-pen"></i>
+                                                    <span class = "btn btn-dark  btn btn-outline-warning" onclick = "obtenerDatosProducto('.$value['id'].')" data-bs-toggle = "modal" data-bs-target = "#modalActualizarProducto">
+                                                        <i class = "fa-solid fa-pen"></i>
                                                     </span>
-											    </td>
-                                                <td>
-                                                    <span class="btn btn-dark" onclick="eliminarProducto('.$value['id'].')">
-                                                        <i class="fa-solid fa-trash"></i>
+
+                                                    <span class = "btn btn-dark btn-outline-danger" onclick = "eliminarProducto('.$value['id'].')">
+                                                        <i class = "fa-solid fa-trash"></i>
                                                     </span>
 											    </td>
                                             </tr>';
@@ -93,7 +88,7 @@
         }
 
 
-        // Funcion Mostrar Productos 
+        ## FUNCION ORDENAR PRODUCTOS MAS RECIENTES
         static public function ordenarMasRecientesProducto(){
             
             $obj = new ProductoModel();
@@ -106,8 +101,7 @@
                                 <th>Nombre</th>
                                 <th>Descripcion</th>
                                 <th>Marca </th>
-                                <th> </th>
-                                <th> </th>
+                                <th>Operaciones</th>
                             </tr>
                         </thead> 
                         <tbody>';
@@ -121,13 +115,12 @@
                                                 <td>'.$value['descripcion'].'</td>
                                                 <td>'.$value['marca'].'</td>
                                                 <td>
-                                                    <span class="btn btn-dark btn-sm" onclick="obtenerProducto('.$value['id'].')"  data-bs-toggle="modal" data-bs-target="#actualizarModalProducto">
-                                                        <i class="fa-solid fa-pen"></i>
+                                                    <span class = "btn btn-dark  btn btn-outline-warning" onclick = "obtenerDatosProducto('.$value['id'].')" data-bs-toggle = "modal" data-bs-target = "#modalActualizarProducto">
+                                                        <i class = "fa-solid fa-pen"></i>
                                                     </span>
-											    </td>
-                                                <td>
-                                                    <span class="btn btn-dark" onclick="eliminarProducto('.$value['id'].')">
-                                                        <i class="fa-solid fa-trash"></i>
+
+                                                    <span class = "btn btn-dark btn-outline-danger" onclick = "eliminarProducto('.$value['id'].')">
+                                                        <i class = "fa-solid fa-trash"></i>
                                                     </span>
 											    </td>
                                             </tr>';
@@ -136,6 +129,8 @@
             echo $tabla.$datosTabla.' </tbody> </table>';
         }
 
+
+        ## FUNCION ORDENAR PRODUCTOS MAS ANTIGUOS
         static public function ordenarMasAntiguoProducto(){
             
             $obj = new ProductoModel();
@@ -148,8 +143,7 @@
                                 <th>Nombre</th>
                                 <th>Descripcion</th>
                                 <th>Marca </th>
-                                <th> </th>
-                                <th> </th>
+                                <th>Operaciones</th>
                             </tr>
                         </thead> 
                         <tbody>';
@@ -163,13 +157,12 @@
                                                 <td>'.$value['descripcion'].'</td>
                                                 <td>'.$value['marca'].'</td>
                                                 <td>
-                                                    <span class="btn btn-dark btn-sm" onclick="obtenerProducto('.$value['id'].')"  data-bs-toggle="modal" data-bs-target="#actualizarModalProducto">
-                                                        <i class="fa-solid fa-pen"></i>
+                                                    <span class = "btn btn-dark  btn btn-outline-warning" onclick = "obtenerDatosProducto('.$value['id'].')" data-bs-toggle = "modal" data-bs-target = "#modalActualizarProducto">
+                                                        <i class = "fa-solid fa-pen"></i>
                                                     </span>
-											    </td>
-                                                <td>
-                                                    <span class="btn btn-dark" onclick="eliminarProducto('.$value['id'].')">
-                                                        <i class="fa-solid fa-trash"></i>
+
+                                                    <span class = "btn btn-dark btn-outline-danger" onclick = "eliminarProducto('.$value['id'].')">
+                                                        <i class = "fa-solid fa-trash"></i>
                                                     </span>
 											    </td>
                                             </tr>';

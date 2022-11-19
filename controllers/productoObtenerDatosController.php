@@ -13,7 +13,7 @@
         }
     }
 
-    // Ejecuta el metodo Insertar
+    ## EJECUTA METODO OBTENER DATOS PRODUCTO
     $obtener = new ObtenerDatos();
     $obtener->obtenerDatosProductoController();
 
