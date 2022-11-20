@@ -21,8 +21,7 @@
                                 <th>Fecha Ingreso</th>
                                 <th>Valor Unitario</th>
                                 <th>Valor Total</th>
-                                <th> </th>
-                                <th> </th>
+                                <th>Operaciones</th>
                             </tr>
                         </thead> 
 
@@ -37,12 +36,10 @@
                                                 <td>'.$value['valorUnitario'].'</td>
                                                 <td>'.$value['valorTotal'].'</td>
                                                 <td>
-                                                <span class = "btn btn-dark btn-sm" onclick = "obtenerDatosPedido('.$value['id'].')" data-bs-toggle = "modal" data-bs-target = "#modalActualizarPedido">
-                                                <i class = "fa-solid fa-pen"></i>
-                                            </span
-											    </td>
-                                                <td>
-                                                    <span class = "btn btn-dark" onclick = "eliminarPedido('.$value['id'].')">
+                                                    <span class = "btn btn-dark  btn btn-outline-warning" onclick = "obtenerDatosPedido('.$value['id'].')" data-bs-toggle = "modal" data-bs-target = "#modalActualizarPedido">
+                                                        <i class = "fa-solid fa-pen"></i>
+                                                    </span>
+                                                    <span class = "btn btn-dark btn-outline-danger" onclick = "eliminarPedido('.$value['id'].')">
                                                         <i class = "fa-solid fa-trash"></i>
                                                     </span>
 											    </td>

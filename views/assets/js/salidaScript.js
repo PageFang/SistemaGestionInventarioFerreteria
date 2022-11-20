@@ -133,6 +133,7 @@ function obtenerDatosSalida(id){
 
             respuesta=jQuery.parseJSON(respuesta);
             $('#idUp').val(respuesta['id']);
+            $('#productoSalidaUp').val(respuesta['producto_id']);
             $('#cantidadUp').val(respuesta['cantidad']);
             $('#fechaSalidaUp').val(respuesta['fechaSalida']);
             $('#valorUnitarioUp').val(respuesta['valorUnitario']);

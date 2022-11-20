@@ -19,8 +19,7 @@
                                 <th>Fecha Salida</th>
                                 <th>Valor Unitario</th>
                                 <th>Valor Total</th>
-                                <th></th>
-                                <th></th>
+                                <th>Operaciones</th>
                             </tr>
                         </thead> 
                         <tbody>';
@@ -36,13 +35,12 @@
                                                 <td>'.$value['valorUnitario'].'</td>
                                                 <td>'.$value['valorTotal'].'</td>
                                                 <td>
-                                                    <span class="btn btn-dark btn-sm" onclick="obtenerDatos('.$value['id'].')" data-toggle="modal" data-target="#actualizarModal">
-                                                        <i class="fas fa-edit"></i>
+                                                    <span class = "btn btn-dark  btn btn-outline-warning" onclick = "obtenerDatosSalida('.$value['id'].')" data-bs-toggle = "modal" data-bs-target = "#modalActualizarSalida">
+                                                        <i class = "fa-solid fa-pen"></i>
                                                     </span>
-											    </td>
-                                                <td>
-                                                    <span class="btn btn-dark" onclick="eliminarSalida('.$value['id'].')">
-                                                        <li class="fas fa-trash-alt"></li>
+                                                    
+                                                    <span class = "btn btn-dark btn-outline-danger" onclick = "eliminarSalida('.$value['id'].')">
+                                                        <li class = "fas fa-trash-alt"></li>
                                                     </span>
 											    </td>
                                             </tr>';
@@ -66,8 +64,7 @@
                                 <th>Fecha Salida</th>
                                 <th>Valor Unitario</th>
                                 <th>Valor Total</th>
-                                <th></th>
-                                <th></th>
+                                <th>Operaciones</th>
                             </tr>
                         </thead> 
                         <tbody>';
@@ -83,13 +80,12 @@
                                                 <td>'.$value['valorUnitario'].'</td>
                                                 <td>'.$value['valorTotal'].'</td>
                                                 <td>
-                                                    <span class="btn btn-dark btn-sm" onclick="obtenerDatos('.$value['id'].')" data-toggle="modal" data-target="#actualizarModal">
-                                                        <i class="fas fa-edit"></i>
+                                                    <span class = "btn btn-dark  btn btn-outline-warning" onclick = "obtenerDatosSalida('.$value['id'].')" data-bs-toggle = "modal" data-bs-target = "#modalActualizarSalida">
+                                                        <i class = "fa-solid fa-pen"></i>
                                                     </span>
-											    </td>
-                                                <td>
-                                                    <span class="btn btn-dark" onclick="eliminarSalida('.$value['id'].')">
-                                                        <li class="fas fa-trash-alt"></li>
+                                                    
+                                                    <span class = "btn btn-dark btn-outline-danger" onclick = "eliminarSalida('.$value['id'].')">
+                                                        <li class = "fas fa-trash-alt"></li>
                                                     </span>
 											    </td>
                                             </tr>';
@@ -113,8 +109,7 @@
                                 <th>Fecha Salida</th>
                                 <th>Valor Unitario</th>
                                 <th>Valor Total</th>
-                                <th></th>
-                                <th></th>
+                                <th>Operaciones</th>
                             </tr>
                         </thead> 
                         <tbody>';
@@ -130,13 +125,12 @@
                                                 <td>'.$value['valorUnitario'].'</td>
                                                 <td>'.$value['valorTotal'].'</td>
                                                 <td>
-                                                    <span class="btn btn-dark btn-sm" onclick="obtenerDatos('.$value['id'].')" data-toggle="modal" data-target="#actualizarModal">
-                                                        <i class="fas fa-edit"></i>
+                                                    <span class = "btn btn-dark  btn btn-outline-warning" onclick = "obtenerDatosSalida('.$value['id'].')" data-bs-toggle = "modal" data-bs-target = "#modalActualizarSalida">
+                                                        <i class = "fa-solid fa-pen"></i>
                                                     </span>
-											    </td>
-                                                <td>
-                                                    <span class="btn btn-dark" onclick="eliminarSalida('.$value['id'].')">
-                                                        <li class="fas fa-trash-alt"></li>
+                                                    
+                                                    <span class = "btn btn-dark btn-outline-danger" onclick = "eliminarSalida('.$value['id'].')">
+                                                        <li class = "fas fa-trash-alt"></li>
                                                     </span>
 											    </td>
                                             </tr>';
@@ -160,8 +154,7 @@
                                 <th>Fecha Salida</th>
                                 <th>Valor Unitario</th>
                                 <th>Valor Total</th>
-                                <th></th>
-                                <th></th>
+                                <th>Operaciones</th>
                             </tr>
                         </thead> 
                         <tbody>';
@@ -177,15 +170,14 @@
                                                 <td>'.$value['valorUnitario'].'</td>
                                                 <td>'.$value['valorTotal'].'</td>
                                                 <td>
-                                                    <span class="btn btn-dark btn-sm" onclick="obtenerDatos('.$value['id'].')" data-toggle="modal" data-target="#actualizarModal">
-                                                        <i class="fas fa-edit"></i>
-                                                    </span>
-											    </td>
-                                                <td>
-                                                    <span class="btn btn-dark" onclick="eliminarSalida('.$value['id'].')">
-                                                        <li class="fas fa-trash-alt"></li>
-                                                    </span>
-											    </td>
+                                                <span class = "btn btn-dark  btn btn-outline-warning" onclick = "obtenerDatosSalida('.$value['id'].')" data-bs-toggle = "modal" data-bs-target = "#modalActualizarSalida">
+                                                    <i class = "fa-solid fa-pen"></i>
+                                                </span>
+                                                
+                                                <span class = "btn btn-dark btn-outline-danger" onclick = "eliminarSalida('.$value['id'].')">
+                                                    <li class = "fas fa-trash-alt"></li>
+                                                </span>
+                                            </td>
                                             </tr>';
             }
 
@@ -207,8 +199,7 @@
                                 <th>Fecha Salida</th>
                                 <th>Valor Unitario</th>
                                 <th>Valor Total</th>
-                                <th></th>
-                                <th></th>
+                                <th>Operaciones</th>
                             </tr>
                         </thead> 
                         <tbody>';
@@ -224,13 +215,12 @@
                                                 <td>'.$value['valorUnitario'].'</td>
                                                 <td>'.$value['valorTotal'].'</td>
                                                 <td>
-                                                    <span class="btn btn-dark btn-sm" onclick="obtenerDatos('.$value['id'].')" data-toggle="modal" data-target="#actualizarModal">
-                                                        <i class="fas fa-edit"></i>
+                                                    <span class = "btn btn-dark  btn btn-outline-warning" onclick = "obtenerDatosSalida('.$value['id'].')" data-bs-toggle = "modal" data-bs-target = "#modalActualizarSalida">
+                                                        <i class = "fa-solid fa-pen"></i>
                                                     </span>
-											    </td>
-                                                <td>
-                                                    <span class="btn btn-dark" onclick="eliminarSalida('.$value['id'].')">
-                                                        <li class="fas fa-trash-alt"></li>
+                                                    
+                                                    <span class = "btn btn-dark btn-outline-danger" onclick = "eliminarSalida('.$value['id'].')">
+                                                        <li class = "fas fa-trash-alt"></li>
                                                     </span>
 											    </td>
                                             </tr>';
@@ -254,8 +244,7 @@
                                 <th>Fecha Salida</th>
                                 <th>Valor Unitario</th>
                                 <th>Valor Total</th>
-                                <th></th>
-                                <th></th>
+                                <th>Operaciones</th>
                             </tr>
                         </thead> 
                         <tbody>';
@@ -271,13 +260,12 @@
                                                 <td>'.$value['valorUnitario'].'</td>
                                                 <td>'.$value['valorTotal'].'</td>
                                                 <td>
-                                                    <span class="btn btn-dark btn-sm" onclick="obtenerDatos('.$value['id'].')" data-toggle="modal" data-target="#actualizarModal">
-                                                        <i class="fas fa-edit"></i>
+                                                    <span class = "btn btn-dark  btn btn-outline-warning" onclick = "obtenerDatosSalida('.$value['id'].')" data-bs-toggle = "modal" data-bs-target = "#modalActualizarSalida">
+                                                        <i class = "fa-solid fa-pen"></i>
                                                     </span>
-											    </td>
-                                                <td>
-                                                    <span class="btn btn-dark" onclick="eliminarSalida('.$value['id'].')">
-                                                        <li class="fas fa-trash-alt"></li>
+                                                    
+                                                    <span class = "btn btn-dark btn-outline-danger" onclick = "eliminarSalida('.$value['id'].')">
+                                                        <li class = "fas fa-trash-alt"></li>
                                                     </span>
 											    </td>
                                             </tr>';
@@ -301,8 +289,7 @@
                                 <th>Fecha Salida</th>
                                 <th>Valor Unitario</th>
                                 <th>Valor Total</th>
-                                <th></th>
-                                <th></th>
+                                <th>Operaciones</th>
                             </tr>
                         </thead> 
                         <tbody>';
@@ -318,13 +305,12 @@
                                                 <td>'.$value['valorUnitario'].'</td>
                                                 <td>'.$value['valorTotal'].'</td>
                                                 <td>
-                                                    <span class="btn btn-dark btn-sm" onclick="obtenerDatos('.$value['id'].')" data-toggle="modal" data-target="#actualizarModal">
-                                                        <i class="fas fa-edit"></i>
+                                                    <span class = "btn btn-dark  btn btn-outline-warning" onclick = "obtenerDatosSalida('.$value['id'].')" data-bs-toggle = "modal" data-bs-target = "#modalActualizarSalida">
+                                                        <i class = "fa-solid fa-pen"></i>
                                                     </span>
-											    </td>
-                                                <td>
-                                                    <span class="btn btn-dark" onclick="eliminarSalida('.$value['id'].')">
-                                                        <li class="fas fa-trash-alt"></li>
+                                                    
+                                                    <span class = "btn btn-dark btn-outline-danger" onclick = "eliminarSalida('.$value['id'].')">
+                                                        <li class = "fas fa-trash-alt"></li>
                                                     </span>
 											    </td>
                                             </tr>';
@@ -348,8 +334,7 @@
                                 <th>Fecha Salida</th>
                                 <th>Valor Unitario</th>
                                 <th>Valor Total</th>
-                                <th></th>
-                                <th></th>
+                                <th>Operaciones</th>
                             </tr>
                         </thead> 
                         <tbody>';
@@ -365,13 +350,12 @@
                                                 <td>'.$value['valorUnitario'].'</td>
                                                 <td>'.$value['valorTotal'].'</td>
                                                 <td>
-                                                    <span class="btn btn-dark btn-sm" onclick="obtenerDatos('.$value['id'].')" data-toggle="modal" data-target="#actualizarModal">
-                                                        <i class="fas fa-edit"></i>
+                                                    <span class = "btn btn-dark  btn btn-outline-warning" onclick = "obtenerDatosSalida('.$value['id'].')" data-bs-toggle = "modal" data-bs-target = "#modalActualizarSalida">
+                                                        <i class = "fa-solid fa-pen"></i>
                                                     </span>
-											    </td>
-                                                <td>
-                                                    <span class="btn btn-dark" onclick="eliminarSalida('.$value['id'].')">
-                                                        <li class="fas fa-trash-alt"></li>
+                                                    
+                                                    <span class = "btn btn-dark btn-outline-danger" onclick = "eliminarSalida('.$value['id'].')">
+                                                        <li class = "fas fa-trash-alt"></li>
                                                     </span>
 											    </td>
                                             </tr>';

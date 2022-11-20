@@ -203,7 +203,7 @@
 
                                                             <!-- Cabecera Modal -->
                                                             <div class="modal-header">
-                                                                <h4 class="modal-title"> Ingresar Pedido : </h4>
+                                                                <h4 class="modal-title"> Actualizar Pedido : </h4>
                                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                                             </div>
 
@@ -216,7 +216,7 @@
                                                                     <input type="text" id="idUp" name="idUp" class="form-control form-control-sm " readonly="readonly">
                                                                     
                                                                     <label> Producto : </label>
-                                                                    <select name="productoSelectUp" id="">
+                                                                    <select name="productoSelectUp" id="productoSelectUp">
                                                                         
                                                                         <option value="0"> Seleccione el Producto </option> 
                                                                         <?php 
@@ -235,7 +235,7 @@
 
                                                                     <label> Proveedor : </label>
                                                                     
-                                                                    <select name="proveedorSelectUp" id="">
+                                                                    <select name="proveedorSelectUp" id="proveedorSelectUp">
                                                                         
                                                                         <option value="0"> Seleccione el Proveedor </option> 
                                                                         <?php 

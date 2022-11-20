@@ -53,7 +53,7 @@
         // Obtener Datos Proveedor
         static public function obtenerDatosProveedorModel($id){
             
-            $stmt = Connect::connectBd()-> prepare("SELECT id,nombre,direccion,correoElectronico,telefono FROM proveedor WHERE id=:id");
+            $stmt = Connect::connectBd()-> prepare("SELECT id,nombre,direccion,correoElectronico,telefono,ciudad_id FROM proveedor WHERE id=:id");
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
             $stmt->execute();
             

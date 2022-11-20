@@ -73,7 +73,7 @@
         // Obtener Datos del Salida
         static public function obtenerDatosSalidaModel($id){
             
-            $stmt = Connect::connectBd()-> prepare("SELECT id,cantidad,fechaSalida,valorUnitario,valorTotal FROM salida WHERE id=:id");
+            $stmt = Connect::connectBd()-> prepare("SELECT id,producto_id,cantidad,fechaSalida,valorUnitario,valorTotal FROM salida WHERE id=:id");
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
             
             $stmt->execute();

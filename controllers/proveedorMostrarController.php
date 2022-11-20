@@ -20,8 +20,8 @@
                                 <th>Direccion</th>
                                 <th>Correo Electronico</th>
                                 <th>Telefono</th>
-                                <th></th>
-                                <th></th>
+                                <th>Operaciones</th>
+                                
                             </tr>
                         </thead> 
 
@@ -35,15 +35,14 @@
                                                 <td>'.$value['correoElectronico'].'</td>
                                                 <td>'.$value['telefono'].'</td>
                                                 <td>
-                                                    <span class="btn btn-dark btn-sm" onclick="obtenerDatosProveedor('.$value['id'].')" data-bs-toggle="modal" data-bs-target="#modalActualizarProveedor">
-                                                        <i class="fas fa-edit"></i>
-                                                    </span>
-											    </td>
-                                                <td>
-                                                    <span class="btn btn-dark" onclick="eliminarProveedor('.$value['id'].')">
-                                                        <li class="fas fa-trash-alt"></li>
-                                                    </span>
-											    </td>
+                                                <span class="btn btn-dark  btn btn-outline-warning" onclick="obtenerDatosProveedor('.$value['id'].')" data-bs-toggle="modal" data-bs-target="#modalActualizarProveedor">
+                                                    <i class="fas fa-edit"></i>
+                                                </span>
+
+                                                <span class="btn btn-dark btn-outline-danger" onclick="eliminarProveedor('.$value['id'].')">
+                                                    <li class="fas fa-trash-alt"></li>
+                                                </span>
+                                            </td>
                                             </tr>';
             }
             echo $tabla.$datosTabla.'</tbody> </table>';

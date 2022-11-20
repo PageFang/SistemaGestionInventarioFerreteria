@@ -61,6 +61,22 @@
 
             return $stmt = null;
         }
+
+        static public function actualizarUpdateCantidadInventario($producto_id,$cantidad,$pedido_id){
+            
+            $pdo = Connect::connectBd();
+            $stmt = $pdo-> prepare("UPDATE inventario SET producto_id = :producto_id, cantidad = :cantidad, pedido_id = :pedido_id WHERE pedido_id = $pedido_id");
+            
+            $stmt->bindParam(":producto_id", $producto_id, PDO::PARAM_INT);
+            $stmt->bindParam(":pedido_id", $pedido_id, PDO::PARAM_INT);
+            $stmt->bindParam(":cantidad", $cantidad, PDO::PARAM_INT);
+            
+            $stmt->execute();
+
+            return $stmt = null;
+        }
+
+
         
         // Eliminar Pedido
         static public function eliminarPedidoModel($id){
@@ -74,7 +90,7 @@
         // Obtener Datos del Pedido
         static public function obtenerDatosPedidoModel($id){
             
-            $stmt = Connect::connectBd()-> prepare("SELECT id,cantidad,fechaIngreso,valorUnitario,valorTotal FROM pedido WHERE id=:id");
+            $stmt = Connect::connectBd()-> prepare("SELECT id,producto_id,proveedor_id,cantidad,fechaIngreso,valorUnitario,valorTotal FROM pedido WHERE id=:id");
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
             
             $stmt->execute();

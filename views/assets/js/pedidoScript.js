@@ -131,6 +131,8 @@ function obtenerDatosPedido(id){
 
             respuesta=jQuery.parseJSON(respuesta);
             $('#idUp').val(respuesta['id']);
+            $('#productoSelectUp').val(respuesta['producto_id']);
+            $('#proveedorSelectUp').val(respuesta['proveedor_id']);
             $('#cantidadUp').val(respuesta['cantidad']);
             $('#fechaIngresoUp').val(respuesta['fechaIngreso']);
             $('#valorUnitarioUp').val(respuesta['valorUnitario']);

@@ -138,6 +138,7 @@ function obtenerDatosProveedor(id){
             $('#direccionUp').val(respuesta['direccion']);
             $('#correoElectronicoUp').val(respuesta['correoElectronico']);
             $('#telefonoUp').val(respuesta['telefono']);
+            $('#ciudadSelectUp').val(respuesta['ciudad_id']);
         }
     });
 }

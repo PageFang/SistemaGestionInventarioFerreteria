@@ -212,6 +212,21 @@
                                                                     
                                                                     <label>Ciudad : </label>
 
+                                                                    <select name="ciudadSelectUp" id="ciudadSelectUp">
+                                                                        
+                                                                        <option value="0"> Seleccione el Proveedor </option> 
+                                                                        <?php 
+
+                                                                            $stmt = Connect::connectBd()-> prepare("SELECT * FROM ciudad");
+                                                                            $stmt->execute();
+                                                                            $datos = $stmt->fetchAll();
+                                                                                
+                                                                            foreach ($datos as $valores) {
+                                                                                echo  ('<option value="'.$valores['id'].'">'.$valores['nombre'].'</>') ;
+                                                                            }
+                                                                        ?>
+                                                                    </select>
+
                                                                     <br> <br>
                                                                     
                                                                     <input type="submit" value="Actualizar Datos" class="btn btn-primary">

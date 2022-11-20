@@ -201,7 +201,7 @@
                                                                     <input type="text" id="idUp" name="idUp" class="form-control form-control-sm " readonly="readonly">
 
                                                                     <label> Salida : </label>
-                                                                    <select name="productoSalidaUp" id="" required="">
+                                                                    <select name="productoSalidaUp" id="productoSalidaUp" required="">
                                                                         
                                                                         <option value="0"> Seleccione el producto </option> 
                                                                         <?php 

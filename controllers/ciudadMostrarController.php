@@ -16,8 +16,8 @@
                             <tr class="table-dark"> 
                                 <th>Id</th>
                                 <th>Nombre</th>
-                                <th> </th>
-                                <th> </th>
+                                <th>Operaciones</th>
+                                
                             </tr>
                         </thead> 
                         <tbody>';
@@ -29,15 +29,13 @@
                                                 <td>'.$value['id'].'</td>
                                                 <td>'.$value['nombre'].'</td>
                                                 <td>
-                                                    <span class = "btn btn-dark btn-sm" onclick = "obtenerDatosCiudad('.$value['id'].')"  data-bs-toggle = "modal" data-bs-target = "#modalActualizarCiudad">
-                                                        <i class="fa-solid fa-pen"></i>
-                                                    </span>
-											    </td>
-                                                <td>
-                                                    <span class = "btn btn-dark" onclick = "eliminarCiudad('.$value['id'].')">
-                                                        <i class = "fa-solid fa-trash"></i>
-                                                    </span>
-											    </td>
+                                                <span class = "btn btn-dark  btn btn-outline-warning" onclick = "obtenerDatosCiudad('.$value['id'].')"  data-bs-toggle = "modal" data-bs-target = "#modalActualizarCiudad">
+                                                    <i class="fa-solid fa-pen"></i>
+                                                </span>
+                                                <span class = "btn btn-dark btn-outline-danger" onclick = "eliminarCiudad('.$value['id'].')">
+                                                    <i class = "fa-solid fa-trash"></i>
+                                                </span>
+                                            </td>
                                             </tr>';
             }
             echo $tabla.$datosTabla.'</tbody> </table>';

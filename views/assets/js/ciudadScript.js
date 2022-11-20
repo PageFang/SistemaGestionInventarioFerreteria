@@ -64,6 +64,8 @@ function insertarCiudad(){
 
 // Funcion Eliminar Producto
 function eliminarCiudad(id){
+
+    console.log("Eliminar Datos Ciudad Js");
     
     Swal.fire({
         title: " ¿ Desea eliminar esta ciudad del Inventario ? ",

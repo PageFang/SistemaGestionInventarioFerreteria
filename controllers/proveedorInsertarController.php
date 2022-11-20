@@ -13,7 +13,7 @@
             // Validar Entrada Mayusculas y Minusculas (Direccion)
             $direccion = strtolower($_POST['direccion']);
             $direccion = ucwords($direccion);
-            
+
             $datosController = array (
                 'nombre'=> $nombre,
                 'direccion'=> $direccion,
