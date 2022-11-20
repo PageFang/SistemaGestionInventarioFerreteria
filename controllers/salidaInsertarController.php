@@ -14,18 +14,23 @@
             
             $cantidadStock = 0;
 
+            ## TRAE CANTIDAD PARA VERIFICAR DE QUE HAYA LA CANTIDAD SUFICIENTE PARA LA SALIDA
             $respuestaBuscarCantidad = SalidaModel::buscarCantidadInventario($producto_id);
             
+            ## RECORRE LA CANTIDAD
             foreach ($respuestaBuscarCantidad as $key => $value) {
                 $cantidadStock = intval($value['cantidad']);
             }
             
+            ## SI LA CANTIDAD ES MAYOR
             if($cantidadStock >= $cantidad){
+
+                ## INSERTAR SALIDA EN SALIDA
                 $respuestaInsertarSalida =  SalidaModel::insertarSalidaModel($cantidad,$fechaSalida,$valorUnitario,$valorTotal,$producto_id);
 
                 $cantidadUpdate = $cantidadStock-$cantidad;
 
-                $respuestaActualizarCantidadInventario = SalidaModel::actualizarCantidadInventario($producto_id,$cantidadUpdate,$respuestaInsertarSalida);
+                $respuestaActualizarCantidadInventario = SalidaModel::actualizarCantidadInventario($producto_id,$cantidadUpdate);
                 
                 echo "1";
             }elseif ($cantidadStock < $cantidad) {

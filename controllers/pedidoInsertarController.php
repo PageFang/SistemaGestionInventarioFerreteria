@@ -15,23 +15,39 @@
             
             $cantidadStock = 0;
 
+            ## BUSCA SI EL PRODUCTO EXITE EN EL INVENTARIO
+            $respuestaSeleccionar = PedidoModel::validarExistProductoInventario($producto_id);
+
             $respuestaInsertarPedido =  PedidoModel::insertarPedidoModel($cantidad,$fechaIngreso,$valorUnitario,$producto_id,$proveedor_id,$valorTotal);
-            echo "/ Producto = $producto_id";
-            echo "/ Id = $respuestaInsertarPedido";
 
-            $respuestaBuscarCantidad = PedidoModel::buscarPedidoModel($producto_id);
-            $a = serialize($respuestaBuscarCantidad);
-            //echo "/Cantidad =  $a";
+            if (!$respuestaSeleccionar) {
+                echo"No hay en inventario";
 
-            foreach ($respuestaBuscarCantidad as $key => $value) {
-                $cantidadStock = intval($value['cantidad']);
-                echo " FOR : $cantidadStock";
+                $respuestaInsertarCantidadInventario = PedidoModel::insertarCantidadInventario($producto_id,$cantidad);
+                
+            }else{
+                echo"Si hay en inventario";
+                $respuestaBuscarCantidad = PedidoModel::buscarCantidadProductoPedidoModel($producto_id);
+                
+                foreach ($respuestaBuscarCantidad as $key => $value) {
+                    $cantidadStock = intval($value['cantidad']);
+                    echo " FOR : $cantidadStock";
+                }
+                $cantidadUpdate = $cantidadStock+$cantidad;
+                $respuestaActualizarCantidadInventario = PedidoModel::actualizarCantidadInventario($producto_id,$cantidadUpdate);
+
             }
-            $cantidadUpdate = $cantidadStock+$cantidad;
-            //echo " TOTAL FOR : $cantidadStock";
+
+
+
+
             
-            $respuestaActualizarCantidadInventario = PedidoModel::actualizarCantidadInventario($producto_id,$cantidadUpdate,$respuestaInsertarPedido);
-            echo "1";
+            //echo "/ Producto = $producto_id";
+            //echo "/ Id = $respuestaInsertarPedido";
+            //$a = serialize($respuestaBuscarCantidad);
+            //echo "/Cantidad =  $a";
+            //echo " TOTAL FOR : $cantidadStock";
+            //echo "1";
         }
     }
 

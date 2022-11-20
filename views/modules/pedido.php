@@ -119,6 +119,11 @@
                                                 </div>
                                             </div>
 
+                                            <!-- Ingresar Pedidos -->
+                                            <div class="col">
+                                                <button type="button" class="btn btn-dark" role="link" onclick="window.location='../../../Inventario_Ferreteria/controllers/pedidoReporte.php'">Generar Reporte</button>
+                                            </div>
+
                                             <!-- Modal Insertar Pedido -->
                                             <div class="col">
                                                 <div class="modal fade" id="modalInsertarPedido" data-bs-backdrop="static">

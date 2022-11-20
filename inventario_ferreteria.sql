@@ -53,13 +53,9 @@ create table pedido (
 create table inventario (
     id int not null auto_increment,
     producto_id int not null,
-    salida_id int,
-    pedido_id int,
     cantidad int not null,
     primary key (id),
-    foreign key (salida_id) references salida(id),
-    foreign key (producto_id) references producto(id),
-    foreign key (pedido_id) references pedido(id)
+    foreign key (producto_id) references producto(id)
 );
 
 create table usuario (

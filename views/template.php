@@ -9,8 +9,9 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         
-        <title> Inventario </title>
-        <link rel="icon" href="../../Inventario_Ferreteria/views/assets/img/Logo.ico">
+        <title> Inventario Ferreteria "La Avenida" </title>
+        <!-- ICON -->
+        <link rel="icon" href="../../Inventario_Ferreteria/views/assets/img/LogoFerreteria.ico">
 
         <!-- STYLES -->   
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
@@ -29,7 +30,7 @@
         <div class="row">
             <div class="col-6">
                 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-                    <span class="navbar-brand ps-4"> Inventario Ferrerteria La Avenida </span> 
+                    <span class="navbar-brand ps-4"> Inventario Ferreteria La Avenida </span> 
                 </nav>
             </div>
         </div>

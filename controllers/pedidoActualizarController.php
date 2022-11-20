@@ -19,22 +19,15 @@
             $respuestaActualizarPedido =  PedidoModel::actualizarPedidoModel($id,$cantidad,$fechaIngreso,$valorUnitario,$valorTotal);
             echo "1";
 
-            ## ACTUALIZA EL VALOR DE LA CANTIDAD EN INVENTARIO
-            $respuestaActualizarCantidadInventario = PedidoModel::actualizarUpdateCantidadInventario($producto_id,$cantidad,$id);
-            
-            ## BUSCA LA CANTIDAD DE UN PRODUCTO EN INVENTARIO
-            $respuestaBuscarCantidad = PedidoModel::buscarPedidoModel($producto_id);
+            ## BUSCAR LAS CANTIDADES EN PEDIDO
+            $respuestaBuscarCantidadPedido =  PedidoModel::buscarCantidadProductoPedidoActualizarModel($producto_id);
 
-            foreach ($respuestaBuscarCantidad as $key => $value) {
-                ## $cantidadStock += intval($value['cantidad']); ACUMULA
-                ## $cantidadStock += intval($value['cantidad']); TOMA EL ULTIMO VALOR
+            foreach ($respuestaBuscarCantidadPedido as $key => $value) {
                 $cantidadStock += intval($value['cantidad']);
-                echo " FOR : $cantidadStock";
             }
-            
-            ##$cantidadUpdate = $cantidadStock+$cantidad; ACTUALIZA SI SOLO HAY UN PEDIDO Y EN LOS PEDIDOS ANTERIORES MENOS EN LA CANTIDAD ACTUAL
+            echo "Cantidad Stock = $cantidadStock";
 
-            
+            $respuestaActualizarCantidadInventario = PedidoModel::actualizarCantidadInventario($producto_id,$cantidadStock);
         }
     }
 

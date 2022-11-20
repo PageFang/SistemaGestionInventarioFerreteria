@@ -1,5 +1,5 @@
 <?php
 
-    // Llama a Template
+    ### REQUIERE A TEMPLATE
     require_once ("../Inventario_Ferreteria/views/template.php");
     
