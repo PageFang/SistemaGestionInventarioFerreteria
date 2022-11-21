@@ -12,7 +12,7 @@
             $producto_id =$_POST['productoSelect'];
             $proveedor_id = $_POST['proveedorSelect'];
             $valorTotal = ($_POST['cantidad'] *  $_POST['valorUnitario'] );
-            
+            echo "$fechaIngreso";
             $cantidadStock = 0;
 
             ## BUSCA SI EL PRODUCTO EXITE EN EL INVENTARIO

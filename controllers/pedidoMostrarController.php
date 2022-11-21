@@ -16,7 +16,8 @@
                         <thead>
                             <tr class="table-dark"> 
                                 <th>Id</th>
-                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Proveedor</th>
                                 <th>Cantidad</th>
                                 <th>Fecha Ingreso</th>
                                 <th>Valor Unitario</th>
@@ -31,6 +32,7 @@
                 $datosTabla = $datosTabla.' <tr>
                                                 <td>'.$value['id'].'</td>
                                                 <td>'.$value['nombre'].'</td>
+                                                <td>'.$value['nombreProveedor'].'</td>
                                                 <td>'.$value['cantidad'].'</td>
                                                 <td>'.$value['fechaIngreso'].'</td>
                                                 <td>'.$value['valorUnitario'].'</td>

@@ -29,7 +29,7 @@ create table ciudad (
 create table proveedor (
     id int not null auto_increment,
     ciudad_id int not null,
-    nombre varchar(255) not null,
+    nombreProveedor varchar(255) not null,
     direccion varchar(255) not null,
     correoElectronico varchar(255) not null,
     telefono float not null,
@@ -60,7 +60,7 @@ create table inventario (
 
 create table usuario (
     id int not null auto_increment,
-    nombre  varchar(255) not null,
+    nombreUsuario  varchar(255) not null,
     correoElectronico varchar(255) not null,
     constraseña  varchar(255) not null,
     telefono float not null,

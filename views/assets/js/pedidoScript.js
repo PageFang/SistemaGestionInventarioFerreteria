@@ -1,6 +1,6 @@
 
 
-// Funcion mostrar Pedidos
+// Funcion mostrar lista Pedidos
 function mostrarPedido(){
 
     console.log("Mostar Pedido Js");
@@ -63,6 +63,8 @@ function insertarPedido(){
 
 // Funcion Eliminar Producto
 function eliminarPedido(id){
+
+    console.log("Eliminar Pedido Js");
     
     Swal.fire({
         title: " ¿ Desea eliminar este pedido del Inventario ? ",
@@ -115,7 +117,7 @@ function eliminarPedido(id){
 }
 
 
-// FUNCION OBTENER DATOS PEDIDO
+// Funcion Obtener Datos Pedido
 function obtenerDatosPedido(id){
     
     console.log("Obtener Datos Pedido Js");
@@ -141,7 +143,7 @@ function obtenerDatosPedido(id){
 }
 
 
-// Funcion Actualizar Salida
+// Funcion Actualizar Datos
 function actualizarPedido(){
     
     console.log("Actualizar Datos Pedido Js");
@@ -180,10 +182,13 @@ function actualizarPedido(){
     return false;
 }
 
+
+// Funcion Ordenar Pedido Mas Recientes
 function ordenarMasRecientesPedidos(){
-    console.log("Pedidos Recientes");
+
+    console.log("Ordenar Mas Recientes Pedido");
+
     $.ajax({
-        
         type:"POST",
         url:"../../../../Inventario_Ferreteria/controllers/pedidoOrdenarController.php",
         data:{funcion: "1"},
@@ -194,10 +199,13 @@ function ordenarMasRecientesPedidos(){
     });
 }
 
+
+// Funcion Ordenar Pedido Mas Antiugos
 function ordenarMasAntiguosPedidos(){
-    console.log("Hola Recientes");
+
+    console.log("Ordenar Mas Antiugos Pedido");
+
     $.ajax({
-        
         type:"POST",
         url:"../../../../Inventario_Ferreteria/controllers/pedidoOrdenarController.php",
         data:{funcion: "2"},
@@ -208,10 +216,13 @@ function ordenarMasAntiguosPedidos(){
     });
 }
 
+
+// Funcion Ordenar Pedido Max Cantidad
 function ordenarMaxCantidadPedidos(){
-    console.log("Hola Recientes");
+
+    console.log("Ordenar Min Cantidad Pedido");
+
     $.ajax({
-        
         type:"POST",
         url:"../../../../Inventario_Ferreteria/controllers/pedidoOrdenarController.php",
         data:{funcion: "3"},
@@ -222,10 +233,13 @@ function ordenarMaxCantidadPedidos(){
     });
 }
 
+
+// Funcion Ordenar Pedido Min Cantidad
 function ordenarMinCantidadPedidos(){
-    console.log("Hola Recientes");
-    $.ajax({
-        
+
+    console.log("Ordenar Min Cantidad Pedido");
+
+    $.ajax({       
         type:"POST",
         url:"../../../../Inventario_Ferreteria/controllers/pedidoOrdenarController.php",
         data:{funcion: "4"},
@@ -236,8 +250,11 @@ function ordenarMinCantidadPedidos(){
     });
 }
 
+// Funcion Ordenar Pedido Max Valor Unitario
 function ordenarMaxValorUnidadPedidos(){
-    console.log("Hola Recientes");
+
+    console.log("Ordenar Max Valor Unitario Pedido");
+
     $.ajax({
         
         type:"POST",
@@ -250,8 +267,12 @@ function ordenarMaxValorUnidadPedidos(){
     });
 }
 
+
+// Funcion Ordenar Pedido Min Valor Unitario
 function ordenarMinValorUnidadPedidos(){
-    console.log("Hola Recientes");
+    
+    console.log("Ordenar Min Valor Unitario Pedido");
+    
     $.ajax({
         
         type:"POST",
@@ -263,8 +284,13 @@ function ordenarMinValorUnidadPedidos(){
         }
     });
 }
+
+
+// Funcion Ordenar Pedido Max Valor Total
 function ordenarMaxValorPedidos(){
-    console.log("Hola Recientes");
+    
+    console.log("Ordenar Max Valor Pedido");
+    
     $.ajax({
         
         type:"POST",
@@ -277,8 +303,12 @@ function ordenarMaxValorPedidos(){
     });
 }
 
+
+// Funcion Ordenar Pedido Min Valor Total
 function ordenarMinValorPedidos(){
-    console.log("Hola Recientes");
+    
+    console.log("Ordenar Min Valor Pedido");
+    
     $.ajax({
         
         type:"POST",
@@ -291,13 +321,19 @@ function ordenarMinValorPedidos(){
     });
 }
 
-/// ****++
+// Funcion Generar Reporte Fechas
 function generarReportePedido(){
+    
     console.log("Generar Reporte Pedidos");
+    
     $.ajax({
-        
         type:"POST",
         url:"../../../../Inventario_Ferreteria/controllers/pedidoReporte.php",
-        data:{funcion: "1"},
+        data:$('#formGenerarPedido').serialize(),
+
+        success:function(respuesta){
+        
+        }
     });
+
 }

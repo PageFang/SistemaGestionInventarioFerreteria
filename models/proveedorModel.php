@@ -7,7 +7,7 @@
         // Mostar Lista de Proveedores
         static public function mostrarProveedorModel(){
             
-            $stmt = Connect::connectBd()-> prepare("SELECT id,nombre,direccion,correoElectronico,telefono FROM proveedor");
+            $stmt = Connect::connectBd()-> prepare("SELECT id,nombreProveedor,direccion,correoElectronico,telefono FROM proveedor");
             $stmt->execute();
             
             return $stmt->fetchAll();
@@ -18,8 +18,8 @@
         // Seleccionar Proveedor
         static public function seleccionarProveedorModel($datosModel){
             
-            $stmt = Connect::connectBd()-> prepare("SELECT id,nombre,direccion,correoElectronico,telefono FROM proveedor WHERE nombre=:nombre"); 
-            $stmt->bindParam(":nombre", $datosModel["nombre"], PDO::PARAM_STR);
+            $stmt = Connect::connectBd()-> prepare("SELECT id,nombreProveedor,direccion,correoElectronico,telefono FROM proveedor WHERE nombreProveedor=:nombreProveedor"); 
+            $stmt->bindParam(":nombreProveedor", $datosModel["nombre"], PDO::PARAM_STR);
             $stmt->execute();
             
             return $stmt->fetchAll();
@@ -29,9 +29,9 @@
         // Insertar Proveedor
         static public function insertarProveedorModel($datosModel){
             
-            $stmt =Connect::connectBd()-> prepare("INSERT INTO proveedor (nombre,direccion,correoElectronico,telefono,ciudad_id) VALUE (:nombre, :direccion, :correoElectronico, :telefono, :ciudad_id)");
+            $stmt =Connect::connectBd()-> prepare("INSERT INTO proveedor (nombreProveedor,direccion,correoElectronico,telefono,ciudad_id) VALUE (:nombreProveedor, :direccion, :correoElectronico, :telefono, :ciudad_id)");
             
-            $stmt->bindParam(":nombre", $datosModel["nombre"], PDO::PARAM_STR);
+            $stmt->bindParam(":nombreProveedor", $datosModel["nombre"], PDO::PARAM_STR);
             $stmt->bindParam(":direccion", $datosModel["direccion"], PDO::PARAM_STR);
             $stmt->bindParam(":telefono", $datosModel["telefono"], PDO::PARAM_STR);
             $stmt->bindParam(":correoElectronico", $datosModel["correoElectronico"], PDO::PARAM_STR);
@@ -53,7 +53,7 @@
         // Obtener Datos Proveedor
         static public function obtenerDatosProveedorModel($id){
             
-            $stmt = Connect::connectBd()-> prepare("SELECT id,nombre,direccion,correoElectronico,telefono,ciudad_id FROM proveedor WHERE id=:id");
+            $stmt = Connect::connectBd()-> prepare("SELECT id,nombreProveedor,direccion,correoElectronico,telefono,ciudad_id FROM proveedor WHERE id=:id");
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
             $stmt->execute();
             
@@ -64,9 +64,9 @@
         // Actualizar Proveedor
         static public function actualizarProveedorModel($id,$nombre,$direccion,$correoElectronico,$telefono){
             
-            $stmt = Connect::connectBd()-> prepare("UPDATE proveedor SET nombre = :nombre, direccion = :direccion, correoElectronico = :correoElectronico, telefono = :telefono WHERE id = :id");
+            $stmt = Connect::connectBd()-> prepare("UPDATE proveedor SET nombreProveedor = :nombreProveedor, direccion = :direccion, correoElectronico = :correoElectronico, telefono = :telefono WHERE id = :id");
             $stmt->bindParam(":id", $id, PDO::PARAM_INT);
-            $stmt->bindParam(":nombre",  $nombre, PDO::PARAM_STR);
+            $stmt->bindParam(":nombreProveedor",  $nombre, PDO::PARAM_STR);
             $stmt->bindParam(":direccion", $direccion, PDO::PARAM_STR);
             $stmt->bindParam(":correoElectronico", $correoElectronico, PDO::PARAM_STR);
             $stmt->bindParam(":telefono", $telefono, PDO::PARAM_STR);
@@ -77,7 +77,7 @@
         }
 
         static public function ordenarNombreProveedorAscModel(){
-            $stmt = Connect::connectBd()-> prepare("SELECT * FROM proveedor ORDER BY nombre ASC");
+            $stmt = Connect::connectBd()-> prepare("SELECT * FROM proveedor ORDER BY nombreProveedor ASC");
             $stmt->execute();
             
             return $stmt->fetchAll();
@@ -85,7 +85,7 @@
         }
 
         static public function ordenarNombreProveedorDescModel(){
-            $stmt = Connect::connectBd()-> prepare("SELECT * FROM proveedor ORDER BY nombre DESC");
+            $stmt = Connect::connectBd()-> prepare("SELECT * FROM proveedor ORDER BY nombreProveedor DESC");
             $stmt->execute();
             
             return $stmt->fetchAll();

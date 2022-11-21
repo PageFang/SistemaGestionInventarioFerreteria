@@ -1,6 +1,6 @@
 
 
-// Funcion mostrar lista de productos
+// Funcion mostrar lista de Salidas
 function mostrarSalida(){
 
     console.log("Mostrar Salida Js");
@@ -182,8 +182,11 @@ function actualizarSalida(){
 }
 
 
+// Funcion Ordenar Salida Mas Recientes
 function ordenarMasRecientesSalida(){
-    console.log("Salida Recientes");
+
+    console.log("Ordenar Salida Mas Recientes");
+
     $.ajax({
         
         type:"POST",
@@ -196,8 +199,12 @@ function ordenarMasRecientesSalida(){
     });
 }
 
+
+// Funcion Ordenar Salida Mas Antiguo
 function ordenarMasAntiguosSalida(){
-    console.log("Hola Recientes");
+
+    console.log("Ordenar Salida Mas Antiguas");
+
     $.ajax({
         
         type:"POST",
@@ -210,8 +217,12 @@ function ordenarMasAntiguosSalida(){
     });
 }
 
+
+// Funcion Ordenar Salida Max Cantidad
 function ordenarMaxCantidadSalida(){
-    console.log("Hola Recientes");
+
+    console.log("Ordenar Salida Masx Cantidad");
+
     $.ajax({
         
         type:"POST",
@@ -224,8 +235,12 @@ function ordenarMaxCantidadSalida(){
     });
 }
 
+
+// Funcion Ordenar Salida Min Cantidad
 function ordenarMinCantidadSalida(){
-    console.log("Hola Recientes");
+
+    console.log("Ordenar Salida Min Cantidad");
+
     $.ajax({
         
         type:"POST",
@@ -238,8 +253,12 @@ function ordenarMinCantidadSalida(){
     });
 }
 
+
+// Funcion Ordenar Salida Min Valor Unitario
 function ordenarMaxValorUnidadSalida(){
-    console.log("Hola Recientes");
+    
+    console.log("Ordenar Salida Max Valor Unitario");
+
     $.ajax({
         
         type:"POST",
@@ -252,8 +271,12 @@ function ordenarMaxValorUnidadSalida(){
     });
 }
 
+
+// Funcion Ordenar Salida Min Valor Unitario
 function ordenarMinValorUnidadSalida(){
-    console.log("Hola Recientes");
+    
+    console.log("Ordenar Salida MMin Valor Unitario");
+    
     $.ajax({
         
         type:"POST",
@@ -265,8 +288,13 @@ function ordenarMinValorUnidadSalida(){
         }
     });
 }
+
+
+// Funcion Ordenar Salida Mas Valor Total
 function ordenarMaxValorSalida(){
-    console.log("Hola Recientes");
+    
+    console.log("Ordenar Salida Max Valor");
+    
     $.ajax({
         
         type:"POST",
@@ -279,8 +307,12 @@ function ordenarMaxValorSalida(){
     });
 }
 
+
+// Funcion Ordenar Salida Min Valor Total
 function ordenarMinValorSalida(){
-    console.log("Hola Recientes");
+
+    console.log("Ordenar Salida Min Valor");
+
     $.ajax({
         
         type:"POST",

@@ -118,7 +118,7 @@
                                         <i class="fa-solid fa-cart-shopping"></i>
                                         <span> Salidas </span>
                                     </div>
-                                    <div class="card-footer  border-secondary d-flex align-items-center justify-content-center">
+                                    <div class="card-footer border-secondary d-flex align-items-center justify-content-center">
                                         <a class="small text-white stretched-link text-decoration-none" href="../../Inventario_Ferreteria/views/modules/salida.php"> Ver Mas </a>
                                     </div>
                                 </div>

@@ -7,7 +7,7 @@
 - URL htppaccess
 - Reodenar Precios
 - Try Cath
-
+SELECT pd.id,p.nombre,pv.nombreProveedor, pd.cantidad, pd.fechaIngreso, pd.valorUnitario, pd.valorTotal from producto p left join pedido pd ON pd.producto_id = p.id JOIN proveedor pv ON pd.proveedor_id = pv.id WHERE pd.fechaIngreso BETWEEN '2022-11-20' AND '2022-11-22' GROUP BY pd.id;
 ----------------------------------------------------------------- Sprint 1 -----------------------------------------------------------------
 
 Productos : 

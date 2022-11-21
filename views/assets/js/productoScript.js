@@ -1,6 +1,6 @@
 
 
-// FUNCION MOSTRAR LISTA DE PRODUCTOS
+// Funcion Mostrar Lista Productos
 function mostrarProducto(){
     
     console.log("Mostrar Productos Js");
@@ -18,7 +18,7 @@ function mostrarProducto(){
 }
 
 
-// FUNCION INSERTAR PRODUCTO
+// Funcion Insertar Producto
 function insertarProducto(){
 
     console.log("Ingresar Producto Js");
@@ -61,9 +61,11 @@ function insertarProducto(){
 }
 
 
-// FUNCION ELIMINAR PRODUCTO
+// Funcion Eliminar Producto
 function eliminarProducto(id){
     
+    console.log("Eliminar Producto Js");
+
     Swal.fire({
         title: " ¿ Desea eliminar este producto del Inventario ? ",
         text : " Una vez eliminado el producto no podra recuperarse ",
@@ -115,7 +117,7 @@ function eliminarProducto(id){
 }
 
 
-// FUNCION OBTENER DATOS PRODUCTO
+// Funcion Obtener Datos Producto
 function obtenerDatosProducto(id){
     
     console.log("Obtener Datos Producto Js");
@@ -139,7 +141,7 @@ function obtenerDatosProducto(id){
 }
 
 
-// FUNCION ACTUALIZAR PRODUCTO
+// Funcion Actualizar Producto
 function actualizarProducto(){
     
     console.log("Actualizar Datos Producto Js");
@@ -179,7 +181,7 @@ function actualizarProducto(){
 }
 
 
-// FUNCION ORDENAR PRODUCTO A-Z
+// Funcion Ordenar  Producto A-Z
 function ordenarNombreProductoAsc(){
     
     console.log("Ordenar Producto Asc Js");
@@ -197,7 +199,7 @@ function ordenarNombreProductoAsc(){
 }
 
 
-// FUNCION ORDENAR PRODUCTO Z-A
+// Funcion Ordenar  Producto Z-A
 function ordenarNombreProductoDesc(){
     
     console.log("Ordenar Producto Desc Js");
@@ -215,7 +217,7 @@ function ordenarNombreProductoDesc(){
 }
 
 
-// FUNCION ORDENAR PRODUCTO RECIENTES
+// Funcion Ordenar  Producto Mas Recientes
 function ordenarMasRecientesProducto(){
     
     console.log("Ordenar Producto Mas Recientes Js");
@@ -233,7 +235,7 @@ function ordenarMasRecientesProducto(){
 }
 
 
-// FUNCION ORDENAR PRODUCTO ANTIGUOS
+// Funcion Ordenar  Producto Mas Antiguos
 function ordenarMasAntiguosProducto(){
     
     console.log("Ordenar Producto Mas Antiguos Js");

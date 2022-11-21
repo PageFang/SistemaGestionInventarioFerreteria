@@ -1,6 +1,6 @@
 <?php
 require('../../Inventario_Ferreteria/views/assets/plugins/fpdf/fpdf.php');
-require('../../Inventario_Ferreteria/models/pedidoModel.php');
+require('../../Inventario_Ferreteria/models/salidaModel.php');
 
 class PDF extends FPDF
 {
@@ -18,9 +18,8 @@ class PDF extends FPDF
         // Salto de línea
         $this->Ln(30);
         $this-> Cell(35,6,'Producto',1,0,'C',0); 
-        $this-> Cell(35,6,'Proveedor',1,0,'C',0); 
         $this-> Cell(25,6,'Cantidad',1,0,'C',0); 
-        $this->Cell(32,6,'Fecha de ingreso',1,0,'C',0); 
+        $this->Cell(32,6,'Fecha de Salida',1,0,'C',0); 
         $this-> Cell(30,6,'Valor Unitario',1,0,'C',0); 
         $this->Cell(30,6,'Valor Total',1,1,'C',0); 
     }
@@ -35,17 +34,17 @@ class PDF extends FPDF
     $this->Cell(0,10,'Pagina '.$this->PageNo().'/{nb}',0,0,'C');
     }
 }
-    $fechaInicio="";
-    $fechaFin="";
+    $fechaInicio=0;
+    $fechaFin=0;
 
-    if (!empty($_GET["fechaInicio"]) and !empty($_GET["fechaFin"]) ) {
+    if (isset($_POST["fechaInicio"]) && isset($_POST["fechaFin"]) ) {
 
-        $fechaInicio=$_GET["fechaInicio"] ;
-        $fechaFin=$_GET["fechaFin"] ;
+        $fechaInicio=$_POST["fechaInicio"];
+        $fechaFin=$_POST["fechaFin"];
     }
 
-    $object = new PedidoModel();
-    $datos = $object->generarReportePedido($fechaInicio,$fechaFin);
+    $object = new SalidaModel();
+    $datos = $object->generarReporteSalida($fechaInicio,$fechaFin);
 
     $pdf = new PDF();
     $pdf->AliasNbPages();
@@ -62,15 +61,14 @@ class PDF extends FPDF
 
     foreach ($datos as $key => $value) {
             $pdf->Cell(35, 6, $value['nombre'],1,0,'C',0);
-            $pdf->Cell(35, 6, $value['nombreProveedor'],1,0,'C',0);
             $pdf->Cell(25, 6, $value['cantidad'],1,0,'C',0);
-            $pdf->Cell(32, 6, $value['fechaIngreso'],1,0,'C',0);
+            $pdf->Cell(32, 6, $value['fechaSalida'],1,0,'C',0);
             $pdf->Cell(30, 6, $value['valorUnitario'],1,0,'C',0);
             $pdf->Cell(30, 6, $value['valorTotal'],1,1,'C',0);
 
             $valorTotal += intval($value['valorTotal']);
     }
-    $pdf->Cell(35, 6,'Valor Total Pedidos',1,0,'C',0);
+    $pdf->Cell(35, 6,'Valor Total Salidas',1,0,'C',0);
     $pdf->Cell(35, 6, $valorTotal,1,1,'C',0);
     $pdf->Output();
 ?>

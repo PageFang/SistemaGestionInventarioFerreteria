@@ -30,7 +30,7 @@
             foreach ($datos as $key => $value) {
                 $datosTabla = $datosTabla.' <tr>
                                                 <td>'.$value['id'].'</td>
-                                                <td>'.$value['nombre'].'</td>
+                                                <td>'.$value['nombreProveedor'].'</td>
                                                 <td>'.$value['direccion'].'</td>
                                                 <td>'.$value['correoElectronico'].'</td>
                                                 <td>'.$value['telefono'].'</td>

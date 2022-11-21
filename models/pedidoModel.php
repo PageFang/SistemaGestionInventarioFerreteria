@@ -8,7 +8,7 @@
         ## MOSTRAR LISTA DE PEDIDOS
         static public function mostrarPedidoModel(){
             
-            $stmt = Connect::connectBd()-> prepare("SELECT pd.id,p.nombre, pd.cantidad, pd.fechaIngreso, pd.valorUnitario, pd.valorTotal from producto p left join pedido pd ON pd.producto_id = p.id");
+            $stmt = Connect::connectBd()-> prepare("SELECT pd.id,p.nombre,pv.nombreProveedor, pd.cantidad, pd.fechaIngreso, pd.valorUnitario, pd.valorTotal from producto p left join pedido pd ON pd.producto_id = p.id JOIN proveedor pv ON pd.proveedor_id = pv.id");
             $stmt->execute();
             
             return $stmt->fetchAll();
@@ -201,10 +201,9 @@
         }
 
         ## GENERAR REPORTE PEDIDO
-        static public function generarReportePedido(){
-            $stmt = Connect::connectBd()-> prepare("SELECT * FROM pedido");
+        static public function generarReportePedido($fechaInicio,$fechaFin){
+            $stmt = Connect::connectBd()-> prepare("SELECT pd.id,p.nombre,pv.nombreProveedor, pd.cantidad, pd.fechaIngreso, pd.valorUnitario, pd.valorTotal from producto p left join pedido pd ON pd.producto_id = p.id JOIN proveedor pv ON pd.proveedor_id = pv.id WHERE pd.fechaIngreso >= '2022-11-20' AND pd.fechaIngreso < '2022-11-23'");
             $stmt->execute();
-            
             return $stmt->fetchAll();
             $stmt = null;
         }

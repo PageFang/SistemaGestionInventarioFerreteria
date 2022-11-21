@@ -1,6 +1,6 @@
 
 
-// Funcion Mostrar Lista Ciudad
+// Funcion Mostrar Listado Ciudad
 function mostrarCiudad(){
 
     console.log("Mostrar Ciudad Js");

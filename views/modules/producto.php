@@ -10,7 +10,9 @@
         <meta name="author" content="" />
         
         <title> Inventario - Productos </title>
-        <link rel="icon" href="../../../Inventario_Ferreteria/views/assets/img/Logo.ico">
+        
+        <!-- ICON --> 
+        <link rel="icon" href="../../../Inventario_Ferreteria/views/assets/img/LogoFerreteria.ico">
         
         <!-- STYLES -->   
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -145,7 +147,7 @@
                                                                     
                                                                     <br>
                                                                     
-                                                                    <button type="submit" class="btn btn-primary"> <i class="fa-solid fa-floppy-disk"></i> Guardar Producto </button>
+                                                                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Guardar Producto </button>
                                                                     
                                                                 </form>
                                                             </div>
@@ -186,7 +188,7 @@
                                                                     
                                                                     <br>
                                                                     
-                                                                    <input type="submit" value="Actualizar Datos" class="btn btn-primary">
+                                                                    <button type="submit" class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Actualizar Datos </button>
 
                                                                 </form>
                                                             </div>

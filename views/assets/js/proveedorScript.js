@@ -184,9 +184,11 @@ function actualizarProveedor(){
 }
 
 
-
+// Funcion Ordenar Proveedor Nombre A-Z
 function ordenarNombreProveedorAsc(){
-    console.log("Hola Asc");
+
+    console.log("Ordenar Proveedor Nombre A-Z");
+
     $.ajax({
         
         type:"POST",
@@ -200,8 +202,11 @@ function ordenarNombreProveedorAsc(){
 }
 
 
+// Funcion Ordenar Proveedor Nombre Z-A
 function ordenarNombreProveedorDesc(){
-    console.log("Hola Asc");
+
+    console.log("Ordenar Proveedor Nombre Z-A");
+
     $.ajax({
         
         type:"POST",
@@ -215,8 +220,11 @@ function ordenarNombreProveedorDesc(){
 }
 
 
+// Funcion Ordenar Proveedor Mas Recientes
 function ordenarMasRecienteProveedor(){
-    console.log("Hola Asc");
+
+    console.log("Ordenar Proveedor Mas Recientes");
+
     $.ajax({
         
         type:"POST",
@@ -230,9 +238,11 @@ function ordenarMasRecienteProveedor(){
 }
 
 
-
+// Funcion Ordenar Proveedor Mas Antiguos
 function ordenarMasAntiguoProveedor(){
-    console.log("Hola Asc");
+    
+    console.log("Ordenar Proveedor Mas Antiguos");
+    
     $.ajax({
         
         type:"POST",
