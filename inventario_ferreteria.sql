@@ -58,14 +58,24 @@ create table inventario (
     foreign key (producto_id) references producto(id)
 );
 
-create table usuario (
+create table rol (
     id int not null auto_increment,
-    nombreUsuario  varchar(255) not null,
-    correoElectronico varchar(255) not null,
-    constraseña  varchar(255) not null,
-    telefono float not null,
+    nombreRol  varchar(255) not null,
     primary key (id)
 );
+
+create table usuario (
+    id int not null auto_increment,
+    rol_id int not null,
+    nombreUsuario  varchar(255) not null,
+    correoElectronico varchar(255) not null,
+    passwordUser   varchar(255) not null,
+    telefono float not null,
+    primary key (id),
+    foreign key (rol_id) references rol(id)
+);
+
+
 
 insert into producto (nombre,descripcion,marca) value ('Alambre de Cobre','Alambres de cobre desnudo, suave, semiduro y duro, cableado concentrico','Nexans');
 insert into producto (nombre,descripcion,marca) value ('Metro','Flexómetro Magnético de 8 Metros Redline','Redline');

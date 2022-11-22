@@ -67,6 +67,10 @@
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-map-location-dot"></i></div>
                                 Ciudades
                             </a>
+                            <a class="nav-link" href="reporte.php">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+                                Reporte
+                            </a>
                         </div>
 
                     </div>

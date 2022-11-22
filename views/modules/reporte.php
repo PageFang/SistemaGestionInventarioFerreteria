@@ -1,25 +1,3 @@
-<?php
-    session_start();
-    
-    require"../../Inventario_Ferreteria/models/connection.php";
-
-    if(isset($_SESSION['user_id'])){
-        
-        $stmt = Connect::connectBd()-> prepare("SELECT id,nombreUsuario,correoElectronico,passwordUser,telefono FROM usuario WHERE id = :id"); 
-        $stmt->bindParam(":id",$_SESSION['user_id'], PDO::PARAM_STR);
-        $stmt->execute();
-
-        $resultado =  $stmt->fetch(PDO::FETCH_ASSOC);
-
-        $user = null;
-        if(count($resultado) > 0 ) {
-            $user = $resultado;
-        }
-    }
-
-?>
-
-
 <!DOCTYPE html>
 
 <html lang="es">
@@ -33,17 +11,17 @@
         
         <title> Inventario Ferreteria "La Avenida" </title>
         <!-- ICON -->
-        <link rel="icon" href="../../Inventario_Ferreteria/views/assets/img/LogoFerreteria.ico">
+        <link rel="icon" href="../../../Inventario_Ferreteria/views/assets/img/LogoFerreteria.ico">
 
         <!-- STYLES -->   
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <link href="../../Inventario_Ferreteria/views/assets/css/styles.css" rel="stylesheet" />
+        <link href="../../../Inventario_Ferreteria/views/assets/css/styles.css" rel="stylesheet" />
         
         <!-- ICONS -->   
         <script src="https://kit.fontawesome.com/4afb0f7fd4.js" crossorigin="anonymous"></script>
         
         <!-- SCRIPTS -->   
-        <script src="../../Inventario_Ferreteria/views/assets/plugins/jquery/jquery.min.js"></script>
+        <script src="../../../Inventario_Ferreteria/views/assets/plugins/jquery/jquery.min.js"></script>
     </head>
 
     <body class="sb-nav-fixed">
@@ -64,12 +42,22 @@
             <!-- Navbar Search-->
             
 
-            <!-- Navbar
+            <!-- Navbar-->
             <div class="row">
             <div class="col-8">
-            <img src="../../Inventario_Ferreteria/views/assets/img/LogoFerreteria.png" alt="" width="50px" height="50px">
+            <ul class="navbar-nav ">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Settings</a></li>
+                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="#!">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
             </div>
-            </div>-->
+            </div>
            
             
             
@@ -86,33 +74,33 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         
-                        <div class="nav">
+                    <div class="nav">
                             <div class="sb-sidenav-menu-heading"> Modulos : </div>
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="../../../Inventario_Ferreteria/views/template.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-house-chimney"></i></div>
                                 Inicio
                             </a>
-                            <a class="nav-link" href="../../Inventario_Ferreteria/views/modules/producto.php">
+                            <a class="nav-link" href="#">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-coins"></i></div>
                                 Productos
                             </a>
-                            <a class="nav-link" href="../../Inventario_Ferreteria/views/modules/pedido.php">
+                            <a class="nav-link" href="pedido.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-truck-fast"></i></div>
                                 Pedidos
                             </a>
-                            <a class="nav-link" href="../../Inventario_Ferreteria/views/modules/salida.php">
+                            <a class="nav-link" href="salida.php">
                                 <div class="sb-nav-link-icon"> <i class="fa-solid fa-cart-shopping"></i></div>
                                 Salidas
                             </a>
-                            <a class="nav-link" href="../../Inventario_Ferreteria/views/modules/proveedor.php">
+                            <a class="nav-link" href="proveedor.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-user-tie"></i></div>
                                 Proveedores
                             </a>
-                            <a class="nav-link" href="../../Inventario_Ferreteria/views/modules/ciudad.php">
+                            <a class="nav-link" href="ciudad.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-map-location-dot"></i></div>
                                 Ciudades
                             </a>
-                            <a class="nav-link" href="../../Inventario_Ferreteria/views/modules/reporte.php">
+                            <a class="nav-link" href="reporte.php">
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-map-location-dot"></i></div>
                                 Reporte
                             </a>
@@ -121,15 +109,9 @@
                     </div>
 
                     <div class="sb-sidenav-footer">
-                        <?php if(!empty($user)) : ?>
-                            <br> Usuario : <?= $user['nombreUsuario']?>
-                            <br>        
-                        <a href="../../Inventario_Ferreteria/controllers/cerrarSesion.php">Cerrar Sesion</a>
-                        
-
-                        <?php else: ?>
-
-                        <?php endif; ?>
+                        <div class="small">
+                        </div>
+                        <a href="cerrarSesion.php">Cerrar Sesion</a>
                     </div>
 
                 </nav>
@@ -146,77 +128,68 @@
                         <div class="row">
                             
                             <!-- CARD PRODUCTO -->
-                            <div class="col-xl-3 col-md-6">
+                            <div class="col-xl-2 col-md-6">
                                 <div class="card bg-dark text-white mb-4">
                                     <div class="card-body text-center">
                                         <i class="fa-solid fa-coins"></i>
-                                        <span> Productos </span>
+                                        <span> Producto Mas Vendido </span>
                                     </div>
                                     <div class="card-footer  border-secondary d-flex  align-items-center justify-content-center">
-                                        <a class="small text-white stretched-link text-decoration-none" href="../../Inventario_Ferreteria/views/modules/producto.php"> Ver Mas </a>
+                                        <p id="productosMasVendidos"></p>
                                     </div>
                                 </div>
                             </div>
                             
                             <!-- CARD PEDIDO -->
-                            <div class="col-xl-3 col-md-6">
+                            <div class="col-xl-2 col-md-6">
                                 <div class="card bg-dark text-white mb-4">
                                     <div class="card-body text-center">
                                         <i class="fa-solid fa-truck-fast"></i> 
-                                        <span> Pedidos </span>
+                                        <span> Producto Menos Vendido </span>
                                     </div>
                                     <div class="card-footer  border-secondary d-flex align-items-center justify-content-center">
-                                        <a class="small text-white stretched-link text-decoration-none" href="../../Inventario_Ferreteria/views/modules/pedido.php"> Ver Mas </a>
+                                        <p id="productosMenosVendidos"></p>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- CARD SALIDA -->
-                            <div class="col-xl-3 col-md-6">
+                            <div class="col-xl-2 col-md-6">
                                 <div class="card bg-dark text-white mb-4">
                                     <div class="card-body text-center">
                                         <i class="fa-solid fa-cart-shopping"></i>
-                                        <span> Salidas </span>
+                                        <span> Total Egresos  </span>
                                     </div>
                                     <div class="card-footer border-secondary d-flex align-items-center justify-content-center">
-                                        <a class="small text-white stretched-link text-decoration-none" href="../../Inventario_Ferreteria/views/modules/salida.php"> Ver Mas </a>
+                                    <p id="totalEgresos"></p>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- CARD PROVEEDORES -->
-                            <div class="col-xl-3 col-md-6">
+                            <div class="col-xl-2 col-md-6">
                                 <div class="card bg-dark text-white mb-4">
                                     <div class="card-body text-center">
                                         <i class="fa-solid fa-user-tie"></i>
-                                        <span>Proveedores</span>
+                                        <span>Total Ingresos</span>
                                     </div>
                                     <div class="card-footer border-secondary d-flex align-items-center justify-content-center">
-                                        <a class="small text-white stretched-link text-decoration-none" href="../../Inventario_Ferreteria/views/modules/proveedor.php"> Ver Mas </a>
+                                        <p id="totalIngresos"></p>
                                     </div>
                                 </div>
-                            </div>
+                            </div> 
 
-                        </div>
-
-                        <!-- CARD TABLA INVENTARIO -->
-                        <div class="card mb-4">
-                            
-                            <!-- CARD TABLA INVENTARIO CABECERA -->
-                            <div class="card-header">
-                                <i class="fa-solid fa-clipboard-list"></i>
-                                <span> Inventario General </span>
-                            </div>
-                            
-                            <!-- CARD TABLA INVENTARIO CUERPO -->
-                            <div class="card-body">
-                                
-                                <!-- TABLA INVENTARIO -->
-                                <div class="row">
-                                    <div id="tablaInventario"> </div>
+                            <div class="col-xl-2 col-md-6">
+                                <div class="card bg-dark text-white mb-4">
+                                    <div class="card-body text-center">
+                                        <i class="fa-solid fa-user-tie"></i>
+                                        <span>Total</span>
+                                    </div>
+                                    <div class="card-footer border-secondary d-flex align-items-center justify-content-center">
+                                    <p id="total"></p>
+                                    </div>
                                 </div>
-
-                            </div>
+                            </div> 
 
                         </div>
 
@@ -230,11 +203,15 @@
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
         
         <!-- SCRIPTS FUNCIONALIDADES -->
-        <script src="../../../Inventario_Ferreteria/views/assets/js/inventarioScript.js"></script>
+        <script src="../../../Inventario_Ferreteria/views/assets/js/reporteScript.js"></script>
         
         <!-- FUNCION MOSTRAR TABLA INVENTARIO -->
         <script type="text/javascript">
-            mostrarInventario();
+            mostrarTotalIngresos();
+            mostrarTotalEgresos();
+            mostrarTotal();
+            productomasVendido();
+            productomenosVendido();
         </script>
         
     </body>
