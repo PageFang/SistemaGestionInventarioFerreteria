@@ -1,3 +1,28 @@
+<?php
+    
+    require"../../../Inventario_Ferreteria/models/connection.php";
+
+    ### Inicia Sesion
+    session_start();
+    
+    ### Busca los valores de la Sesion
+    if(isset($_SESSION['user_id'])){
+        
+        $stmt = Connect::connectBd()-> prepare("SELECT u.id,u.nombreUsuario,r.nombreRol,u.correoElectronico,u.passwordUser,u.telefono FROM usuario u LEFT JOIN rol r ON u.rol_id = r.id WHERE u.id = :id"); 
+        
+        $stmt->bindParam(":id",$_SESSION['user_id'], PDO::PARAM_STR);
+        $stmt->execute();
+        $resultado =  $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $user = null;
+
+        if(count($resultado) > 0 ) {
+            $user = $resultado;
+        }
+    }
+?>
+
+
 <!DOCTYPE html>
 
 <html lang="es">
@@ -22,6 +47,18 @@
         
         <!-- SCRIPTS -->   
         <script src="../../../Inventario_Ferreteria/views/assets/plugins/jquery/jquery.min.js"></script>
+
+        <!-- Style -->
+        <style type="text/css">
+                #profilePictureImg { 
+                    margin-left:60px;
+                    margin-bottom:10px;
+                }
+
+                #logoImg { 
+                    margin-left:20px;
+                }
+        </style>
     </head>
 
     <body class="sb-nav-fixed">
@@ -30,33 +67,17 @@
         
 
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <!-- Navbar Brand-->
             <div class="row">
-                <div class="col-2">
-                    <a class="navbar-brand ps-3" href="index.html">Inventario</a>
+                <div class="col-5">
+                    <img id="logoImg" src="../../../Inventario_Ferreteria/views/assets/img/LogoFerreteria.png" lefty="100px "alt="" width="40px" height="40px">
                 </div>
             </div>
 
-            <!-- Sidebar Toggle-->
-            
-            <!-- Navbar Search-->
-            
-
-            <!-- Navbar-->
+            <!-- Navbar Brand-->
             <div class="row">
-            <div class="col-8">
-            <ul class="navbar-nav ">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Settings</a></li>
-                        <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                        <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="#!">Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
-            </div>
+                <div class="col-2">
+                    <a class="navbar-brand ps-3" href="#">Inventario Ferreteria La Avenida</a>
+                </div>
             </div>
         </nav>
         
@@ -93,18 +114,28 @@
                                 <div class="sb-nav-link-icon"><i class="fa-solid fa-map-location-dot"></i></div>
                                 Ciudades
                             </a>
-                            <a class="nav-link" href="reporte.php">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-                                Reporte
+                           <a class="nav-link" href="reporte.php">
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-square-poll-vertical"></i></i></div>
+                                Reportes
                             </a>
                         </div>
 
                     </div>
 
+                    <!-- Informacion del Usuario -->
                     <div class="sb-sidenav-footer">
-                        <div class="small">
+                        <div class="row">
+                            <div class="col">
+                                <?php if(!empty($user)) : ?> 
+                                    <img id="profilePictureImg" src="../../../Inventario_Ferreteria/views/assets/img/ProfilePicture.svg" alt="" width="60px" height="60px" class="">   
+                                    <p class="text-center"> <strong> Usuario  :  </strong> <?= $user['nombreUsuario']?>  </p>
+                                    <p class="text-center"> <strong> Cargo :  </strong> <?= $user['nombreRol']?> </p>
+                                    <a class="btn btn-primary container-fluid" href="../../../Inventario_Ferreteria/controllers/cerrarSesion.php"> Cerrar Sesion </a>
+                                <?php else: ?>
+                                <?php endif; ?>
+
+                            </div>
                         </div>
-                        <a href="cerrarSesion.php">Cerrar Sesion</a>
                     </div>
 
                 </nav>
@@ -119,32 +150,44 @@
                         
                         <!-- CARDS DE NAVEGACION -->
                         <div class="row">
-                            
-                            <!-- CARD PRODUCTO -->
-                            <div class="col-xl-2 col-md-6">
-                                <div class="card bg-dark text-white mb-4">
-                                    <div class="card-body text-center">
-                                        <i class="fa-solid fa-coins"></i>
-                                        <span> Producto Mas Vendido </span>
-                                    </div>
-                                    <div class="card-footer  border-secondary d-flex  align-items-center justify-content-center">
-                                        <p id="productosMasVendidos"></p>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- CARD PEDIDO -->
-                            <div class="col-xl-2 col-md-6">
-                                <div class="card bg-dark text-white mb-4">
-                                    <div class="card-body text-center">
-                                        <i class="fa-solid fa-truck-fast"></i> 
-                                        <span> Producto Menos Vendido </span>
-                                    </div>
-                                    <div class="card-footer  border-secondary d-flex align-items-center justify-content-center">
-                                        <p id="productosMenosVendidos"></p>
+
+                           <!-- Total Egresos -->
+                           <div class="col-xl-2 col-md-6 mb-4">
+                                <div class="card border-left-success shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                    Producto Mas Vendido </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><p id="productoMasVendido"></p></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
+                            
+                             <!-- Total Egresos -->
+                            <div class="col-xl-2 col-md-6 mb-4">
+                                <div class="card border-left-success shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                   Producto Menos Vendido </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><p id="productoMenosVendido"></p></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
 
                             <!-- Total Egresos -->
                             <div class="col-xl-2 col-md-6 mb-4">

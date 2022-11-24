@@ -19,11 +19,22 @@
             $correoElectronico =$_POST['correoElectronicoUp'];
 
             $telefono =$_POST['telefonoUp'];
-            echo"$telefono";  
-        
-            $respuestaActualizaDatos =  ProveedorModel::actualizarProveedorModel($id,$nombre,$direccion,$correoElectronico,$telefono);
             
-            echo "1";
+            $datosController = array (
+                'nombre'=> $nombre,
+                'direccion'=> $direccion,
+                'correoElectronico'=> $correoElectronico,
+                'telefono'=>  $telefono
+            );
+
+            $respuestaSeleccionar = ProveedorModel::seleccionarProveedorModel($datosController);
+
+            if (!$respuestaSeleccionar) {
+                $respuestaActualizaDatos =  ProveedorModel::actualizarProveedorModel($id,$nombre,$direccion,$correoElectronico,$telefono);
+                echo "1";
+            }else{
+                echo "2";
+            }
         }
     }
 

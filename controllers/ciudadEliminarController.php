@@ -8,8 +8,12 @@
 
             $id=$_POST['id'];
 
-            $respuesta =  CiudadModel::eliminarCiudadModel($id);
-            echo "1";
+            try {
+                $respuestaEliminarCiudad =  CiudadModel::eliminarCiudadModel($id);
+                echo "1";
+            } catch (Throwable $e) {
+                echo "2";
+            } 
         }
     }
 

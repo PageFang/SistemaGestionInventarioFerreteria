@@ -20,6 +20,7 @@
                                 <th>Direccion</th>
                                 <th>Correo Electronico</th>
                                 <th>Telefono</th>
+                                <th>Ciudad</th>
                                 <th>Operaciones</th>
                                 
                             </tr>
@@ -34,6 +35,7 @@
                                                 <td>'.$value['direccion'].'</td>
                                                 <td>'.$value['correoElectronico'].'</td>
                                                 <td>'.$value['telefono'].'</td>
+                                                <td>'.$value['nombre'].'</td>
                                                 <td>
                                                 <span class="btn btn-dark  btn btn-outline-warning" onclick="obtenerDatosProveedor('.$value['id'].')" data-bs-toggle="modal" data-bs-target="#modalActualizarProveedor">
                                                     <i class="fas fa-edit"></i>

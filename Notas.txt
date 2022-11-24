@@ -5,4 +5,11 @@ Usuario :
                         - Valida solo se puedan insertar 10 Caracteres Telfono
                         - Valida que solo se Ingresen Numeros
                         - Valida que no exista el mismo nombre de Usuario
+                        ** Falta Olvido Contraseñá 
+                        ** Falta Recordar Contraseña
+
+Producto 
+    > Inicio Sesion : - 
+                      -
+
 

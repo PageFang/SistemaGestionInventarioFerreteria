@@ -25,7 +25,6 @@
             foreach ($respuestaBuscarCantidadPedido as $key => $value) {
                 $cantidadStock += intval($value['cantidad']);
             }
-            echo "Cantidad Stock = $cantidadStock";
 
             $respuestaActualizarCantidadInventario = PedidoModel::actualizarCantidadInventario($producto_id,$cantidadStock);
         }

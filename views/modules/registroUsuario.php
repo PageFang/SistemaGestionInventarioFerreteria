@@ -20,7 +20,7 @@
         <script src="../../../Inventario_Ferreteria/views/assets/plugins/jquery/jquery.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         
-        <!-- Fondo -->
+        <!-- Style -->
         <style type="text/css">
                 body { 
                     background-image: url('../../../Inventario_Ferreteria/views/assets/img/Background.jpg');

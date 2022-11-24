@@ -188,7 +188,7 @@
 
         ## GENERAR REPORTE PEDIDO
         static public function generarReporteSalida($fechaInicio,$fechaFin){
-            $stmt = Connect::connectBd()-> prepare("SELECT s.id,p.nombre, s.cantidad, s.fechaSalida, s.valorUnitario, s.valorTotal from producto p left join salida s ON s.producto_id = p.id WHERE s.fechaSalida >= '2022-11-20' AND s.fechaSalida < '2022-11-23'");
+            $stmt = Connect::connectBd()-> prepare("SELECT s.id,p.nombre, s.cantidad, s.fechaSalida, s.valorUnitario, s.valorTotal from producto p left join salida s ON s.producto_id = p.id  WHERE s.fechaSalida >= '$fechaInicio' AND s.fechaSalida <= '$fechaFin'");
             $stmt->execute();
             return $stmt->fetchAll();
             $stmt = null;

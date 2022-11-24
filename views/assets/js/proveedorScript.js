@@ -104,7 +104,7 @@ function eliminarProveedor(id){
                         
                         Swal.fire({
                             title: "Error al Eliminar",
-                            text: "No se ha podido Eliminar el Proveedor del Inventario",
+                            text: "No se puede eliminar un Proveedor que este asociada a un Pedido",
                             icon: "error",
                             confirmButtonText: "Aceptar",
                         });
@@ -134,7 +134,7 @@ function obtenerDatosProveedor(id){
 
             respuesta=jQuery.parseJSON(respuesta);
             $('#idUp').val(respuesta['id']);
-            $('#nombreUp').val(respuesta['nombre']);
+            $('#nombreUp').val(respuesta['nombreProveedor']);
             $('#direccionUp').val(respuesta['direccion']);
             $('#correoElectronicoUp').val(respuesta['correoElectronico']);
             $('#telefonoUp').val(respuesta['telefono']);
@@ -172,7 +172,7 @@ function actualizarProveedor(){
                 
                 Swal.fire({
                     title: "Error al Actualizar",
-                    text: "No se ha podido actualizar la informacion del proveedor",
+                    text: "El Proveedor ya existe en el inventario",
                     icon: "error",
                     confirmButtonText: "Aceptar",
                 });

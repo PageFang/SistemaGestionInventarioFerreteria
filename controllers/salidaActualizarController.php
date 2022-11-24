@@ -27,7 +27,7 @@
 
             ## ACTUALIZA  SALIDA 
             $respuestaActualizarSalida =  SalidaModel::actualizarSalidaModel($id,$cantidad,$fechaSalida,$valorUnitario,$valorTotal);
-            echo "1";
+            
 
             #BUSCAR CANTIDAD INVENTARIO
             $respuestaCantidadInventatrio = SalidaModel::buscarCantidadInventario($producto_id);
@@ -36,24 +36,25 @@
                 $cantidadInventario += intval($value['cantidad']);
             }
 
-            echo "Cantidad Original : $cantidadOriginal";
-            echo "Cantidad Inventario Actual : $cantidadInventario";
+           // echo "Cantidad Original : $cantidadOriginal";
+           // echo "Cantidad Inventario Actual : $cantidadInventario";
 
             if($cantidadOriginal > $cantidad){
-                echo"Cantidad Original es Mayor";
+              //  echo"Cantidad Original es Mayor";
                 $cantidadUpdate = $cantidadOriginal-$cantidad;
                 $cantidadUpdateFinal = $cantidadInventario + $cantidadUpdate;
-                echo " Cantidad Salida : $cantidadUpdateFinal" ;
+               // echo " Cantidad Salida : $cantidadUpdateFinal" ;
                 $respuestaActualizarCantidadInventario = SalidaModel::actualizarCantidadInventario($producto_id,$cantidadUpdateFinal);
             }else if ($cantidadOriginal < $cantidad) {
-                echo"Cantidad Original es Menor";
+               // echo"Cantidad Original es Menor";
                 $cantidadUpdate = $cantidad - $cantidadOriginal;
                 $cantidadUpdateFinal = $cantidadInventario - $cantidadUpdate;
-                echo " Cantidad Salida : $cantidadUpdateFinal" ;
+               // echo " Cantidad Salida : $cantidadUpdateFinal" ;
                 $respuestaActualizarCantidadInventario = SalidaModel::actualizarCantidadInventario($producto_id,$cantidadUpdateFinal);
             }elseif ($cantidadOriginal == $cantidad) {
-                echo"Cantidad Original es Igual";
+               // echo"Cantidad Original es Igual";
             }
+            echo "1";
         }
         
     }

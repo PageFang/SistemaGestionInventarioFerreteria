@@ -103,7 +103,7 @@ function eliminarCiudad(id){
                         
                         Swal.fire({
                             title: "Error al Eliminar",
-                            text: "No se ha podido Eliminar la Ciudad del Inventario",
+                            text: "No se puede eliminar una Ciudad que este asociada a un Proveedor",
                             icon: "error",
                             confirmButtonText: "Aceptar",
                         });
@@ -168,7 +168,7 @@ function actualizarCiudad(){
                 
                 Swal.fire({
                     title: "Error al Actualizar",
-                    text: "No se ha podido actualizar la informacion de Ciudad",
+                    text: "La ciudad ya existe en el inventario",
                     icon: "error",
                     confirmButtonText: "Aceptar",
                 });

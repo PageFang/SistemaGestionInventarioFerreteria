@@ -11,10 +11,24 @@
             // Validar Entrada Mayusculas y Minusculas (Nombre)
             $nombre = strtolower($_POST['nombreUp']);
             $nombre = ucwords($nombre);
-        
-            $respuestaActualizarDatosCiudad =  CiudadModel::actualizarDatosCiudadModel($id, $nombre);
-            echo "1";
             
+            $datosController = array (
+                'nombre'=> $nombre
+            );
+
+            ### Valida de que la ciudad no exista en el Inventario
+            $respuestaSeleccionar = CiudadModel::seleccionarCiudadModel($datosController);
+
+            
+            
+            // Inserta el producto
+            if (!$respuestaSeleccionar) {
+                $respuestaActualizarDatosCiudad =  CiudadModel::actualizarDatosCiudadModel($id, $nombre);
+                echo "1";
+            }else{
+                echo "2";
+        
+            }
         }
     }
 

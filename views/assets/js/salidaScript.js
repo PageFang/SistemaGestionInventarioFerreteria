@@ -324,3 +324,20 @@ function ordenarMinValorSalida(){
         }
     });
 }
+
+// Funcion Generar Reporte Fechas
+function generarReporteSalida(){
+    
+    console.log("Generar Reporte Pedidos");
+    
+    $.ajax({
+        type:"POST",
+        url:"../../../../Inventario_Ferreteria/controllers/pedidoReporte.php",
+        data:$('#formGenerarSalida').serialize(),
+
+        success:function(respuesta){
+        
+        }
+    });
+
+}

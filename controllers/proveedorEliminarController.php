@@ -8,8 +8,12 @@
 
             $id=$_POST['id'];
 
-            $respuestaEliminar =  ProveedorModel::eliminarProveedorModel($id);
-            echo "1";
+            try {
+                $respuestaEliminar =  ProveedorModel::eliminarProveedorModel($id);
+                echo "1";
+            } catch (Throwable $e) {
+                echo "2";
+            } 
         }
     }
 

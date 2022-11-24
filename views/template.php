@@ -47,6 +47,18 @@
         
         <!-- SCRIPTS -->   
         <script src="../../Inventario_Ferreteria/views/assets/plugins/jquery/jquery.min.js"></script>
+
+        <!-- Style -->
+        <style type="text/css">
+                #profilePictureImg { 
+                    margin-left:60px;
+                    margin-bottom:10px;
+                }
+
+                #logoImg { 
+                    margin-left:20px;
+                }
+        </style>
     </head>
 
     <body class="sb-nav-fixed">
@@ -56,14 +68,14 @@
             
             <div class="row">
                 <div class="col-5">
-                    <img src="../../Inventario_Ferreteria/views/assets/img/LogoFerreteria.png" lefty="100px "alt="" width="40px" height="40px">
+                    <img id="logoImg"src="../../Inventario_Ferreteria/views/assets/img/LogoFerreteria.png" lefty="100px "alt="" width="40px" height="40px">
                 </div>
             </div>
 
             <!-- Navbar Brand-->
             <div class="row">
                 <div class="col-2">
-                    <a class="navbar-brand ps-3" href="#">Inventario</a>
+                    <a class="navbar-brand ps-3" href="#">Inventario Ferreteria La Avenida</a>
                 </div>
             </div>
         </nav>
@@ -102,8 +114,8 @@
                                 Ciudades
                             </a>
                             <a class="nav-link" href="../../Inventario_Ferreteria/views/modules/reporte.php">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-                                Reporte
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-square-poll-vertical"></i></i></div>
+                                Reportes
                             </a>
                         </div>
                     </div>
@@ -111,20 +123,18 @@
                     <!-- Informacion del Usuario -->
                     <div class="sb-sidenav-footer">
                         <div class="row">
-                            <div class="col align-items: center justify-content: center">
+                            <div class="col">
                                 <?php if(!empty($user)) : ?> 
-                                    <img src="../../Inventario_Ferreteria/views/assets/img/Icon_User.jpg" alt="" width="60px" height="60px" class="">  
-                                    <br> 
-                                    <span class="text-left"> <strong> Usuario : <?= $user['nombreUsuario']?> </strong> </span>
-                                    <span class="text-left"> <strong> Cargo : <?= $user['nombreRol']?> </strong> </span>
-                                    <a class="btn btn-primary container-fluid" href="../../Inventario_Ferreteria/controllers/cerrarSesion.php">Cerrar Sesion</a>
+                                    <img id="profilePictureImg" src="../../Inventario_Ferreteria/views/assets/img/ProfilePicture.svg" alt="" width="60px" height="60px" class="">   
+                                    <p class="text-center"> <strong> Usuario  :  </strong> <?= $user['nombreUsuario']?>  </p>
+                                    <p class="text-center"> <strong> Cargo :  </strong> <?= $user['nombreRol']?> </p>
+                                    <a class="btn btn-primary container-fluid" href="../../../Inventario_Ferreteria/controllers/cerrarSesion.php"> Cerrar Sesion </a>
                                 <?php else: ?>
                                 <?php endif; ?>
 
                             </div>
                         </div>
                     </div>
-
                 </nav>
             </div>
 

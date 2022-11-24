@@ -170,7 +170,7 @@ function actualizarProducto(){
                 
                 Swal.fire({
                     title: "Error al Actualizar",
-                    text: "El nuevo producto ya existe en el inventario",
+                    text: "El producto ya existe en el inventario",
                     icon: "error",
                     confirmButtonText: "Aceptar",
                 });

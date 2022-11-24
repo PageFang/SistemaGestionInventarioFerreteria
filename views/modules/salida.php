@@ -1,3 +1,27 @@
+<?php
+    
+    require"../../../Inventario_Ferreteria/models/connection.php";
+
+    ### Inicia Sesion
+    session_start();
+    
+    ### Busca los valores de la Sesion
+    if(isset($_SESSION['user_id'])){
+        
+        $stmt = Connect::connectBd()-> prepare("SELECT u.id,u.nombreUsuario,r.nombreRol,u.correoElectronico,u.passwordUser,u.telefono FROM usuario u LEFT JOIN rol r ON u.rol_id = r.id WHERE u.id = :id"); 
+        
+        $stmt->bindParam(":id",$_SESSION['user_id'], PDO::PARAM_STR);
+        $stmt->execute();
+        $resultado =  $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $user = null;
+
+        if(count($resultado) > 0 ) {
+            $user = $resultado;
+        }
+    }
+?>
+
 <!DOCTYPE html>
 
 <html lang="es">
@@ -24,13 +48,36 @@
         <!-- SCRIPTS -->  
         <script src="../../../Inventario_Ferreteria/views/assets/plugins/jquery/jquery.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+        <!-- Style -->
+        <style type="text/css">
+                #profilePictureImg { 
+                    margin-left:60px;
+                    margin-bottom:10px;
+                }
+
+                #logoImg { 
+                    margin-left:20px;
+                }
+        </style>
     </head>
 
     <body class="sb-nav-fixed">
 
         <!-- BARRA DE NAVEGACION SUPERIOR -->
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <span class="navbar-brand ps-4"> Inventario </span>
+            <div class="row">
+                <div class="col-5">
+                    <img id="logoImg" src="../../../Inventario_Ferreteria/views/assets/img/LogoFerreteria.png" lefty="100px "alt="" width="40px" height="40px">
+                </div>
+            </div>
+
+            <!-- Navbar Brand-->
+            <div class="row">
+                <div class="col-2">
+                    <a class="navbar-brand ps-3" href="#">Inventario Ferreteria La Avenida</a>
+                </div>
+            </div>
         </nav>
 
         <div id="layoutSidenav">
@@ -68,11 +115,26 @@
                                 Ciudades
                             </a>
                             <a class="nav-link" href="reporte.php">
-                                <div class="sb-nav-link-icon"><i class="fa-solid fa-map-location-dot"></i></div>
-                                Reporte
+                                <div class="sb-nav-link-icon"><i class="fa-solid fa-square-poll-vertical"></i></i></div>
+                                Reportes
                             </a>
                         </div>
 
+                    </div>
+                    <!-- Informacion del Usuario -->
+                    <div class="sb-sidenav-footer">
+                        <div class="row">
+                            <div class="col">
+                                <?php if(!empty($user)) : ?> 
+                                    <img id="profilePictureImg" src="../../../Inventario_Ferreteria/views/assets/img/ProfilePicture.svg" alt="" width="60px" height="60px" class="">   
+                                    <p class="text-center"> <strong> Usuario  :  </strong> <?= $user['nombreUsuario']?>  </p>
+                                    <p class="text-center"> <strong> Cargo :  </strong> <?= $user['nombreRol']?> </p>
+                                    <a class="btn btn-primary container-fluid" href="../../../Inventario_Ferreteria/controllers/cerrarSesion.php"> Cerrar Sesion </a>
+                                <?php else: ?>
+                                <?php endif; ?>
+
+                            </div>
+                        </div>
                     </div>
                 </nav>
             </div>
@@ -111,14 +173,14 @@
                                                     <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"> Listar Por </button>
                                                     
                                                     <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" onclick="ordenarMasRecientesSalida()">Filtrar Mas Recientes</a></li>
-                                                        <li><a class="dropdown-item" onclick="ordenarMasAntiguosSalida()">Filtrar Mas Antiguos</a></li>
-                                                        <li><a class="dropdown-item" onclick="ordenarMaxCantidadSalida()">Filtrar Mayor Cantidad</a></li>
-                                                        <li><a class="dropdown-item" onclick="ordenarMinCantidadSalida()">Filtrar Menor Cantidad</a></li>
-                                                        <li><a class="dropdown-item" onclick="ordenarMaxValorUnidadSalida()">Filtrar Mayor Valor Unitario</a></li>
-                                                        <li><a class="dropdown-item" onclick="ordenarMinValorUnidadSalida()">Filtrar Menor Valor Unitario</a></li>
-                                                        <li><a class="dropdown-item" onclick="ordenarMaxValorSalida()">Filtrar Mayor Valor </a></li>
-                                                        <li><a class="dropdown-item" onclick="ordenarMinValorSalida()">Filtrar Menor Valor </a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMasRecientesSalida()">Listar Mas Recientes</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMasAntiguosSalida()">Listar Mas Antiguos</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMaxCantidadSalida()">Listar Mayor Cantidad</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMinCantidadSalida()">Listar Menor Cantidad</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMaxValorUnidadSalida()">Listar Mayor Valor Unitario</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMinValorUnidadSalida()">Listar Menor Valor Unitario</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMaxValorSalida()">Listar Mayor Valor </a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMinValorSalida()">Listar Menor Valor </a></li>
                                                     </ul>
                                                     </ul>
                                                     </ul>
@@ -127,15 +189,10 @@
                                             </div>
 
                                             <!-- GENERAR REPORTES -->
-                                            <div class="col-2">
+                                             <!-- GENERAR REPORTES -->
+                                             <div class="col-2">
                                                 <div class="dropdown">
-                                                    <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"> Generar Reporte </button>
-                                                        
-                                                    <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" onclick="window.location='../../../Inventario_Ferreteria/controllers/salidaReporte.php'" formtarget="_blank">Ver Reporte</a></li>
-                                                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalFechaReporteSalida">Descargar Reporte</a></li>
-                                                    </ul>
-
+                                                    <button type="button"  class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalFechaReporteSalida">Generar Reporte</button>
                                                 </div>
                                             </div>
 
@@ -165,7 +222,7 @@
                                                                         <option value="0"> Seleccione el producto </option> 
                                                                         <?php 
                                                                         
-                                                                            include("../../../Inventario_Ferreteria/models/connection.php");
+                                                                         
                                                                             $stmt = Connect::connectBd()-> prepare("SELECT * FROM producto");
                                                                             $stmt->execute();
                                                                             $datos = $stmt->fetchAll();
@@ -272,7 +329,7 @@
                                                             <!-- CUERPO MODAL -->
                                                             <div class="modal-body">
                                                                 
-                                                                <form form id="formGenerarReporteSalida"  method="POST"> 
+                                                                <form form id="formGenerarSalida"  method="POST"> 
 
                                                                     <label> Fecha Inicio: </label>
                                                                     <input type="date" id="fechaIncio" name="fechaIncio" class="form-control form-control-sm" placeholder="Ej. 09/05/2022" required="">

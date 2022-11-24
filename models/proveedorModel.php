@@ -7,7 +7,7 @@
         // Mostar Lista de Proveedores
         static public function mostrarProveedorModel(){
             
-            $stmt = Connect::connectBd()-> prepare("SELECT id,nombreProveedor,direccion,correoElectronico,telefono FROM proveedor");
+            $stmt = Connect::connectBd()-> prepare("SELECT p.id,p.nombreProveedor,p.direccion,p.correoElectronico,p.telefono,c.nombre FROM proveedor p left join ciudad c ON p.ciudad_id = c.id ");
             $stmt->execute();
             
             return $stmt->fetchAll();
