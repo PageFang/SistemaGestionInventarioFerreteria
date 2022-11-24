@@ -1,3 +1,5 @@
+
+// Funcion Iniciar Sesion
 function iniciarSesion(){
 
     console.log("Iniciar Sesion Js");
@@ -5,7 +7,7 @@ function iniciarSesion(){
     $.ajax({
         
         type:"POST",
-        url:"../../../../Inventario_Ferreteria/controllers/iniciarSesionController.php",
+        url:"../../../../Inventario_Ferreteria/controllers/usuarioIniciarSesion.php",
         data:$('#formInicioSesion').serialize(),
 
         success:function(respuesta){
@@ -14,27 +16,18 @@ function iniciarSesion(){
             if(respuesta == 1) {
 
                 $('#formInicioSesion')[0].reset();
-                Swal.fire({
-                    title: "Inicio de Sesion Correcto",
-                    text: ":)",
-                    icon: "success",
-                    confirmButtonText: "Aceptar",
-                });
-
                 window.location.assign("../../../../Inventario_Ferreteria/views/template.php");
 
             } else if(respuesta == 2) {
                 
-                // Limpia el formulario 
-                
+                $('#formInicioSesion')[0].reset();
                 Swal.fire({
-                    title: "Error al Iniciar Sesion",
-                    text: "El Usuario y Contraseña no se encunetran registrados",
+                    title: "Error",
+                    text: "Las Credenciales del Nombre de Usuario y Contraseña son Incorrectas",
                     icon: "error",
                     confirmButtonText: "Aceptar",
                 });
             }
-
         }
         
     });
@@ -42,7 +35,7 @@ function iniciarSesion(){
 }
 
 
-// REGSITRAR
+// Funcion Registrar Usuario
 function registrarUsuario(){
 
     console.log("Registrar Usuario Js");
@@ -54,6 +47,7 @@ function registrarUsuario(){
         data:$('#formRegistrarUsuario').serialize(),
 
         success:function(respuesta){
+
             console.log("Respuesta Insertar Usuario : " + respuesta);
 
             if(respuesta == 1) {
@@ -66,11 +60,16 @@ function registrarUsuario(){
                     icon: "success",
                     confirmButtonText: "Aceptar",
                 });
-
-            } 
+            } else if(respuesta == 2) {
+                
+                Swal.fire({
+                    title: "Error",
+                    text: "El Nombre de Usuario ya esta registrado",
+                    icon: "error",
+                    confirmButtonText: "Aceptar",
+                });
+            }
         }
-
-        
     });
     return false;
 }

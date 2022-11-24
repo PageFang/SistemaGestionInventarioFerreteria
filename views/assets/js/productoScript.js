@@ -102,7 +102,7 @@ function eliminarProducto(id){
                         
                         Swal.fire({
                             title: "Error al Eliminar",
-                            text: "No se ha podido Eliminar el Producto del Inventario",
+                            text: "No se puede eliminar un Producto que posee Pedidos o Salidas",
                             icon: "error",
                             confirmButtonText: "Aceptar",
                         });
@@ -157,7 +157,7 @@ function actualizarProducto(){
             mostrarProducto();
 
             if(respuesta == 1) {
-                        
+                
                 Swal.fire({
                     title: "Producto Actualizado",
                     text: "Se han actualizdo los Datos del Producto",
@@ -167,9 +167,10 @@ function actualizarProducto(){
 
             } else if(respuesta == 2) {
                 
+                
                 Swal.fire({
                     title: "Error al Actualizar",
-                    text: "No se han podido actualizar la informacion del producto",
+                    text: "El nuevo producto ya existe en el inventario",
                     icon: "error",
                     confirmButtonText: "Aceptar",
                 });

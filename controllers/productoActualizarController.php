@@ -19,10 +19,24 @@
             ## VALIDAR ENTRADA MAYUSCULAS Y MINISCULAS (MARCA)
             $marca = strtolower($_POST['marcaUp']);
             $marca = ucwords($marca);
+
+            $datosController = array (
+                'id' => $id,
+                'nombre'=> $nombre,
+                'descripcion'=> $descripcion,
+                'marca'=> $marca
+            );
             
-            $respuestaActualizaDatos =  ProductoModel::actualizarProductoModel($id, $nombre, $descripcion,$marca);
-            
-            echo "1";
+            ### Valida de que el producto no exista en el Inventario
+            $respuestaSeleccionar = ProductoModel::seleccionarProductoModel($datosController);
+
+            ### Actualiza los Datos de Producto
+            if (!$respuestaSeleccionar) {
+                $respuestaActualizaDatos =  ProductoModel::actualizarProductoModel($datosController);
+                echo "1";
+            }else{
+                echo "2";
+            }
         }
     }
 

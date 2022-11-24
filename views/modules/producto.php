@@ -1,3 +1,27 @@
+<?php
+    
+    require"../../../Inventario_Ferreteria/models/connection.php";
+
+    ### Inicia Sesion
+    session_start();
+    
+    ### Busca los valores de la Sesion
+    if(isset($_SESSION['user_id'])){
+        
+        $stmt = Connect::connectBd()-> prepare("SELECT u.id,u.nombreUsuario,r.nombreRol,u.correoElectronico,u.passwordUser,u.telefono FROM usuario u LEFT JOIN rol r ON u.rol_id = r.id WHERE u.id = :id"); 
+        
+        $stmt->bindParam(":id",$_SESSION['user_id'], PDO::PARAM_STR);
+        $stmt->execute();
+        $resultado =  $stmt->fetch(PDO::FETCH_ASSOC);
+
+        $user = null;
+
+        if(count($resultado) > 0 ) {
+            $user = $resultado;
+        }
+    }
+?>
+
 <!DOCTYPE html>
 
 <html lang="es">
@@ -75,6 +99,23 @@
                         </div>
 
                     </div>
+
+                    <!-- Informacion del Usuario -->
+                    <div class="sb-sidenav-footer">
+                        <div class="row">
+                            <div class="col">
+                                <?php if(!empty($user)) : ?> 
+                                    <img src="../../../Inventario_Ferreteria/views/assets/img/Icon_User.jpg" alt="" width="60px" height="60px" class="">   
+                                    <p class="text-center"> <strong> Usuario : <?= $user['nombreUsuario']?> </strong> </p>
+                                    <p class="text-center"> <strong> Cargo : <?= $user['nombreRol']?> </strong> </p>
+                                    <a class="btn btn-primary container-fluid" href="../../../Inventario_Ferreteria/controllers/cerrarSesion.php">Cerrar Sesion</a>
+                                <?php else: ?>
+                                <?php endif; ?>
+
+                            </div>
+                        </div>
+                    </div>
+
                 </nav>
             </div>
 
@@ -113,10 +154,10 @@
                                                     
                                                     <!-- LISTADO DE FUNCIONES -->
                                                     <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" onclick="ordenarNombreProductoAsc()">Filtrar Producto A-Z</a></li>
-                                                        <li><a class="dropdown-item" onclick="ordenarNombreProductoDesc()">Filtrar Producto Z-A</a></li>
-                                                        <li><a class="dropdown-item" onclick="ordenarMasRecientesProducto()">Filtrar por Mas Recientes</a></li>
-                                                        <li><a class="dropdown-item" onclick="ordenarMasAntiguosProducto()">Filtrar por Mas Antiguos</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarNombreProductoAsc()">Listar Producto A-Z</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarNombreProductoDesc()">Listar Producto Z-A</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMasRecientesProducto()">Listar por Mas Recientes</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMasAntiguosProducto()">Listar por Mas Antiguos</a></li>
                                                     </ul>
 
                                                 </div>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 
 <html lang="es">
@@ -110,17 +111,16 @@
                                                     <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"> Listar Por </button>
                                                     
                                                     <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" onclick="ordenarMasRecientesPedidos()">Filtrar Mas Recientes</a></li>
-                                                        <li><a class="dropdown-item" onclick="ordenarMasAntiguosPedidos()">Filtrar Mas Antiguos</a></li>
-                                                        <li><a class="dropdown-item" onclick="ordenarMaxCantidadPedidos()">Filtrar Mayor Cantidad</a></li>
-                                                        <li><a class="dropdown-item" onclick="ordenarMinCantidadPedidos()">Filtrar Menor Cantidad</a></li>
-                                                        <li><a class="dropdown-item" onclick="ordenarMaxValorUnidadPedidos()">Filtrar Mayor Valor Unitario</a></li>
-                                                        <li><a class="dropdown-item" onclick="ordenarMinValorUnidadPedidos()">Filtrar Menor Valor Unitario</a></li>
-                                                        <li><a class="dropdown-item" onclick="ordenarMaxValorPedidos()">Filtrar Mayor Valor </a></li>
-                                                        <li><a class="dropdown-item" onclick="ordenarMinValorPedidos()">Filtrar Menor Valor </a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMasRecientesPedidos()">Listar Mas Recientes</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMasAntiguosPedidos()">Listar Mas Antiguos</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMaxCantidadPedidos()">Listar Mayor Cantidad</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMinCantidadPedidos()">Listar Menor Cantidad</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMaxValorUnidadPedidos()">Listar Mayor Valor Unitario</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMinValorUnidadPedidos()">Listar Menor Valor Unitario</a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMaxValorPedidos()">Listar Mayor Valor </a></li>
+                                                        <li><a class="dropdown-item" onclick="ordenarMinValorPedidos()">Listar Menor Valor </a></li>
                                                     </ul>
-                                                    </ul>
-                                                    </ul>
+                                                    
 
                                                 </div>
                                             </div>
@@ -128,13 +128,7 @@
                                             <!-- GENERAR REPORTES -->
                                             <div class="col-2">
                                                 <div class="dropdown">
-                                                    <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown"> Generar Reporte </button>
-                                                        
-                                                    <ul class="dropdown-menu">
-                                                        <li><a class="dropdown-item" onclick="window.location='../../../Inventario_Ferreteria/controllers/pedidoReporte.php'" formtarget="_blank" rel="noopener noreferrer">Ver Reporte</a></li>
-                                                        <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#modalFechaReporte">Descargar Reporte</a></li>
-                                                    </ul>
-                                                    
+                                                    <button type="button"  class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalFechaReporte">Generar Reporte</button>
                                                 </div>
                                             </div>
 
@@ -316,7 +310,7 @@
                                                             <!-- CUERPO MODAL -->
                                                             <div class="modal-body">
                                                                 
-                                                                <form form id="formGenerarPedido"  method="GET"> 
+                                                                <form form id="formGenerarPedido"  onsubmit="return generarReportePedido()" method="POST"> 
 
                                                                     <label> Fecha Inicio: </label>
                                                                     <input type="date" id="fechaIncio" name="fechaIncio" class="form-control form-control-sm" placeholder="Ej. 09/05/2022" required="">

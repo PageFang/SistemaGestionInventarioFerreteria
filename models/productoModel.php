@@ -60,13 +60,13 @@
         }
 
         // ACTUALIZAR DATOS DEL PRODUCTO
-        static public function actualizarProductoModel($id,$nombre,$descripcion,$marca ){
+        static public function actualizarProductoModel($datosModel ){
             
             $stmt = Connect::connectBd()-> prepare("UPDATE producto SET nombre = :nombre, descripcion = :descripcion, marca = :marca WHERE id = :id");
-            $stmt->bindParam(":id", $id, PDO::PARAM_INT);
-            $stmt->bindParam(":nombre",  $nombre, PDO::PARAM_STR);
-            $stmt->bindParam(":descripcion", $descripcion, PDO::PARAM_STR);
-            $stmt->bindParam(":marca", $marca, PDO::PARAM_STR);
+            $stmt->bindParam(":id", $datosModel["id"], PDO::PARAM_INT);
+            $stmt->bindParam(":nombre",  $datosModel["nombre"], PDO::PARAM_STR);
+            $stmt->bindParam(":descripcion", $datosModel["descripcion"], PDO::PARAM_STR);
+            $stmt->bindParam(":marca", $datosModel["marca"], PDO::PARAM_STR);
             $stmt->execute();
             
             return $stmt->fetch();

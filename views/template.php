@@ -1,24 +1,26 @@
 <?php
-    session_start();
     
     require"../../Inventario_Ferreteria/models/connection.php";
 
+    ### Inicia Sesion
+    session_start();
+    
+    ### Busca los valores de la Sesion
     if(isset($_SESSION['user_id'])){
         
-        $stmt = Connect::connectBd()-> prepare("SELECT id,nombreUsuario,correoElectronico,passwordUser,telefono FROM usuario WHERE id = :id"); 
+        $stmt = Connect::connectBd()-> prepare("SELECT u.id,u.nombreUsuario,r.nombreRol,u.correoElectronico,u.passwordUser,u.telefono FROM usuario u LEFT JOIN rol r ON u.rol_id = r.id WHERE u.id = :id"); 
+        
         $stmt->bindParam(":id",$_SESSION['user_id'], PDO::PARAM_STR);
         $stmt->execute();
-
         $resultado =  $stmt->fetch(PDO::FETCH_ASSOC);
 
         $user = null;
+
         if(count($resultado) > 0 ) {
             $user = $resultado;
         }
     }
-
 ?>
-
 
 <!DOCTYPE html>
 
@@ -32,6 +34,7 @@
         <meta name="author" content="" />
         
         <title> Inventario Ferreteria "La Avenida" </title>
+
         <!-- ICON -->
         <link rel="icon" href="../../Inventario_Ferreteria/views/assets/img/LogoFerreteria.ico">
 
@@ -48,40 +51,26 @@
 
     <body class="sb-nav-fixed">
 
-        <!-- BARRA DE NAVEGACION SUPERIOR -->   
-        
-           
+        <!-- Barra De Navegacion Superior -->   
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            
+            <div class="row">
+                <div class="col-5">
+                    <img src="../../Inventario_Ferreteria/views/assets/img/LogoFerreteria.png" lefty="100px "alt="" width="40px" height="40px">
+                </div>
+            </div>
+
             <!-- Navbar Brand-->
             <div class="row">
                 <div class="col-2">
-                    <a class="navbar-brand ps-3" href="index.html">Inventario</a>
+                    <a class="navbar-brand ps-3" href="#">Inventario</a>
                 </div>
             </div>
-           
-            <!-- Sidebar Toggle-->
-            
-            <!-- Navbar Search-->
-            
-
-            <!-- Navbar
-            <div class="row">
-            <div class="col-8">
-            <img src="../../Inventario_Ferreteria/views/assets/img/LogoFerreteria.png" alt="" width="50px" height="50px">
-            </div>
-            </div>-->
-           
-            
-            
-            
         </nav>
             
-        
-        
-
         <div id="layoutSidenav">
 
-            <!-- BARRA DE NAVEGACION LATERAL -->   
+            <!-- Barra de Navegacion Lateral -->   
             <div id="layoutSidenav_nav">
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
@@ -117,19 +106,23 @@
                                 Reporte
                             </a>
                         </div>
-
                     </div>
 
+                    <!-- Informacion del Usuario -->
                     <div class="sb-sidenav-footer">
-                        <?php if(!empty($user)) : ?>
-                            <br> Usuario : <?= $user['nombreUsuario']?>
-                            <br>        
-                        <a href="../../Inventario_Ferreteria/controllers/cerrarSesion.php">Cerrar Sesion</a>
-                        
+                        <div class="row">
+                            <div class="col align-items: center justify-content: center">
+                                <?php if(!empty($user)) : ?> 
+                                    <img src="../../Inventario_Ferreteria/views/assets/img/Icon_User.jpg" alt="" width="60px" height="60px" class="">  
+                                    <br> 
+                                    <span class="text-left"> <strong> Usuario : <?= $user['nombreUsuario']?> </strong> </span>
+                                    <span class="text-left"> <strong> Cargo : <?= $user['nombreRol']?> </strong> </span>
+                                    <a class="btn btn-primary container-fluid" href="../../Inventario_Ferreteria/controllers/cerrarSesion.php">Cerrar Sesion</a>
+                                <?php else: ?>
+                                <?php endif; ?>
 
-                        <?php else: ?>
-
-                        <?php endif; ?>
+                            </div>
+                        </div>
                     </div>
 
                 </nav>

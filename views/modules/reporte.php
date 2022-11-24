@@ -28,7 +28,7 @@
 
         <!-- BARRA DE NAVEGACION SUPERIOR -->   
         
-           
+
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
             <div class="row">
@@ -36,7 +36,7 @@
                     <a class="navbar-brand ps-3" href="index.html">Inventario</a>
                 </div>
             </div>
-           
+
             <!-- Sidebar Toggle-->
             
             <!-- Navbar Search-->
@@ -58,15 +58,8 @@
             </ul>
             </div>
             </div>
-           
-            
-            
-            
         </nav>
-            
         
-        
-
         <div id="layoutSidenav">
 
             <!-- BARRA DE NAVEGACION LATERAL -->   
@@ -153,43 +146,60 @@
                                 </div>
                             </div>
 
-                            <!-- CARD SALIDA -->
-                            <div class="col-xl-2 col-md-6">
-                                <div class="card bg-dark text-white mb-4">
-                                    <div class="card-body text-center">
-                                        <i class="fa-solid fa-cart-shopping"></i>
-                                        <span> Total Egresos  </span>
-                                    </div>
-                                    <div class="card-footer border-secondary d-flex align-items-center justify-content-center">
-                                    <p id="totalEgresos"></p>
+                            <!-- Total Egresos -->
+                            <div class="col-xl-2 col-md-6 mb-4">
+                                <div class="card border-left-success shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                    Total Egresos </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><p id="totalEgresos"></p></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- CARD PROVEEDORES -->
-                            <div class="col-xl-2 col-md-6">
-                                <div class="card bg-dark text-white mb-4">
-                                    <div class="card-body text-center">
-                                        <i class="fa-solid fa-user-tie"></i>
-                                        <span>Total Ingresos</span>
-                                    </div>
-                                    <div class="card-footer border-secondary d-flex align-items-center justify-content-center">
-                                        <p id="totalIngresos"></p>
+                            <!-- Total Ingresos -->
+                            <div class="col-xl-2 col-md-6 mb-4">
+                                <div class="card border-left-success shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                    Total Ingresos </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><p id="totalIngresos"></p></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
 
-                            <div class="col-xl-2 col-md-6">
-                                <div class="card bg-dark text-white mb-4">
-                                    <div class="card-body text-center">
-                                        <i class="fa-solid fa-user-tie"></i>
-                                        <span>Total</span>
-                                    </div>
-                                    <div class="card-footer border-secondary d-flex align-items-center justify-content-center">
-                                    <p id="total"></p>
+
+                            <!-- Total Ingresos -->
+                            <div class="col-xl-2 col-md-6 mb-4">
+                                <div class="card border-left-success shadow h-100 py-2">
+                                    <div class="card-body">
+                                        <div class="row no-gutters align-items-center">
+                                            <div class="col mr-2">
+                                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
+                                                    Total </div>
+                                                <div class="h5 mb-0 font-weight-bold text-gray-800"><p id="total"></p></div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div> 
+                            </div>
 
                         </div>
 

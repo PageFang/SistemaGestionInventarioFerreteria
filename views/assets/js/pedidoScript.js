@@ -327,7 +327,7 @@ function generarReportePedido(){
     console.log("Generar Reporte Pedidos");
     
     $.ajax({
-        type:"POST",
+        type:"GET",
         url:"../../../../Inventario_Ferreteria/controllers/pedidoReporte.php",
         data:$('#formGenerarPedido').serialize(),
 

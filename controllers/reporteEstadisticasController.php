@@ -46,7 +46,7 @@
             foreach ($respuestaTotalEgresos as $key => $value) {
                 $totalEgresos += intval($value['valorTotal']);
             }
-            $total = $totalEgresos - $totalIngresos;
+            $total = $totalIngresos - $totalEgresos;
 
             echo $total;
         }

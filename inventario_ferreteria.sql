@@ -76,6 +76,8 @@ create table usuario (
 );
 
 
+insert into rol (nombreRol) value ('Administrador');
+insert into rol (nombreRol) value ('Secretaria');
 
 insert into producto (nombre,descripcion,marca) value ('Alambre de Cobre','Alambres de cobre desnudo, suave, semiduro y duro, cableado concentrico','Nexans');
 insert into producto (nombre,descripcion,marca) value ('Metro','Flexómetro Magnético de 8 Metros Redline','Redline');

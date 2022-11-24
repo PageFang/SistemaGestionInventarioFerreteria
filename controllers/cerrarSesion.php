@@ -1,8 +1,9 @@
 <?php
 
-session_start();
-session_unset();
-session_destroy();
+    session_start();
+    session_unset();
+    session_destroy();
 
-header('location:../../../../Inventario_Ferreteria/views/modules/inicioSesion.php');
+    header('location:../../../../Inventario_Ferreteria/views/modules/inicioSesion.php');
+    
 ?>
