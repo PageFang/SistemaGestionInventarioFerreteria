@@ -53,28 +53,33 @@
 
         static public function productoMasVendido(){
 
-            $respuestaMasVendidoNombre =  ReporteModel::productoMasVendidoNombre();
             $respuestaMasVendido =  ReporteModel::productoMasVendido();
-            $Nombre = "";
-            $CantidadProducto = 0;
-            
-            foreach ($respuestaMasVendidoNombre as $key => $value) {
-            
-            
+            $cantidad = 0;
+            $nombre = "";
+           
+            foreach ($respuestaMasVendido as $key => $value) {
+                $cantidad = intval($value['totalCantidad']);
+                $nombre = $value['nombre'];
             }
-            echo $CantidadProducto;
+            echo "$nombre : $cantidad";
         }
 
         static public function productoMenosVendido(){
-
-            $respuestaMasVendido =  ReporteModel::productomasvendido();
-            $CantidadProducto = 0;
-            
-            foreach ($respuestaMasVendido as $key => $value) {
-                $CantidadProducto += intval($value['cantidad']);
+            $respuestaMenosVendido =  ReporteModel::productoMenosVendido();
+            $cantidadMenos = 0;
+            $nombreMenos = "";
+           
+            foreach ($respuestaMenosVendido as $key => $value) {
+                $cantidadMenos = intval($value['totalCantidad']);
+                $nombreMenos = $value['nombre'];
             }
-            
-            echo $total;
+            echo "$nombreMenos : $cantidadMenos";
+        }
+
+        static public function graficaproductoMasVendido(){
+            $respuestaMenosVendido =  ReporteModel::graficaProductoMasVendido();
+            $cantidad = 0;
+
         }
     }
 
@@ -101,9 +106,14 @@
                 $mostrar->productoMasVendido();
                 break;
 
-            case '4': 
-                $mostrar = new OrdenarProveedorController();
+            case '5': 
+                $mostrar = new ReporteEstadisticas();
                 $mostrar->productoMenosVendido();
+                break;
+
+            case '6': 
+                $mostrar = new ReporteEstadisticas();
+                $mostrar->graficaproductoMasVendido();
                 break;
         }
     }

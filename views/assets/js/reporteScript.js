@@ -65,7 +65,7 @@ function productomasVendido(){
 
         success:function(respuesta){
             //console.log("Respuesta Mostrar Producto : " + respuesta); 
-            $('#productosMasVendidos').html(respuesta);
+            $('#productoMasVendido').html(respuesta);
         }
     });
 }
@@ -84,7 +84,7 @@ function productomenosVendido(){
 
         success:function(respuesta){
             //console.log("Respuesta Mostrar Producto : " + respuesta); 
-            $('#productosMenosVendidos').html(respuesta);
+            $('#productoMenosVendido').html(respuesta);
         }
     });
 }
