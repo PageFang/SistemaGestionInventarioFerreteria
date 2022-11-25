@@ -54,7 +54,7 @@
             }elseif ($cantidadOriginal == $cantidad) {
                // echo"Cantidad Original es Igual";
             }
-            echo "1";
+            echo "1"; 
         }
         
     }

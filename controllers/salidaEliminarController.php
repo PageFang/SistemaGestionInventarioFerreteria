@@ -8,6 +8,10 @@
 
             $id=$_POST['id'];
 
+            foreach ($respuestaBuscarCantidadAnt as $key => $value) {
+                $cantidadOriginal += intval($value['cantidad']);
+            }
+
             $respuesta =  SalidaModel::eliminarSalidaModel($id);
             echo "1";
         }

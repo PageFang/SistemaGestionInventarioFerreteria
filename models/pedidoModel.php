@@ -170,7 +170,7 @@
 
         ## GENERAR REPORTE PEDIDO
         static public function generarReportePedido($fechaInicio,$fechaFin){
-            $stmt = Connect::connectBd()-> prepare("SELECT pd.id,p.nombre,pv.nombreProveedor, pd.cantidad, pd.fechaIngreso, pd.valorUnitario, pd.valorTotal from producto p left join pedido pd ON pd.producto_id = p.id JOIN proveedor pv ON pd.proveedor_id = pv.id WHERE pd.fechaIngreso >= '$fechaInicio' AND pd.fechaIngreso < '$fechaFin'");
+            $stmt = Connect::connectBd()-> prepare("SELECT pd.id,p.nombre,pv.nombreProveedor, pd.cantidad, pd.fechaIngreso, pd.valorUnitario, pd.valorTotal from producto p left join pedido pd ON pd.producto_id = p.id JOIN proveedor pv ON pd.proveedor_id = pv.id WHERE pd.fechaIngreso >= '$fechaInicio' AND pd.fechaIngreso <= '$fechaFin'");
             $stmt->execute();
             return $stmt->fetchAll();
             $stmt = null;
