@@ -59,7 +59,9 @@ function registrarUsuario(){
                     text: "El Usuario ha sido registrado con exito",
                     icon: "success",
                     confirmButtonText: "Aceptar",
+
                 });
+                //window.location.assign("../../../../Inventario_Ferreteria/views/modules/inicioSesion.php");
             } else if(respuesta == 2) {
                 
                 Swal.fire({

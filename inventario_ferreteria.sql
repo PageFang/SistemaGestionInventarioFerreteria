@@ -32,7 +32,7 @@ create table proveedor (
     nombreProveedor varchar(255) not null,
     direccion varchar(255) not null,
     correoElectronico varchar(255) not null,
-    telefono float not null,
+    telefono  varchar(255) not null,
     primary key (id),
     foreign key (ciudad_id) references ciudad(id)
 );
@@ -70,7 +70,7 @@ create table usuario (
     nombreUsuario  varchar(255) not null,
     correoElectronico varchar(255) not null,
     passwordUser   varchar(255) not null,
-    telefono float not null,
+    telefono  varchar(255) not null,
     primary key (id),
     foreign key (rol_id) references rol(id)
 );
